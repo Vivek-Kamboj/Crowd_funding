@@ -13,7 +13,7 @@ const Campaign = (p) => {
           <div
             className="progress-bar bg-danger progress-bar-animated"
             role="progressbar"
-            aria-valuenow="75"
+            aria-valuenow={state}
             aria-valuemin="0"
             aria-valuemax="100"
             style={{ width: `${state}%` }}
