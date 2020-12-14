@@ -1,9 +1,9 @@
 import React from "react";
 
-const AboutUs = () => {
+const NewCampaign = () => {
   return (
     <div>
-      <h1>About us</h1>
+      <h1>new campaign</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
         consequatur ea quia inventore excepturi officiis deserunt sequi, esse
@@ -14,4 +14,4 @@ const AboutUs = () => {
   );
 };
 
-export default AboutUs;
+export default NewCampaign;

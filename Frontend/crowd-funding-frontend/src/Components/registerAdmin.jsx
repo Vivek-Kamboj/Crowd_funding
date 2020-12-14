@@ -1,9 +1,9 @@
 import React from "react";
 
-const LoginAdmin = (p) => {
+const RegisterAdmin = () => {
   return (
     <React.Fragment>
-      Login Admin
+      Register New Admin
       <div className="p-3 m-3 col-6">
         <form>
           <div className="mb-3">
@@ -40,13 +40,7 @@ const LoginAdmin = (p) => {
               Check me out
             </label>
           </div>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={() => {
-              p.history.push("/admin/dashboard");
-            }}
-          >
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </form>
@@ -55,4 +49,4 @@ const LoginAdmin = (p) => {
   );
 };
 
-export default LoginAdmin;
+export default RegisterAdmin;
