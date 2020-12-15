@@ -47,7 +47,7 @@ const Campaign = (p) => {
             <p>{fundRaised}</p>
           </div>
         </div>
-        <button className="btn btn-success">Donate Now {">"} </button>
+        <button className="btn btn-success col-12">Donate Now {">"} </button>
       </div>
       <button className="btn btn-danger m-2">EDIT </button>
       <button className="btn btn-danger">HIDE </button>

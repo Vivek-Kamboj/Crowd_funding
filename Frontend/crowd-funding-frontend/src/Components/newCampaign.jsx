@@ -1,16 +1,43 @@
-import React from "react";
+import React, { useState } from "react";
+import Form from "./reuseableCampaignForm";
 
 const NewCampaign = () => {
+  const [campaignName, setCampaignName] = useState("");
+  const [campaignDescription, setCampaignDescription] = useState("");
+  const [amount, setAmount] = useState("");
+  const [image, setImage] = useState("");
+
+  const handleSubmit = (p) => {
+    p.preventDefault();
+    console.log("campaignName:", campaignName);
+    console.log("campaignDescription:", campaignDescription);
+    console.log("amount:", amount);
+    console.log("image:", image);
+    // props.history.push("/");
+  };
+  const handleCampaignNameChange = (p) => {
+    setCampaignName(p.target.value);
+  };
+  const handleCampaignDescriptionChange = (p) => {
+    setCampaignDescription(p.target.value);
+  };
+  const handleAmountChange = (p) => {
+    setAmount(p.target.value);
+  };
+  const handleImageChange = (p) => {
+    setImage(p.target.value);
+  };
   return (
-    <div>
-      <h1>new campaign</h1>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
-        consequatur ea quia inventore excepturi officiis deserunt sequi, esse
-        nobis laudantium tempora aut, animi praesentium id! Necessitatibus
-        laborum vitae vero at!
-      </p>
-    </div>
+    <React.Fragment>
+      <Form
+        title="New Campaign"
+        handleSubmit={handleSubmit}
+        handleCampaignNameChange={handleCampaignNameChange}
+        handleCampaignDescriptionChange={handleCampaignDescriptionChange}
+        handleAmountChange={handleAmountChange}
+        handleImageChange={handleImageChange}
+      />
+    </React.Fragment>
   );
 };
 
