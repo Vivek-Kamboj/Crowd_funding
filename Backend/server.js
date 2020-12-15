@@ -17,9 +17,9 @@ app.get("/", (req, res) => {
   res.send("Okay");
 });
 
-app.use("/api/admin", routes.admin);
-app.use("/api/campaign", routes.campaign);
-app.use("/api/payment", routes.payment);
+// app.use("/api/admin", routes.admin);
+app.use("/campaign", routes.campaign);
+// app.use("/api/payment", routes.payment);
 
 app.listen(PORT, function () {
   console.log("Server running successfully");

@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // const dbUrl = process.env.MONGODB_URI;
 
 mongoose
-  .connect(dbUrl, {
+  .connect("mongodb://localhost:27017/campaignDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -11,5 +11,5 @@ mongoose
   .catch((err) => console.log(`MongoDB connection error : ${err}`));
 
 module.exports = {
-  Campaign: require("./campaign"),
+  Campaign: require("./Campaign"),
 };

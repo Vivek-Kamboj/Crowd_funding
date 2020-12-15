@@ -8,7 +8,7 @@ const CampaignSchema = mongoose.Schema({
   description: {
     type: String,
   },
-  image: {
+  imageUrl: {
     type: String,
   },
   required: {
