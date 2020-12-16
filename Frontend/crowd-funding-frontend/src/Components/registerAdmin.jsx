@@ -19,15 +19,12 @@ const RegisterAdmin = (props) => {
   };
   return (
     <React.Fragment>
-      Login Admin
-      <div className="p-3 m-3 col-6">
-        <Form
-          title="Register Admin"
-          handleSubmit={handleSubmit}
-          handleEmailChange={handleEmailChange}
-          handlePasswordChange={handlePasswordChange}
-        />
-      </div>
+      <Form
+        title="Register Admin"
+        handleSubmit={handleSubmit}
+        handleEmailChange={handleEmailChange}
+        handlePasswordChange={handlePasswordChange}
+      />
     </React.Fragment>
   );
 };

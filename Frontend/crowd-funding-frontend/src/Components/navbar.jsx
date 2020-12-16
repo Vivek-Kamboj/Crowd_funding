@@ -30,10 +30,10 @@ const NavBar = () => {
             <Link to="/">LandingPage</Link>
           </li>
           <li style={{ float: "right" }}>
-            <Link to="/contact-us">contact-us</Link>
+            <Link to="/contact-us">CONTACT US</Link>
           </li>
           <li style={{ float: "right" }}>
-            <Link to="/about-us">about-us</Link>
+            <Link to="/about-us">ABOUT US</Link>
           </li>
         </ul>
       </nav>

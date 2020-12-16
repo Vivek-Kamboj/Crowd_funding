@@ -2,9 +2,11 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div style={{ background: "blue" }}>
-      <p>Footer</p>
-    </div>
+    <footer className="mb-0 p-4" style={{ background: " rgba(15, 23, 46, 1)" }}>
+      <h1 className="mx-auto" style={{ color: "white" }}>
+        Footer
+      </h1>
+    </footer>
   );
 };
 
