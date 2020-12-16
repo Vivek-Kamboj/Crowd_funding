@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // const dbUrl = process.env.MONGODB_URI;
 
 mongoose
-  .connect("mongodb://localhost:27017/campaignDB", {
+  .connect("mongodb://localhost:27017/crowdFundingDB", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
@@ -12,4 +12,5 @@ mongoose
 
 module.exports = {
   Campaign: require("./Campaign"),
+  User: require("./User"),
 };

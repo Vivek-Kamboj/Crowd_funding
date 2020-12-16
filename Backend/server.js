@@ -4,8 +4,8 @@ const cors = require("cors");
 const app = express();
 
 // -----ENV Setup----- //
+require("dotenv").config();
 const PORT = 3000;
-// require("dotenv").config();
 const routes = require("./routes");
 
 // -----Middleware----- //
@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
 
 // app.use("/api/admin", routes.admin);
 app.use("/campaign", routes.campaign);
+app.use("/auth", routes.auth);
 // app.use("/api/payment", routes.payment);
 
 app.listen(PORT, function () {
