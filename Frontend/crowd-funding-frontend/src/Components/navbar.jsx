@@ -35,11 +35,9 @@ const NavBar = () => {
           <li style={{ float: "right" }}>
             <Link to="/about-us">ABOUT US</Link>
           </li>
+          <Link to="/admin/login">loginPage</Link>
         </ul>
       </nav>
-      <Link to="/campaign/vvgu">EachCampaignPage</Link>
-
-      <Link to="/admin/login">loginPage</Link>
     </React.Fragment>
   );
 };

@@ -9,7 +9,15 @@ const Campaign = (p) => {
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem blanditiis, deleniti at? Eligendi assumenda eius illo accusantium possimus ducimus, nam vero.",
     fundRequired = 1000,
     fundRaised = 500;
-
+  const handleDonateClick = () => {
+    alert("Donate Button Clicked!");
+  };
+  const handleEdit = () => {
+    alert("Edit Button Clicked!");
+  };
+  const handleHide = () => {
+    alert("Hide Button Clicked!");
+  };
   return (
     <React.Fragment>
       <div>Campaign id: {p.match.params.id}</div>
@@ -19,13 +27,21 @@ const Campaign = (p) => {
           <h5>{title}</h5>
         </div>
         <div className="col-md-6 p-5">
-          <ProgressBar fundRequired={fundRequired} fundRaised={fundRaised} />
+          <ProgressBar
+            fundRequired={fundRequired}
+            fundRaised={fundRaised}
+            handleDonateClick={handleDonateClick}
+          />
         </div>
       </div>
       <p>{description}</p>
 
-      <button className="btn btn-danger m-2">EDIT </button>
-      <button className="btn btn-danger">HIDE </button>
+      <button onClick={handleEdit} className="btn btn-danger m-2">
+        EDIT{" "}
+      </button>
+      <button onClick={handleHide} className="btn btn-danger">
+        HIDE{" "}
+      </button>
     </React.Fragment>
   );
 };

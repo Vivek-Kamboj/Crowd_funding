@@ -11,6 +11,7 @@ const ProgressBar = (props) => {
       setState(() => percentCompleted(props.fundRaised, props.fundRequired)),
     [props.fundRaised, props.fundRequired]
   );
+
   return (
     <React.Fragment>
       <div className="p-2 border bg-warning">
@@ -35,7 +36,12 @@ const ProgressBar = (props) => {
             <p>{props.fundRaised}</p>
           </div>
         </div>
-        <button className="btn btn-success col-12">Donate Now {">"} </button>
+        <button
+          onClick={props.handleDonateClick}
+          className="btn btn-success col-12"
+        >
+          Donate Now {">"}{" "}
+        </button>
       </div>
     </React.Fragment>
   );

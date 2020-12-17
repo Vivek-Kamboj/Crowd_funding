@@ -13,6 +13,7 @@ const NewCampaign = () => {
     console.log("campaignDescription:", campaignDescription);
     console.log("amount:", amount);
     console.log("image:", image);
+    alert("form submit click, plz see console the data");
     // props.history.push("/");
   };
   const handleCampaignNameChange = (p) => {
