@@ -1,5 +1,6 @@
 .allContent {
   background-color: rgba(21, 215, 180, 1);
+  cursor: default;
 }
 .campaignContent {
   padding: 9px;
@@ -29,6 +30,7 @@
   padding-bottom: 1.3%;
   height: 80px;
   overflow: auto;
+  cursor: default;
 }
 .contentBottomSection {
   margin-left: auto;

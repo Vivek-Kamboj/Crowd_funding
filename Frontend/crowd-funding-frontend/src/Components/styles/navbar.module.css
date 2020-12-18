@@ -1,7 +1,7 @@
 :root {
   --scrolled: rgba(0, 0, 0, 0.5);
   --notscrolled: rgba(0, 0, 0, 0.2);
-  --hover-bg-color: #111;
+  --hover-bg-color: rgba(0, 0, 0, 0.6);
   --color: white;
 }
 ul {

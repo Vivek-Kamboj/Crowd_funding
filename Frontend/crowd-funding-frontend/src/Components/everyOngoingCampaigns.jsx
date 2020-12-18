@@ -24,7 +24,7 @@ const Campaigns = (props) => {
                   <p>Rs.{props.requiredAmount}</p>
                 </div>
                 <div className={`col-5  ${styles.DonateNow}`}>
-                  <p className={styles.DonateNow_p}>Donate Now{">"}</p>
+                  <p className={styles.DonateNow_p}>Donate Now{" >"}</p>
                 </div>
               </div>
             </div>
