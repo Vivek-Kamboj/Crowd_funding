@@ -1,10 +1,10 @@
 const express = require("express");
-const checksum_lib = require("../paytm/checksum/checksum");
+const checksum_lib = require("../paytm/checksum");
 const https = require("https");
 const qs = require("querystring");
 const parseUrl = express.urlencoded({ extended: false });
 const parseJson = express.json({ extended: false });
-const config = require("../paytm/checksum/config");
+const config = require("../paytm/config");
 require("dotenv").config();
 
 const app = express();
