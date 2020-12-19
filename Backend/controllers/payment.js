@@ -2,7 +2,7 @@ const express = require("express");
 const checksum_lib = require("../paytm/checksum");
 const https = require("https");
 const qs = require("querystring");
-const config = require("../paytm/config");
+const config = require("../config");
 
 const app = express();
 

@@ -4,7 +4,7 @@ const https = require("https");
 const qs = require("querystring");
 const parseUrl = express.urlencoded({ extended: false });
 const parseJson = express.json({ extended: false });
-const config = require("../paytm/config");
+const config = require("../config");
 require("dotenv").config();
 
 const app = express();
