@@ -2,6 +2,7 @@
   overflow: auto;
   display: flex;
   flex-direction: row;
+  /* scroll-behavior: smooth; */
 }
 
 .eachCampaign div {

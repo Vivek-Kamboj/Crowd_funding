@@ -1,5 +1,6 @@
 import React from "react";
 import OnGoingCampaigns from "./onGoingCampaigns";
+import WhyUs from "./whyUsSection";
 
 const LandingPage = (props) => {
   const data = [
@@ -47,10 +48,9 @@ const LandingPage = (props) => {
   };
   return (
     <React.Fragment>
-      <div className="col-10">
-        <h1>Landing Page</h1>
-        <hr />
-      </div>
+      <h1>Landing Page</h1>
+      <hr />
+      <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
     </React.Fragment>
   );

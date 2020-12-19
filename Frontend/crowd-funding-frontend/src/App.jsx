@@ -11,6 +11,7 @@ import AboutUs from "./Components/aboutUs";
 import ContactUs from "./Components/contactUs";
 import PageNotFound from "./Components/PageNotFound";
 import NewCampaign from "./Components/newCampaign";
+import "./App.css";
 
 const App = () => {
   return (
