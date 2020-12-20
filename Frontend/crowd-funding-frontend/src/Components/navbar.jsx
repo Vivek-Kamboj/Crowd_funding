@@ -24,7 +24,7 @@ const NavBar = () => {
 
   return (
     <React.Fragment>
-      <nav className="sticky-top">
+      <nav className={`sticky-top ${styles.navbar}`}>
         <ul className={navBackground}>
           <li>
             <Link to="/">LandingPage</Link>

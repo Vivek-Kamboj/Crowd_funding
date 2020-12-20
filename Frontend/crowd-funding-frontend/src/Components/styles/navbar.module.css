@@ -1,8 +1,14 @@
 :root {
   --scrolled: rgba(0, 0, 0, 0.5);
-  --notscrolled: rgba(0, 0, 0, 0.2);
+  --notscrolled: rgba(0, 0, 0, 0.1);
   --hover-bg-color: rgba(0, 0, 0, 0.6);
   --color: white;
+}
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
 }
 ul {
   list-style-type: none;

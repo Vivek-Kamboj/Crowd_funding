@@ -1,6 +1,8 @@
 import React from "react";
+import ImageLanding from "./image_landing";
 import OnGoingCampaigns from "./onGoingCampaigns";
 import WhyUs from "./whyUsSection";
+import BottomLandingPage from "./bottom_landingPage";
 
 const LandingPage = (props) => {
   const data = [
@@ -48,10 +50,10 @@ const LandingPage = (props) => {
   };
   return (
     <React.Fragment>
-      <h1>Landing Page</h1>
-      <hr />
+      <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
+      <BottomLandingPage />
     </React.Fragment>
   );
 };
