@@ -35,15 +35,10 @@ router.post("/payment", [parseUrl, parseJson], (req, res) => {
       params["ORDER_ID"] = "TEST_1" + new Date().getTime();
       params["CUST_ID"] = paymentDetails.customerId + new Date().getTime();
       params["TXN_AMOUNT"] = paymentDetails.amount.toString();
-      // params["ORDER_ID"] = "TEST_1";
-      // params["CUST_ID"] = "CUST_001";
-      // params["TXN_AMOUNT"] = "10";
       params["CALLBACK_URL"] =
         "http://process.env.PORT/api/donate/payment/success";
       params["EMAIL"] = paymentDetails.customerEmail.toString();
       params["MOBILE_NO"] = paymentDetails.customerPhone.toString();
-      // params["EMAIL"] = "abc@abc";
-      // params["MOBILE_NO"] = "9876543210";
 
       checksum_lib.genchecksum(
         params,

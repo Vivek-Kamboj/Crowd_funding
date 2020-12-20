@@ -3,11 +3,45 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 require("dotenv").config();
 
+/* bcrypt.genSalt(10, (err, salt) => {
+  if (err)
+    return res.status(400).json({ message: "Something went wrong, try again" });
+  bcrypt.hash("abc", salt, (err, hash) => {
+    if (err)
+      return res
+        .status(400)
+        .json({ message: "Something went wrong, try again" });
+
+    const user = new db.User({
+      email: "imt_2018109@iiitm.ac.in",
+      password: hash,
+    });
+
+    user.save();
+  });
+}); */
+
+// Validating email address and domain
+function validateEmail(email) {
+  var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  if (re.test(email)) {
+    //Email valid. Procees to test if it's from the right domain (Second argument is to check that the string ENDS with this domain, and that it doesn't just contain it)
+    if (
+      email.indexOf("@iiitm.ac.in", email.length - "@iiitm.ac.in".length) !== -1
+    ) {
+      //VALID
+      console.log("VALID");
+      return true;
+    }
+  }
+  return false;
+}
+
 const addAdmin = (req, res) => {
   const userData = req.body;
   console.log(userData);
   /* Validating Sign up Form */
-  if (!userData.username || !userData.email || !userData.password) {
+  if (!userData.email || !userData.password) {
     return res.status(400).json({ message: "All fields are required" });
   }
 
@@ -15,7 +49,12 @@ const addAdmin = (req, res) => {
   db.User.findOne({ email: userData.email }, (err, foundUser) => {
     if (err) return res.status(400).json({ message: "Bad request, try again" });
 
-    //return error if account alraedy exist
+    if (!validateEmail(userData.email))
+      return res.status(400).json({
+        message: "You can only add admins having email of iiitm.ac.in domain",
+      });
+
+    //return error if account already exist
     if (foundUser)
       return res.status(400).json({
         message: "Email is already been registered, please try again",
@@ -33,9 +72,8 @@ const addAdmin = (req, res) => {
             .status(400)
             .json({ message: "Something went wrong, try again" });
 
-        const { username, email, password } = req.body;
+        const { email, password } = req.body;
         const newUser = {
-          username: username,
           email: email,
           password: hash,
         };
@@ -74,18 +112,26 @@ const login = (req, res) => {
       errors: [{ message: "Please enter both your email and password" }],
     });
   }
+
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
     if (err)
       return res.status(500).json({
         status: 500,
         errors: [{ message: "Something went wrong. Please try again" }],
       });
+
+    if (!validateEmail(req.body.email))
+      return res.status(400).json({
+        message: "Please login with email of iiitm.ac.in domain",
+      });
+
     if (!foundUser) {
       return res.status(400).json({
         status: 400,
         errors: [{ message: "Email or password is incorrect" }],
       });
     }
+
     bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
       if (err)
         return res.status(500).json({
@@ -110,7 +156,7 @@ const login = (req, res) => {
       } else {
         return res.json({
           status: 400,
-          errors: [{ message: "Email or password is incorrect" }],
+          errors: [{ message: "Email or password is invalid" }],
         });
       }
     });
@@ -132,11 +178,8 @@ const create = async (req, res) => {
   }
 
   try {
-    // const foundUser = await db.User.findById(user);
     const newCampaign = await db.Campaign.create(campaign);
 
-    // foundUser.ownPj.push(newProject);
-    // const savedUser = await foundUser.save();
     console.log("newCampaign", newCampaign);
     res.status(200).json(newCampaign);
   } catch (err) {
