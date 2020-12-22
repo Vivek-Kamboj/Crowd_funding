@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import ImageLanding from "./image_landing";
 import OnGoingCampaigns from "./onGoingCampaigns";
 import WhyUs from "./whyUsSection";
@@ -62,6 +63,9 @@ const LandingPage = (props) => {
       <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
+      <button className="btn btn-warning">
+        <Link to="/all-campaigns">For More</Link>
+      </button>
       <BottomLandingPage />
     </React.Fragment>
   );
