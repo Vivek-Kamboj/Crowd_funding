@@ -63,9 +63,11 @@ const LandingPage = (props) => {
       <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
-      <button className="btn btn-warning">
-        <Link to="/all-campaigns">For More</Link>
-      </button>
+
+      <Link to="/all-campaigns">
+        <button className="btn btn-primary">For More </button>
+      </Link>
+
       <BottomLandingPage />
     </React.Fragment>
   );
