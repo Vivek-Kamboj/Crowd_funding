@@ -190,12 +190,21 @@ const create = async (req, res) => {
   }
 };
 
+const options = {
+  // Return the document after updates are applied
+  new: true,
+  // Create a document if one isn't found. Required
+  // for `setDefaultsOnInsert`
+  upsert: true,
+  setDefaultsOnInsert: true,
+};
+
 const update = async (req, res) => {
   try {
     let updatedCampaign = await db.Campaign.findByIdAndUpdate(
       req.params.id,
       req.body,
-      { new: true }
+      options
     );
     console.log(updatedCampaign);
     res.status(200).json(updatedCampaign);

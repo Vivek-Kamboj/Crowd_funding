@@ -2,6 +2,7 @@ const express = require("express");
 const checksum_lib = require("../paytm/checksum");
 const https = require("https");
 const qs = require("querystring");
+const db = require("../models");
 const config = require("../config");
 
 const app = express();
@@ -65,6 +66,14 @@ const success = async (req, res) => {
             var _result = JSON.parse(response);
             if (_result.STATUS == "TXN_SUCCESS") {
               res.send("payment sucess");
+
+              /* let updatedCampaign = await db.Campaign.findByIdAndUpdate(
+                req.params.id,
+                req.body,
+                { new: true }
+              );
+              console.log(updatedCampaign);
+              res.status(200).json(updatedCampaign); */
             } else {
               res.send("payment failed");
             }

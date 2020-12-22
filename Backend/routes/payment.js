@@ -11,7 +11,7 @@ const app = express();
 const router = express.Router();
 const ctrl = require("../controllers");
 
-router.post("/payment", [parseUrl, parseJson], (req, res) => {
+router.post("/:id", [parseUrl, parseJson], (req, res) => {
   try {
     var paymentDetails = {
       amount: req.body.amount,
@@ -36,7 +36,7 @@ router.post("/payment", [parseUrl, parseJson], (req, res) => {
       params["CUST_ID"] = paymentDetails.customerId + new Date().getTime();
       params["TXN_AMOUNT"] = paymentDetails.amount.toString();
       params["CALLBACK_URL"] =
-        "http://process.env.PORT/api/donate/payment/success";
+        "http://process.env.PORT/api/donate/" + req.params.id + "/success";
       params["EMAIL"] = paymentDetails.customerEmail.toString();
       params["MOBILE_NO"] = paymentDetails.customerPhone.toString();
 
@@ -82,5 +82,7 @@ router.post("/payment", [parseUrl, parseJson], (req, res) => {
     });
   }
 });
+
+router.post("/:id/success", ctrl.payment.success);
 
 module.exports = router;
