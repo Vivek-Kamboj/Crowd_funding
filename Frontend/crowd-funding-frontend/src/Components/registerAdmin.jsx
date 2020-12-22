@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "./reuseableAdminForm";
+import { register } from "../services/auth";
 
 const RegisterAdmin = (props) => {
   const [email, setEmail] = useState("");
@@ -9,6 +10,7 @@ const RegisterAdmin = (props) => {
     p.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
+    register();
     props.history.push("/admin/dashboard");
   };
   const handleEmailChange = (p) => {

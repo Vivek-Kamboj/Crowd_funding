@@ -46,7 +46,11 @@ const LandingPage = (props) => {
   // ];
   const [data, setData] = useState([]);
   useEffect(() => {
-    getAllCampaigns(setData);
+    async function getData() {
+      const { data, err } = await getAllCampaigns();
+      if (err !== "") setData(data);
+    }
+    getData();
   }, []);
   const handleClick = (p) => {
     let url = "/campaign/" + p;

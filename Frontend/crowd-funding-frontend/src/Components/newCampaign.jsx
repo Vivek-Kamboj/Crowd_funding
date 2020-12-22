@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "./reuseableCampaignForm";
+import { newCampaign } from "../services/campaign";
 
 const NewCampaign = () => {
   const [campaignName, setCampaignName] = useState("");
@@ -14,6 +15,7 @@ const NewCampaign = () => {
     console.log("amount:", amount);
     console.log("image:", image);
     alert("form submit click, plz see console the data");
+    newCampaign();
     // props.history.push("/");
   };
   const handleCampaignNameChange = (p) => {

@@ -5,7 +5,11 @@ import { getCampaignData } from "../services/campaign";
 const Campaign = (p) => {
   const [campaign, setCampaign] = useState({});
   useEffect(() => {
-    getCampaignData(p.match.params.id, setCampaign);
+    async function getData() {
+      const { data, err } = await getCampaignData(p.match.params.id);
+      if (err !== "") setCampaign(data);
+    }
+    getData();
   }, [p.match.params.id]);
 
   const handleDonateClick = () => {
