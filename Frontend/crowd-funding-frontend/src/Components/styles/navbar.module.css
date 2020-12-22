@@ -1,0 +1,43 @@
+:root {
+  --scrolled: rgba(0, 0, 0, 0.5);
+  --notscrolled: rgba(0, 0, 0, 0.1);
+  --hover-bg-color: rgba(0, 0, 0, 0.6);
+  --color: white;
+}
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--notscrolled);
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: var(--color);
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: var(--hover-bg-color);
+  text-decoration: none;
+  color: var(--color);
+}
+.notscrolled {
+  background-color: var(--notscrolled);
+}
+.scrolled {
+  background-color: var(--scrolled);
+}

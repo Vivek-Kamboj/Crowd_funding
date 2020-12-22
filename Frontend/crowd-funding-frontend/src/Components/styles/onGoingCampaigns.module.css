@@ -1,0 +1,18 @@
+.campaigns {
+  overflow: auto;
+  display: flex;
+  flex-direction: row;
+  scroll-behavior: smooth;
+}
+
+.eachCampaign div {
+  flex-direction: row;
+}
+
+.title {
+  text-align: center;
+}
+
+.directions {
+  font-weight: bold;
+}

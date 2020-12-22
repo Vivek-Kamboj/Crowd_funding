@@ -5,13 +5,13 @@ import Footer from "./Components/footer";
 import LandingPage from "./Components/landingPage";
 import Campaign from "./Components/campaign";
 import LoginAdmin from "./Components/loginAdmin";
-
 import RegisterAdmin from "./Components/registerAdmin";
 import AdminDashboard from "./Components/adminDashboard";
 import AboutUs from "./Components/aboutUs";
 import ContactUs from "./Components/contactUs";
 import PageNotFound from "./Components/PageNotFound";
 import NewCampaign from "./Components/newCampaign";
+import "./App.css";
 
 const App = () => {
   return (
