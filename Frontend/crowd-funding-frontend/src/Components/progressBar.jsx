@@ -29,11 +29,27 @@ const ProgressBar = (props) => {
         <div className="row justify-content-between">
           <div className="col-4">
             <p>Fund Required:</p>
-            <p>{props.fundRequired}</p>
+            <p>
+              <img
+                src="http://i.stack.imgur.com/nGbfO.png"
+                width="8"
+                height="10"
+                alt="Rupee icon"
+              />
+              {props.fundRequired}
+            </p>
           </div>
           <div className="col-4 text-right">
             <p>Fund Raised:</p>
-            <p>{props.fundRaised}</p>
+            <p>
+              <img
+                src="http://i.stack.imgur.com/nGbfO.png"
+                width="8"
+                height="10"
+                alt="Rupee icon"
+              />
+              {props.fundRaised}
+            </p>
           </div>
         </div>
         <button

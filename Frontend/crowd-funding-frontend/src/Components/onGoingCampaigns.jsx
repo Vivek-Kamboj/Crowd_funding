@@ -44,16 +44,16 @@ const OnGoingCampaigns = (props) => {
         <div className={styles.campaigns} ref={Ref}>
           {props.data.map((d) => (
             <div
-              key={d.id}
+              key={d._id}
               className={`col-sm-8 col-11 ${styles.eachCampaign}`}
             >
               <Campaign
-                id={d.id}
+                id={d._id}
                 handleClick={props.handleClick}
                 title={d.title}
                 description={d.description}
-                image={d.image}
-                requiredAmount={d.requiredAmount}
+                image={d.imageUrl}
+                requiredAmount={d.required}
               />
             </div>
           ))}

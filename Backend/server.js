@@ -5,7 +5,7 @@ const app = express();
 
 // -----ENV Setup----- //
 require("dotenv").config();
-const PORT = 3000;
+const PORT = 4000;
 const routes = require("./routes");
 
 // -----Middleware----- /

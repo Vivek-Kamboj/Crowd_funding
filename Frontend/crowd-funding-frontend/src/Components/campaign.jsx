@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ProgressBar from "./progressBar";
 import { getCampaignData } from "../services/campaign";
+import styles from "./styles/campaign.module.css";
 
 const Campaign = (p) => {
-  console.log("props:", p);
   const [campaign, setCampaign] = useState({});
   useEffect(() => {
     async function getData() {
@@ -28,13 +28,17 @@ const Campaign = (p) => {
       <div>Campaign id: {p.match.params.id}</div>
       <div className="row m-2">
         <div className="col-md-6">
-          <img src={campaign.image} alt={campaign.title} />
+          <img
+            className={styles.image}
+            src={campaign.imageUrl}
+            alt={campaign.title}
+          />
           <h5>{campaign.title}</h5>
         </div>
         <div className="col-md-6 p-5">
           <ProgressBar
-            fundRequired={campaign.fundRequired}
-            fundRaised={campaign.fundRaised}
+            fundRequired={campaign.required}
+            fundRaised={campaign.raised}
             handleDonateClick={handleDonateClick}
           />
           <p>
