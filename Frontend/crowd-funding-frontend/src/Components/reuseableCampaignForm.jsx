@@ -16,6 +16,7 @@ const Form = (props) => {
               id="Campaign Name"
               aria-describedby="emailHelp"
               onChange={props.handleCampaignNameChange}
+              placeholder="Enter Campaign Name"
             />
           </div>
           <div className="mb-3">
@@ -28,6 +29,7 @@ const Form = (props) => {
               id="Image"
               aria-describedby="emailHelp"
               onChange={props.handleImageChange}
+              placeholder="Enter Image URL"
             />
           </div>
           <div className="mb-3">
@@ -40,6 +42,7 @@ const Form = (props) => {
               id="Campaign Description"
               aria-describedby="emailHelp"
               onChange={props.handleCampaignDescriptionChange}
+              placeholder="Enter description..."
             />
           </div>
           <div className="mb-3">
@@ -52,6 +55,7 @@ const Form = (props) => {
               id="Amount"
               aria-describedby="emailHelp"
               onChange={props.handleAmountChange}
+              placeholder="Enter amount to be raised"
             />
           </div>
           <button type="submit" className="btn btn-primary">

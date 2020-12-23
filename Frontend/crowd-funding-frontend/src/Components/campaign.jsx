@@ -3,6 +3,7 @@ import ProgressBar from "./progressBar";
 import { getCampaignData } from "../services/campaign";
 
 const Campaign = (p) => {
+  console.log("props:", p);
   const [campaign, setCampaign] = useState({});
   useEffect(() => {
     async function getData() {
@@ -36,6 +37,9 @@ const Campaign = (p) => {
             fundRaised={campaign.fundRaised}
             handleDonateClick={handleDonateClick}
           />
+          <p>
+            Number of people donated:- <b>{campaign.numberOfPeopleDonated}</b>
+          </p>
         </div>
       </div>
       <p>{campaign.description}</p>

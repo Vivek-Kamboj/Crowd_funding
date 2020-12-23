@@ -11,6 +11,7 @@ import AboutUs from "./Components/aboutUs";
 import ContactUs from "./Components/contactUs";
 import PageNotFound from "./Components/PageNotFound";
 import NewCampaign from "./Components/newCampaign";
+import AllCampaigns from "./Components/allCampaigns";
 import "./App.css";
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
     <React.Fragment>
       <NavBar />
       <Switch>
+        <Route path="/all-campaigns" component={AllCampaigns} />
         <Route path="/campaign/:id" component={Campaign} />
         <Route path="/admin/login" component={LoginAdmin} />
         <Route path="/admin/dashboard" component={AdminDashboard} />

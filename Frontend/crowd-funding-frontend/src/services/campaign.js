@@ -60,7 +60,8 @@ export const getCampaignData = async (id) => {
     description =
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, corporis dolores expedita, maiores dolorum ad dignissimos fugit voluptatem blanditiis, deleniti at? Eligendi assumenda eius illo accusantium possimus ducimus, nam vero.",
     fundRequired = 1000,
-    fundRaised = 500;
+    fundRaised = 500,
+    numberOfPeopleDonated = 10;
   console.log("Id:", id);
 
   const campaign = {
@@ -69,6 +70,7 @@ export const getCampaignData = async (id) => {
     description: description,
     fundRequired: fundRequired,
     fundRaised: fundRaised,
+    numberOfPeopleDonated: numberOfPeopleDonated,
   };
 
   let dataToSend = {},

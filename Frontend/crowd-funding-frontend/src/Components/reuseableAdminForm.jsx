@@ -16,6 +16,7 @@ const Form = (props) => {
               id="InputEmail"
               aria-describedby="emailHelp"
               onChange={props.handleEmailChange}
+              placeholder="Enter e-mail address"
             />
           </div>
           <div className="mb-3">
@@ -27,6 +28,7 @@ const Form = (props) => {
               className="form-control"
               id="InputPassword"
               onChange={props.handlePasswordChange}
+              placeholder="Enter password"
             />
           </div>
           <button type="submit" className="btn btn-primary">
