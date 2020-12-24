@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import NavBar from "../Components/navbar";
-import Footer from "../Components/footer";
 import Form from "../Components/reuseableAdminForm";
 import { login } from "../services/auth";
 
@@ -23,14 +21,12 @@ const LoginAdmin = (props) => {
   };
   return (
     <React.Fragment>
-      <NavBar />
       <Form
         title="Login Admin"
         handleSubmit={handleSubmit}
         handleEmailChange={handleEmailChange}
         handlePasswordChange={handlePasswordChange}
       />
-      <Footer />
     </React.Fragment>
   );
 };

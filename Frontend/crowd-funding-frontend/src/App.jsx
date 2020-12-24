@@ -10,11 +10,14 @@ import ContactUs from "./Routes/contactUs";
 import PageNotFound from "./Routes/PageNotFound";
 import NewCampaign from "./Routes/newCampaign";
 import AllCampaigns from "./Routes/allCampaigns";
+import NavBar from "./Components/navbar";
+import Footer from "./Components/footer";
 import "./App.css";
 
 const App = () => {
   return (
     <React.Fragment>
+      <NavBar />
       <Switch>
         <Route path="/all-campaigns" component={AllCampaigns} />
         <Route path="/campaign/:id" component={Campaign} />
@@ -28,6 +31,7 @@ const App = () => {
         <Route path="/" exact component={LandingPage} />
         <Redirect to="/page-not-found" />
       </Switch>
+      <Footer />
     </React.Fragment>
   );
 };

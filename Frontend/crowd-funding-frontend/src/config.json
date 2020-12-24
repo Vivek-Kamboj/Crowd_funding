@@ -1,0 +1,5 @@
+{
+    "getAllCampaigns":"http://localhost:4000/api/campaign/all",
+    "getCampaignDataById":"http://localhost:4000/api/campaign/"
+
+}

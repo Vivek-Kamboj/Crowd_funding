@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NavBar from "../Components/navbar";
-import Footer from "../Components/footer";
 import ProgressBar from "../Components/progressBar";
 import { getCampaignData } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
@@ -27,7 +25,6 @@ const Campaign = (p) => {
 
   return (
     <React.Fragment>
-      <NavBar />
       <div>Campaign id: {p.match.params.id}</div>
       <div className="row m-2">
         <div className="col-md-6">
@@ -57,7 +54,6 @@ const Campaign = (p) => {
       <button onClick={handleHide} className="btn btn-danger">
         HIDE{" "}
       </button>
-      <Footer />
     </React.Fragment>
   );
 };

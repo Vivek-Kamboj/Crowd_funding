@@ -1,11 +1,8 @@
 import React from "react";
-import NavBar from "../Components/navbar";
-import Footer from "../Components/footer";
 
 const AboutUs = () => {
   return (
     <React.Fragment>
-      <NavBar />
       <h1>Contact us</h1>
       <p>
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
@@ -22,7 +19,6 @@ const AboutUs = () => {
         style={{ border: "0" }}
         aria-hidden="false"
       ></iframe>
-      <Footer />
     </React.Fragment>
   );
 };
