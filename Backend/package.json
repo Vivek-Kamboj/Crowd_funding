@@ -20,7 +20,9 @@
     "https": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.7",
+    "nodemailer": "^6.4.17",
     "querystring": "^0.2.0",
-    "util": "^0.12.3"
+    "util": "^0.12.3",
+    "xoauth2": "^1.2.0"
   }
 }
