@@ -1,8 +1,11 @@
 import React from "react";
+import NavBar from "../Components/navbar";
+import Footer from "../Components/footer";
 
 const AdminDashboard = (p) => {
   return (
     <React.Fragment>
+      <NavBar />
       <div>AdminDashboard</div>
       <button
         className="btn btn-warning m-2"
@@ -20,6 +23,7 @@ const AdminDashboard = (p) => {
       >
         New Campaign
       </button>
+      <Footer />
     </React.Fragment>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useState } from "react";
-import Form from "./reuseableCampaignForm";
+import NavBar from "../Components/navbar";
+import Footer from "../Components/footer";
+import Form from "../Components/reuseableCampaignForm";
 import { newCampaign } from "../services/campaign";
 
 const NewCampaign = () => {
@@ -32,6 +34,7 @@ const NewCampaign = () => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <Form
         title="New Campaign"
         handleSubmit={handleSubmit}
@@ -40,6 +43,7 @@ const NewCampaign = () => {
         handleAmountChange={handleAmountChange}
         handleImageChange={handleImageChange}
       />
+      <Footer />
     </React.Fragment>
   );
 };

@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Campaign from "./everyOngoingCampaigns";
+import NavBar from "../Components/navbar";
+import Footer from "../Components/footer";
+import Campaign from "../Components/everyOngoingCampaigns";
 import { getAllCampaigns } from "../services/campaign";
 
 const AllCampaigns = (props) => {
@@ -17,21 +19,23 @@ const AllCampaigns = (props) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <h1>All Campaigns</h1>
       <div className="row">
         {data.map((d) => (
           <div key={d.id} className={`col-sm-6 col-11 }`}>
             <Campaign
-              id={d.id}
+              id={d._id}
               handleClick={handleClick}
               title={d.title}
               description={d.description}
-              image={d.image}
-              requiredAmount={d.requiredAmount}
+              image={d.imageUrl}
+              requiredAmount={d.required}
             />
           </div>
         ))}
       </div>
+      <Footer />
     </React.Fragment>
   );
 };

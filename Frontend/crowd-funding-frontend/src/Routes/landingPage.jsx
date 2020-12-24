@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import ImageLanding from "./image_landing";
-import OnGoingCampaigns from "./onGoingCampaigns";
-import WhyUs from "./whyUsSection";
-import BottomLandingPage from "./bottom_landingPage";
+import NavBar from "../Components/navbar";
+import Footer from "../Components/footer";
+import ImageLanding from "../Components/image_landing";
+import OnGoingCampaigns from "../Components/onGoingCampaigns";
+import WhyUs from "../Components/whyUsSection";
+import BottomLandingPage from "../Components/bottom_landingPage";
 import { getAllCampaigns } from "../services/campaign";
 
 const LandingPage = (props) => {
@@ -60,6 +62,7 @@ const LandingPage = (props) => {
   getAllCampaigns();
   return (
     <React.Fragment>
+      <NavBar />
       <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
@@ -69,6 +72,7 @@ const LandingPage = (props) => {
       </Link>
 
       <BottomLandingPage />
+      <Footer />
     </React.Fragment>
   );
 };
