@@ -1,5 +1,6 @@
 {
     "getAllCampaigns":"http://localhost:4000/api/campaign/all",
-    "getCampaignDataById":"http://localhost:4000/api/campaign/"
+    "getCampaignDataById":"http://localhost:4000/api/campaign/",
+    "createNewCampaign":"http://localhost:4000/api/user/create"
 
 }

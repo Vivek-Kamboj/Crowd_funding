@@ -28,7 +28,7 @@ const ProgressBar = (props) => {
 
         <div className="row justify-content-between">
           <div className="col-4">
-            <p>Fund Required:</p>
+            <p>Goal:</p>
             <p>
               <img
                 src="http://i.stack.imgur.com/nGbfO.png"
@@ -40,7 +40,7 @@ const ProgressBar = (props) => {
             </p>
           </div>
           <div className="col-4 text-right">
-            <p>Fund Raised:</p>
+            <p>Raised:</p>
             <p>
               <img
                 src="http://i.stack.imgur.com/nGbfO.png"

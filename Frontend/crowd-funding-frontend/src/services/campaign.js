@@ -27,13 +27,11 @@ export const getCampaignData = async (id) => {
   return { data: dataToSend, error: err };
 };
 
-export const newCampaign = async (data) => {
+export const newCampaign = async (data, props) => {
+  console.log(data);
   try {
-    const x = await axios.post(
-      "http://jsonplaceholder.typicode.com/posts",
-      data
-    );
-    console.log("newCampaign_api", x);
+    const x = await axios.post(config.createNewCampaign, data);
+    props.history.push("/campaign/" + x.data._id);
   } catch (error) {
     console.log(error);
   }
