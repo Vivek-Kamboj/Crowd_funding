@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import ImageLanding from "../Components/image_landing";
 import OnGoingCampaigns from "../Components/onGoingCampaigns";
 import WhyUs from "../Components/whyUsSection";
-import BottomLandingPage from "../Components/bottom_landingPage";
+import BottomLandingPage from "../Components/nobelCauseComponent";
+import ProudToDonate from "../Components/proudToDonateComponent";
 import { getAllCampaigns } from "../services/campaign";
 
 const LandingPage = (props) => {
@@ -69,6 +70,7 @@ const LandingPage = (props) => {
       </Link>
 
       <BottomLandingPage />
+      <ProudToDonate />
     </React.Fragment>
   );
 };

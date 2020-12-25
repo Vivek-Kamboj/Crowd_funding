@@ -11,8 +11,12 @@ const Campaigns = (props) => {
           </div>
 
           <div className={`col-7 ${styles.campaignContent}`}>
-            <h3>{props.title}</h3>
-            <p>{props.description}</p>
+            <div className={styles.title}>
+              <h5>{props.title}</h5>
+            </div>
+            <div className={styles.description}>
+              <p>{props.description}</p>
+            </div>
           </div>
         </div>
         <div className="row">
