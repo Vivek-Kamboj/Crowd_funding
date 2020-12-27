@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./styles/onGoingCampaigns.module.css";
 import Campaign from "./everyOngoingCampaigns";
 
@@ -57,6 +58,11 @@ const OnGoingCampaigns = (props) => {
               />
             </div>
           ))}
+        </div>
+        <div className="col-12 text-right">
+          <Link to="/all-campaigns">
+            <button className="btn btn-primary">For More </button>
+          </Link>
         </div>
       </section>
     </React.Fragment>

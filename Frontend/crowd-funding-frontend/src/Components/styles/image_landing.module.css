@@ -1,0 +1,12 @@
+.backgroundImage {
+  background-image: url("https://images.unsplash.com/photo-1547722700-57de0f73d3a5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cG9vcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.donateBtn {
+  position: relative;
+  top: 45%;
+  display: block;
+  margin: auto;
+}

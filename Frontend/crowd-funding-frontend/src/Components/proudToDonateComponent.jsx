@@ -24,8 +24,8 @@ const ProudToDonate = () => {
 
   return (
     <React.Fragment>
-      <h1>ProudToDonate</h1>
-      <div className="col-10 m-auto">
+      <div className="col-11 m-auto">
+        <h1>ProudToDonate</h1>
         <img
           src="https://thumbs.dreamstime.com/b/poor-indian-beggar-family-street-leh-ladakh-india-june-unidentified-children-early-ages-often-brought-to-70999174.jpg"
           alt="ProudToDonate"

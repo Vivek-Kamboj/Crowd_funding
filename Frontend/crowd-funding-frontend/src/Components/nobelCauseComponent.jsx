@@ -1,10 +1,10 @@
 import React from "react";
 
 const BottomLandingPage = () => {
-  const x = { width: "90%", margin: "10px" };
+  const x = { width: "100%", margin: "10px" };
   return (
     <React.Fragment>
-      <div>
+      <div className="col-11 m-auto">
         <h1>Become a part of nobel cause</h1>
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi totam
