@@ -15,6 +15,10 @@ const UserSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
+  resetLink: {
+    data: String,
+    default: "",
+  },
 });
 
 const User = mongoose.model("User", UserSchema);

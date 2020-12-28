@@ -3,6 +3,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const crypto = require("crypto");
 const nodemailer = require("nodemailer");
+const { User } = require("../models");
 require("dotenv").config();
 
 // Default admin for development stage
@@ -33,6 +34,7 @@ db.User.find().exec(function (err, results) {
   }
 });
 
+//-------------------------------------------------------------------------------------------------------
 // Validating email address and domain
 function validateEmail(email) {
   var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -48,6 +50,7 @@ function validateEmail(email) {
   }
   return false;
 }
+//-------------------------------------------------------------------------------------------------------
 
 const addAdmin = (req, res) => {
   const userData = req.body;
@@ -104,7 +107,7 @@ const addAdmin = (req, res) => {
 
           token.save(function (err) {
             if (err) {
-              return res.status(500).send({ msg: err.message });
+              return res.status(500).send({ msg: "Please try again!" });
             }
 
             var smtpTransport = nodemailer.createTransport({
@@ -150,6 +153,7 @@ const addAdmin = (req, res) => {
     });
   });
 };
+//-------------------------------------------------------------------------------------------------------
 
 const verify = (req, res) => {
   db.Token.findOne({ token: req.params.token }, function (err, token) {
@@ -185,7 +189,7 @@ const verify = (req, res) => {
             user.save(function (err) {
               // error occur
               if (err) {
-                return res.status(500).send({ msg: err.message });
+                return res.status(500).send({ msg: "Please try again!" });
               }
               // account successfully verified
               else {
@@ -200,6 +204,7 @@ const verify = (req, res) => {
     }
   });
 };
+//-------------------------------------------------------------------------------------------------------
 
 const resend = (req, res) => {
   db.User.findOne({ email: req.body.email }, function (err, user) {
@@ -223,9 +228,10 @@ const resend = (req, res) => {
         _userId: user._id,
         token: crypto.randomBytes(16).toString("hex"),
       });
+
       token.save(function (err) {
         if (err) {
-          return res.status(500).send({ msg: err.message });
+          return res.status(500).send({ msg: "Please try again!" });
         }
 
         var smtpTransport = nodemailer.createTransport({
@@ -269,6 +275,7 @@ const resend = (req, res) => {
     }
   });
 };
+//-------------------------------------------------------------------------------------------------------
 
 const login = (req, res) => {
   if (!req.body.email || !req.body.password) {
@@ -340,11 +347,148 @@ const login = (req, res) => {
     });
   });
 };
+//-------------------------------------------------------------------------------------------------------
+
+const forgotPassword = async (req, res) => {
+  if (!req.body.email) {
+    return res.status(400).json({
+      status: 400,
+      errors: [
+        {
+          message: "Please enter your email address linked with your account.",
+        },
+      ],
+    });
+  }
+
+  const { email } = req.body;
+
+  await db.User.findOne({ email }, (err, user) => {
+    if (err || !user) {
+      return res
+        .status(400)
+        .json({ error: "User with this email does not exist." });
+    }
+
+    const token = jwt.sign({ _id: user._id }, process.env.RESET_PASSWORD_KEY, {
+      expiresIn: "20m",
+    });
+
+    var mailOptions = {
+      from: "no-reply@example.com",
+      to: email,
+      subject: "Reset Password Link",
+      text:
+        "Please click on the given link to reset your password: \nhttp://" +
+        req.headers.host +
+        "/api/user/resetPassword/" +
+        token +
+        "\nIf you did not request this, please ignore this email and your password will remain unchanged.\n\nThank You!\n",
+    };
+
+    return user.updateOne({ resetLink: token }, function (err, success) {
+      if (err) {
+        return res.status(400).json({ error: "Reset Password Link error" });
+      }
+
+      var smtpTransport = nodemailer.createTransport({
+        service: "Gmail",
+        auth: {
+          user: process.env.GMAIL_ID,
+          pass: process.env.GMAIL_PASSWORD,
+        },
+      });
+
+      smtpTransport.sendMail(mailOptions, function (err) {
+        if (err) {
+          return res.status(500).send({
+            msg: "Technical Issue!, Please try again.",
+          });
+        }
+        return res
+          .status(200)
+          .send(
+            "Password Reset Link has been sent to your email " +
+              email +
+              ". It will expire after 20 minutes. If you haven't received the email, please try again."
+          );
+      });
+    });
+  });
+};
+//-------------------------------------------------------------------------------------------------------
+
+const resetPassword = async (req, res) => {
+  if (!req.body.newPassword) {
+    return res.status(400).json({
+      status: 400,
+      errors: [
+        {
+          message: "Enter your new password.",
+        },
+      ],
+    });
+  }
+
+  const { newPassword, resetLink } = req.body;
+
+  if (resetLink) {
+    jwt.verify(resetLink, process.env.RESET_PASSWORD_KEY, function (err, data) {
+      if (err) {
+        return res.status(401).json({ error: "Incorrect token or expired!" });
+      }
+
+      db.User.findOne({ resetLink }, (err, user) => {
+        if (err || !user) {
+          return res.status(401).json({
+            error: "User with this token does not exist or Token has expired",
+          });
+        }
+
+        // Hash the new password
+        bcrypt.genSalt(10, (err, salt) => {
+          if (err) {
+            return res
+              .status(400)
+              .json({ message: "Something went wrong, try again1" });
+          }
+
+          bcrypt.hash(newPassword, salt, (err, hash) => {
+            if (err) {
+              return res
+                .status(400)
+                .json({ message: "Something went wrong, try again2" });
+            }
+
+            db.User.findOneAndUpdate(
+              { _id: user._id },
+              { $set: { password: hash, resetLink: "" } },
+              function (err, success) {
+                if (err) {
+                  return res.status(400).json({
+                    message: "Password Update Error, please try again",
+                  });
+                }
+
+                return res.status(200).json({
+                  message:
+                    "Password Changed Successfully. Please login with the new password.",
+                });
+              }
+            );
+          });
+        });
+      });
+    });
+  } else {
+    return res.status(401).json({ error: "Authentication error" });
+  }
+};
+//-------------------------------------------------------------------------------------------------------
 
 const create = async (req, res) => {
   // const user = req.curUserId;
   const campaign = { ...req.body, raised: 0 };
-  console.log(campaign);
 
   if (!campaign.title || !campaign.description) {
     return res.status(400).json({ message: "All fields are required" });
@@ -367,6 +511,7 @@ const create = async (req, res) => {
     });
   }
 };
+//-------------------------------------------------------------------------------------------------------
 
 const options = {
   // Return the document after updates are applied
@@ -393,12 +538,15 @@ const update = async (req, res) => {
     });
   }
 };
+//-------------------------------------------------------------------------------------------------------
 
 module.exports = {
   addAdmin,
   verify,
   resend,
   login,
+  forgotPassword,
+  resetPassword,
   create,
   update,
 };
