@@ -1,11 +1,9 @@
 import axios from "axios";
 import config from "../config.json";
 
-const loginUrl = "http://localhost:4000/api/user/login";
-
 export const login = async (email, password) => {
   try {
-    const x = await axios.post(loginUrl, {
+    const x = await axios.post(config.loginAdminUrl, {
       email: email,
       password: password,
     });

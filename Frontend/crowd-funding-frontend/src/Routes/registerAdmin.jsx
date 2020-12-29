@@ -11,7 +11,7 @@ const RegisterAdmin = (props) => {
     console.log("Email:", email);
     console.log("Password:", password);
     register(email, password);
-    // props.history.push("/admin/dashboard");
+    props.history.push("/admin/dashboard");
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);
