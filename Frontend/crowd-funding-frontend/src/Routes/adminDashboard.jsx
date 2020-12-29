@@ -20,6 +20,10 @@ const AdminDashboard = (p) => {
       >
         New Campaign
       </button>
+      <h6>Admin say for refrence...</h6>
+      <p>
+        email:x@iiitm.ac.in <br /> password:1234
+      </p>
     </React.Fragment>
   );
 };

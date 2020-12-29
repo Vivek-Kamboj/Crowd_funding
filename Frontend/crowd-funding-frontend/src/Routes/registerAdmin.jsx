@@ -10,8 +10,8 @@ const RegisterAdmin = (props) => {
     p.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
-    register();
-    props.history.push("/admin/dashboard");
+    register(email, password);
+    // props.history.push("/admin/dashboard");
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);

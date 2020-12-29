@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./styles/image_landing.module.css";
 
-const ImageLanding = () => {
+const ImageLanding = (props) => {
   const divStyle = {
     height: "800px",
     backgroundSize: "cover",
@@ -9,7 +9,10 @@ const ImageLanding = () => {
   return (
     <React.Fragment>
       <div className={styles.backgroundImage} style={divStyle}>
-        <button className={`btn btn-success ${styles.donateBtn}`}>
+        <button
+          className={`btn btn-success ${styles.donateBtn}`}
+          onClick={props.onClickDonateBtn}
+        >
           Donate
         </button>
       </div>

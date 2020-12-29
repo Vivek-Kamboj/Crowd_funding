@@ -58,11 +58,20 @@ const LandingPage = (props) => {
     props.history.push(url);
   };
   getAllCampaigns();
+  // const onGoingCampaigns = useRef(null);
+  const handleClickDonateBtn = () => {
+    //scroller
+    console.log("Donate btn clicked");
+  };
   return (
     <React.Fragment>
-      <ImageLanding />
+      <ImageLanding onClickDonateBtn={handleClickDonateBtn} />
       <WhyUs />
-      <OnGoingCampaigns handleClick={handleClick} data={data} />
+      <OnGoingCampaigns
+        // ref={onGoingCampaigns}
+        handleClick={handleClick}
+        data={data}
+      />
 
       <BottomLandingPage />
       <ProudToDonate />

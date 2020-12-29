@@ -10,7 +10,7 @@ const LoginAdmin = (props) => {
     p.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
-    login("x");
+    login(email, password);
     props.history.push("/admin/dashboard");
   };
   const handleEmailChange = (p) => {
