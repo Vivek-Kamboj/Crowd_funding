@@ -1,6 +1,20 @@
 import axios from "axios";
 import config from "../config.json";
 
+axios.defaults.headers.common["authorization"] = localStorage.getItem("token");
+
+export const register = async (email, password) => {
+  try {
+    const x = await axios.post(config.registerAdminUrl, {
+      email: email,
+      password: password,
+    });
+    console.log("register_api", x);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 export const login = async (email, password) => {
   try {
     const x = await axios.post(config.loginAdminUrl, {
@@ -16,16 +30,4 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
   localStorage.removeItem("token");
-};
-
-export const register = async (email, password) => {
-  try {
-    const x = await axios.post(config.registerAdminUrl, {
-      email: email,
-      password: password,
-    });
-    console.log("register_api", x);
-  } catch (error) {
-    console.log(error);
-  }
 };

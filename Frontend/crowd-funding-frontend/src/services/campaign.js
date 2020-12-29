@@ -1,6 +1,8 @@
 import axios from "axios";
 import config from "../config.json";
 
+axios.defaults.headers.common["authorization"] = localStorage.getItem("token");
+
 export const getAllCampaigns = async () => {
   let dataToSend = [],
     err = "";
