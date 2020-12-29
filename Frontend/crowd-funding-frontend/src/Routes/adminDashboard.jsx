@@ -1,4 +1,5 @@
 import React from "react";
+import { logout } from "../services/auth";
 
 const AdminDashboard = (p) => {
   return (
@@ -19,6 +20,16 @@ const AdminDashboard = (p) => {
         }}
       >
         New Campaign
+      </button>
+      <button
+        className="btn btn-danger m-2"
+        onClick={() => {
+          logout().then(() => {
+            window.location = "/";
+          });
+        }}
+      >
+        Logout
       </button>
       <h6>Admin say for refrence...</h6>
       <p>

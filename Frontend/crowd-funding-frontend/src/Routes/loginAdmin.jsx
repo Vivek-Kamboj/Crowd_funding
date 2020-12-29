@@ -10,8 +10,9 @@ const LoginAdmin = (props) => {
     p.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
-    login(email, password);
-    props.history.push("/admin/dashboard");
+    login(email, password).then(() => {
+      window.location = "/admin/dashboard";
+    });
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);

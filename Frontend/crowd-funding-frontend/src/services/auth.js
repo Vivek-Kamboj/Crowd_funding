@@ -7,10 +7,15 @@ export const login = async (email, password) => {
       email: email,
       password: password,
     });
-    console.log("login_api", x);
+    console.log("login_api", x.data.jwt);
+    localStorage.setItem("token", x.data.jwt);
   } catch (error) {
     console.log(error);
   }
+};
+
+export const logout = async () => {
+  localStorage.removeItem("token");
 };
 
 export const register = async (email, password) => {
