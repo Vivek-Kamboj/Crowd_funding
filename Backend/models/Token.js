@@ -11,10 +11,10 @@ var TokenSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  expireAt: {
+  createAt: {
     type: Date,
     default: Date.now,
-    index: { expires: 86400000 },
+    index: { expires: 86400 },
   },
 });
 

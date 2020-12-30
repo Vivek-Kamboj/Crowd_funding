@@ -98,6 +98,32 @@ const addAdmin = (req, res) => {
               message: "Bad Request, Please try again",
               err: err.errmsg,
             });
+          jwt.sign(
+            { foo: createdUser._id },
+            `${"${process.env.JWT_SECRET}"}`,
+            { expiresIn: "10h" },
+            (err, jwt) => {
+              if (err)
+                return res.status(500).json({
+                  status: 503,
+                  errors: [{ message: "Access forbidden" }],
+                });
+              if (`${process.env.NODE_ENV}` == "prod") {
+              } else {
+                res.status(200).json({ jwt, userId: createdUser._id });
+              }
+            }
+          );
+        });
+
+        // New admin email verification
+        /*
+        db.User.create(newUser, (err, createdUser) => {
+          if (err)
+            return res.status(400).json({
+              message: "Bad Request, Please try again",
+              err: err.errmsg,
+            });
 
           // generate token and save
           const token = new db.Token({
@@ -149,12 +175,14 @@ const addAdmin = (req, res) => {
             });
           });
         });
+        */
       });
     });
   });
 };
 //-------------------------------------------------------------------------------------------------------
-
+// Commented part includes email verification
+/* 
 const verify = (req, res) => {
   db.Token.findOne({ token: req.params.token }, function (err, token) {
     // token is not found into database i.e. token may have expired
@@ -276,6 +304,7 @@ const resend = (req, res) => {
   });
 };
 //-------------------------------------------------------------------------------------------------------
+*/
 
 const login = (req, res) => {
   if (!req.body.email || !req.body.password) {
@@ -328,7 +357,7 @@ const login = (req, res) => {
         jwt.sign(
           { foo: foundUser._id },
           `${process.env.JWT_SECRET}`,
-          { expiresIn: "10h" },
+          { expiresIn: "24h" },
           (err, jwt) => {
             if (err)
               return res.status(500).json({
@@ -348,6 +377,7 @@ const login = (req, res) => {
   });
 };
 //-------------------------------------------------------------------------------------------------------
+/* Commented part includes forgot,reset password functionality
 
 const forgotPassword = async (req, res) => {
   if (!req.body.email) {
@@ -485,6 +515,7 @@ const resetPassword = async (req, res) => {
   }
 };
 //-------------------------------------------------------------------------------------------------------
+*/
 
 const create = async (req, res) => {
   // const user = req.curUserId;
@@ -542,11 +573,11 @@ const update = async (req, res) => {
 
 module.exports = {
   addAdmin,
-  verify,
-  resend,
+  //verify,
+  //resend,
   login,
-  forgotPassword,
-  resetPassword,
+  //forgotPassword,
+  //resetPassword,
   create,
   update,
 };
