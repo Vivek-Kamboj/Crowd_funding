@@ -25,6 +25,24 @@ const CampaignSchema = mongoose.Schema({
     type: Date,
     default: Date.now,
   },
+  donorsNum: {
+    type: Number,
+    default: 0,
+  },
+  donors: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Donation",
+    },
+  ],
+  isHidden: {
+    type: Boolean,
+    default: false,
+  },
+  isActivated: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 const Campaign = mongoose.model("Campaign", CampaignSchema);

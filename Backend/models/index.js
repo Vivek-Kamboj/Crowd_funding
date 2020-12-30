@@ -12,5 +12,7 @@ mongoose
 
 module.exports = {
   Campaign: require("./Campaign"),
+  Donation: require("./Donation"),
   User: require("./User"),
+  Token: require("./Token"),
 };
