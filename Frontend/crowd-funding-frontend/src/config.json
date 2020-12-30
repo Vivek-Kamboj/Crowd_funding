@@ -1,0 +1,7 @@
+{
+    "getAllCampaigns":"http://localhost:4000/api/campaign/all",
+    "getCampaignDataById":"http://localhost:4000/api/campaign/",
+    "createNewCampaign":"http://localhost:4000/api/user/create",
+    "registerAdminUrl":"http://localhost:4000/api/user/addAdmin",
+    "loginAdminUrl" : "http://localhost:4000/api/user/login"
+}

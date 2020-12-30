@@ -1,0 +1,10 @@
+.progressBar {
+  background-color: rgba(21, 191, 215, 0.5);
+  padding: 10px;
+  /* "p-2 border bg-warning" */
+}
+
+.donateBtn {
+  background-color: rgba(21, 215, 180, 1);
+  color: white;
+}
