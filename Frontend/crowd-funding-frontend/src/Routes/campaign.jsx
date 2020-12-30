@@ -91,6 +91,12 @@ const Campaign = (props) => {
             >
               Deactivate
             </button>
+            <button
+              onClick={() => alert("To delete")}
+              className="btn btn-danger m-2"
+            >
+              Delete
+            </button>
           </React.Fragment>
         )}
         <div className="row m-2">
