@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import Campaign from "./everyOngoingCampaigns";
+import { toast } from "react-toastify";
+import Campaign from "../Components/everyOngoingCampaigns";
 import { getAllCampaigns } from "../services/campaign";
 
 const AllCampaigns = (props) => {
@@ -7,9 +8,15 @@ const AllCampaigns = (props) => {
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
-      if (err !== "") setData(data);
+      if (err === undefined) {
+        setData(data);
+      } else {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
     }
     getData();
+    return null;
   }, []);
   const handleClick = (p) => {
     let url = "/campaign/" + p;
@@ -20,14 +27,14 @@ const AllCampaigns = (props) => {
       <h1>All Campaigns</h1>
       <div className="row">
         {data.map((d) => (
-          <div key={d.id} className={`col-sm-6 col-11 }`}>
+          <div key={d._id} className={`col-sm-6 col-11 }`}>
             <Campaign
-              id={d.id}
+              id={d._id}
               handleClick={handleClick}
               title={d.title}
               description={d.description}
-              image={d.image}
-              requiredAmount={d.requiredAmount}
+              image={d.imageUrl}
+              requiredAmount={d.required}
             />
           </div>
         ))}

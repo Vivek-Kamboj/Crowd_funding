@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import Form from "./reuseableAdminForm";
+import Form from "../Components/reuseableAdminForm";
 import { register } from "../services/auth";
 
 const RegisterAdmin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  if (!localStorage.getItem("token")) {
+    props.history.replace("/page-not-found");
+    return null;
+  }
   const handleSubmit = (p) => {
     p.preventDefault();
     console.log("Email:", email);
     console.log("Password:", password);
-    register();
+    register(email, password);
     props.history.push("/admin/dashboard");
   };
   const handleEmailChange = (p) => {

@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import styles from "./styles/onGoingCampaigns.module.css";
 import Campaign from "./everyOngoingCampaigns";
 
@@ -19,7 +20,7 @@ const OnGoingCampaigns = (props) => {
 
   return (
     <React.Fragment>
-      <section className="col-12">
+      <section id="Donate" className="col-12">
         <div className="row">
           <h1 className={`col-7 ${styles.title}`}>On Going Campaigns</h1>
           <div className={`col-5 ${styles.directions}`}>
@@ -44,19 +45,24 @@ const OnGoingCampaigns = (props) => {
         <div className={styles.campaigns} ref={Ref}>
           {props.data.map((d) => (
             <div
-              key={d.id}
+              key={d._id}
               className={`col-sm-8 col-11 ${styles.eachCampaign}`}
             >
               <Campaign
-                id={d.id}
+                id={d._id}
                 handleClick={props.handleClick}
                 title={d.title}
                 description={d.description}
-                image={d.image}
-                requiredAmount={d.requiredAmount}
+                image={d.imageUrl}
+                requiredAmount={d.required}
               />
             </div>
           ))}
+        </div>
+        <div className="col-12 text-right">
+          <Link to="/all-campaigns">
+            <button className="btn btn-primary">For More </button>
+          </Link>
         </div>
       </section>
     </React.Fragment>

@@ -1,22 +1,34 @@
 import React, { useState } from "react";
-import Form from "./reuseableCampaignForm";
+import Form from "../Components/reuseableCampaignForm";
 import { newCampaign } from "../services/campaign";
 
-const NewCampaign = () => {
+const NewCampaign = (props) => {
   const [campaignName, setCampaignName] = useState("");
   const [campaignDescription, setCampaignDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [image, setImage] = useState("");
+  if (!localStorage.getItem("token")) {
+    props.history.replace("/page-not-found");
+    return null;
+  }
 
   const handleSubmit = (p) => {
     p.preventDefault();
-    console.log("campaignName:", campaignName);
-    console.log("campaignDescription:", campaignDescription);
-    console.log("amount:", amount);
-    console.log("image:", image);
-    alert("form submit click, plz see console the data");
-    newCampaign();
-    // props.history.push("/");
+    // console.log("campaignName:", campaignName);
+    // console.log("campaignDescription:", campaignDescription);
+    // console.log("amount:", amount);
+    // console.log("image:", image);
+    // alert("form submit click, plz see console the data");
+    const data = {
+      title: campaignName,
+      description: campaignDescription,
+      required: amount,
+      imageUrl: image,
+    };
+    async function createCampaign(data) {
+      await newCampaign(data, props);
+    }
+    createCampaign(data);
   };
   const handleCampaignNameChange = (p) => {
     setCampaignName(p.target.value);

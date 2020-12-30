@@ -1,7 +1,7 @@
 :root {
   --scrolled: rgba(0, 0, 0, 0.5);
   --notscrolled: rgba(0, 0, 0, 0.1);
-  --hover-bg-color: rgba(0, 0, 0, 0.6);
+  --hover-bg-color: rgba(0, 0, 0, 0.9);
   --color: white;
 }
 .navbar {

@@ -1,23 +1,26 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import LandingPage from "./Routes/landingPage";
+import Campaign from "./Routes/campaign";
+import LoginAdmin from "./Routes/loginAdmin";
+import RegisterAdmin from "./Routes/registerAdmin";
+import AdminDashboard from "./Routes/adminDashboard";
+import AboutUs from "./Routes/aboutUs";
+import ContactUs from "./Routes/contactUs";
+import PageNotFound from "./Routes/PageNotFound";
+import NewCampaign from "./Routes/newCampaign";
+import AllCampaigns from "./Routes/allCampaigns";
 import NavBar from "./Components/navbar";
 import Footer from "./Components/footer";
-import LandingPage from "./Components/landingPage";
-import Campaign from "./Components/campaign";
-import LoginAdmin from "./Components/loginAdmin";
-import RegisterAdmin from "./Components/registerAdmin";
-import AdminDashboard from "./Components/adminDashboard";
-import AboutUs from "./Components/aboutUs";
-import ContactUs from "./Components/contactUs";
-import PageNotFound from "./Components/PageNotFound";
-import NewCampaign from "./Components/newCampaign";
-import AllCampaigns from "./Components/allCampaigns";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <React.Fragment>
       <NavBar />
+      <ToastContainer />
       <Switch>
         <Route path="/all-campaigns" component={AllCampaigns} />
         <Route path="/campaign/:id" component={Campaign} />

@@ -4,36 +4,40 @@ const db = require("../models");
 // To add some default items in our DB (Campaign collection) and check the api
 const item1 = new db.Campaign({
   title: "test1",
-  description: "test1d",
+  description:
+    "test1dloren jhbvsd  bjbdsv chjb cdbhb bsdcb nb hg asnb hj  asbhbsjhbjhhjaxvhgbcas  hg.sahgvbcshgnbsa ghcsab hjasbjhabs  asbjh sx hahs bscjh",
   imageUrl:
-    "https://www.google.com/search?q=images&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiPxYPE8M_tAhVYeH0KHVWFD00Q_AUoAXoECCMQAw&biw=1366&bih=657#imgrc=PDxUM2uh-Nz6cM",
+    "https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg",
   required: 500,
   start: "2020-12-22T11:18:54.919Z",
 });
 
 const item2 = new db.Campaign({
   title: "test2",
-  description: "test2d",
+  description:
+    "test2dloren jhbvsd  bjbdsv chjb cdbhb bsdcb nb hg asnb hj  asbhbsjhbjhhjaxvhgbcas  hg.sahgvbcshgnbsa ghcsab hjasbjhabs  asbjh sx hahs bscjh",
   imageUrl:
-    "https://www.google.com/search?q=images&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiPxYPE8M_tAhVYeH0KHVWFD00Q_AUoAXoECCMQAw&biw=1366&bih=657#imgrc=PDxUM2uh-Nz6cM",
+    "https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg",
   required: 100,
   start: "2020-12-20T11:18:54.919Z",
 });
 
 const item3 = new db.Campaign({
   title: "test3",
-  description: "test3d",
+  description:
+    "test3dloren jhbvsd  bjbdsv chjb cdbhb bsdcb nb hg asnb hj  asbhbsjhbjhhjaxvhgbcas  hg.sahgvbcshgnbsa ghcsab hjasbjhabs  asbjh sx hahs bscjh",
   imageUrl:
-    "https://www.google.com/search?q=images&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiPxYPE8M_tAhVYeH0KHVWFD00Q_AUoAXoECCMQAw&biw=1366&bih=657#imgrc=PDxUM2uh-Nz6cM",
+    "https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg",
   required: 5000,
   start: "2020-12-19T11:18:54.919Z",
 });
 
 const item4 = new db.Campaign({
   title: "test4",
-  description: "test4d",
+  description:
+    "test4dloren jhbvsd  bjbdsv chjb cdbhb bsdcb nb hg asnb hj  asbhbsjhbjhhjaxvhgbcas  hg.sahgvbcshgnbsa ghcsab hjasbjhabs  asbjh sx hahs bscjh",
   imageUrl:
-    "https://www.google.com/search?q=images&source=lnms&tbm=isch&sa=X&ved=2ahUKEwiPxYPE8M_tAhVYeH0KHVWFD00Q_AUoAXoECCMQAw&biw=1366&bih=657#imgrc=PDxUM2uh-Nz6cM",
+    "https://image.shutterstock.com/image-photo/bright-spring-view-cameo-island-260nw-1048185397.jpg",
   required: 50000,
   start: "2020-12-22T11:19:54.919Z",
 });
@@ -60,7 +64,7 @@ db.Campaign.find().exec(function (err, results) {
 const show = async (req, res) => {
   try {
     let showCampaign = await db.Campaign.findById(req.params.id);
-    console.log(showCampaign);
+    // console.log(showCampaign);
     res.status(200).json(showCampaign);
   } catch (err) {
     return res.status(500).json({

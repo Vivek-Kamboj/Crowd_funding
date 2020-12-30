@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import ImageLanding from "./image_landing";
-import OnGoingCampaigns from "./onGoingCampaigns";
-import WhyUs from "./whyUsSection";
-import BottomLandingPage from "./bottom_landingPage";
+import { toast } from "react-toastify";
+import ImageLanding from "../Components/image_landing";
+import OnGoingCampaigns from "../Components/onGoingCampaigns";
+import WhyUs from "../Components/whyUsSection";
+import BottomLandingPage from "../Components/nobelCauseComponent";
+import ProudToDonate from "../Components/proudToDonateComponent";
 import { getAllCampaigns } from "../services/campaign";
 
 const LandingPage = (props) => {
-  // const data1 = [
+  // const data = [
   //   {
   //     id: "abc1",
   //     title: "This is title of crownd funding",
@@ -49,26 +50,28 @@ const LandingPage = (props) => {
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
-      if (err !== "") setData(data);
+      if (err === undefined) {
+        setData(data);
+      } else {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
     }
     getData();
+    return null;
   }, []);
   const handleClick = (p) => {
     let url = "/campaign/" + p;
     props.history.push(url);
   };
-  getAllCampaigns();
+
   return (
     <React.Fragment>
       <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
-
-      <Link to="/all-campaigns">
-        <button className="btn btn-primary">For More </button>
-      </Link>
-
       <BottomLandingPage />
+      <ProudToDonate />
     </React.Fragment>
   );
 };

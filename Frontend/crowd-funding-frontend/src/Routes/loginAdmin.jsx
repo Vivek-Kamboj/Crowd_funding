@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Form from "./reuseableAdminForm";
+import Form from "../Components/reuseableAdminForm";
 import { login } from "../services/auth";
 
 const LoginAdmin = (props) => {
@@ -8,10 +8,12 @@ const LoginAdmin = (props) => {
 
   const handleSubmit = (p) => {
     p.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-    login("x");
-    props.history.push("/admin/dashboard");
+    // console.log("Email:", email);
+    // console.log("Password:", password);
+    login(email, password);
+    // .then(() => {
+    //   window.location = "/admin/dashboard";
+    // });
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);
