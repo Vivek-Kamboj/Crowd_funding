@@ -7,6 +7,10 @@ const NewCampaign = (props) => {
   const [campaignDescription, setCampaignDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [image, setImage] = useState("");
+  if (!localStorage.getItem("token")) {
+    props.history.replace("/page-not-found");
+    return null;
+  }
 
   const handleSubmit = (p) => {
     p.preventDefault();

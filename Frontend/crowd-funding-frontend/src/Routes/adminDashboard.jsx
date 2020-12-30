@@ -2,6 +2,10 @@ import React from "react";
 import { logout } from "../services/auth";
 
 const AdminDashboard = (p) => {
+  if (!localStorage.getItem("token")) {
+    p.history.replace("/page-not-found");
+    return null;
+  }
   return (
     <React.Fragment>
       <div>AdminDashboard</div>

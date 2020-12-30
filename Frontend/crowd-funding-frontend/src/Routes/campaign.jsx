@@ -28,12 +28,16 @@ const Campaign = (p) => {
       <div className="col-12 col-md-10 m-auto py-2">
         <div>Campaign id: {p.match.params.id}</div>
         <h2>{campaign.title}</h2>
-        <button onClick={handleEdit} className="btn btn-danger m-2">
-          EDIT
-        </button>
-        <button onClick={handleHide} className="btn btn-danger">
-          HIDE
-        </button>
+        {localStorage.getItem("token") && (
+          <React.Fragment>
+            <button onClick={handleEdit} className="btn btn-danger m-2">
+              EDIT
+            </button>
+            <button onClick={handleHide} className="btn btn-danger">
+              HIDE
+            </button>
+          </React.Fragment>
+        )}
         <div className="row m-2">
           <div className="col-lg-7 col-md-6">
             <img

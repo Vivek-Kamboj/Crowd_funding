@@ -5,7 +5,10 @@ import { register } from "../services/auth";
 const RegisterAdmin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  if (!localStorage.getItem("token")) {
+    props.history.replace("/page-not-found");
+    return null;
+  }
   const handleSubmit = (p) => {
     p.preventDefault();
     console.log("Email:", email);
