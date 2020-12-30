@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import ImageLanding from "../Components/image_landing";
 import OnGoingCampaigns from "../Components/onGoingCampaigns";
 import WhyUs from "../Components/whyUsSection";
@@ -49,16 +50,20 @@ const LandingPage = (props) => {
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
-      if (err !== "") setData(data);
+      if (err === undefined) {
+        setData(data);
+      } else {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
     }
     getData();
+    return null;
   }, []);
   const handleClick = (p) => {
     let url = "/campaign/" + p;
     props.history.push(url);
   };
-
-  getAllCampaigns();
 
   return (
     <React.Fragment>

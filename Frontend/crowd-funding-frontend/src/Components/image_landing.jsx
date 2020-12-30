@@ -18,7 +18,7 @@ const ImageLanding = (props) => {
           offset={-70}
           duration={500}
         >
-          <button className={`btn btn-success ${styles.donateBtn}`}>
+          <button className={`btn btn-success p-3 ${styles.donateBtn}`}>
             Donate
           </button>
         </Link>

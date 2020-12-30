@@ -18,8 +18,13 @@ const ProudToDonate = () => {
     setIndex(i);
   };
 
-  useEffect(() => {
+  const changeImage = () => {
     setTimeout(setImage, 3000);
+  };
+
+  useEffect(() => {
+    changeImage();
+    return null;
   });
 
   return (

@@ -8,11 +8,12 @@ const LoginAdmin = (props) => {
 
   const handleSubmit = (p) => {
     p.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
-    login(email, password).then(() => {
-      window.location = "/admin/dashboard";
-    });
+    // console.log("Email:", email);
+    // console.log("Password:", password);
+    login(email, password);
+    // .then(() => {
+    //   window.location = "/admin/dashboard";
+    // });
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);

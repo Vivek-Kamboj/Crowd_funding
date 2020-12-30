@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import Campaign from "../Components/everyOngoingCampaigns";
 import { getAllCampaigns } from "../services/campaign";
 
@@ -7,9 +8,15 @@ const AllCampaigns = (props) => {
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
-      if (err !== "") setData(data);
+      if (err === undefined) {
+        setData(data);
+      } else {
+        console.log(err);
+        toast.error("Something went wrong");
+      }
     }
     getData();
+    return null;
   }, []);
   const handleClick = (p) => {
     let url = "/campaign/" + p;

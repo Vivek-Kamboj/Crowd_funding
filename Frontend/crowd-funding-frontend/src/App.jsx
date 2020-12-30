@@ -13,11 +13,14 @@ import AllCampaigns from "./Routes/allCampaigns";
 import NavBar from "./Components/navbar";
 import Footer from "./Components/footer";
 import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
   return (
     <React.Fragment>
       <NavBar />
+      <ToastContainer />
       <Switch>
         <Route path="/all-campaigns" component={AllCampaigns} />
         <Route path="/campaign/:id" component={Campaign} />

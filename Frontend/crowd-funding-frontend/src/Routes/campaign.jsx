@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donated";
 import { getCampaignData } from "../services/campaign";
@@ -37,15 +38,23 @@ const data = [
   },
 ];
 
-const Campaign = (p) => {
+const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
   useEffect(() => {
     async function getData() {
-      const { data, err } = await getCampaignData(p.match.params.id);
-      if (err !== "") setCampaign(data);
+      const { data, err } = await getCampaignData(props.match.params.id);
+
+      if (err === undefined) {
+        setCampaign(data);
+      } else {
+        console.log(err);
+        toast.error("Campaign not found");
+        props.history.replace("/page-not-found");
+      }
     }
     getData();
-  }, [p.match.params.id]);
+    return null;
+  });
 
   const handleDonateClick = () => {
     alert("Donate Button Clicked!");
@@ -60,7 +69,7 @@ const Campaign = (p) => {
   return (
     <React.Fragment>
       <div className="col-12 col-md-10 m-auto py-2">
-        <div>Campaign id: {p.match.params.id}</div>
+        <div>Campaign id: {props.match.params.id}</div>
         <h2>{campaign.title}</h2>
         {localStorage.getItem("token") && (
           <React.Fragment>

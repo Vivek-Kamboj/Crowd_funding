@@ -6,28 +6,26 @@ axios.defaults.headers.common["authorization"] =
 
 export const getAllCampaigns = async () => {
   let dataToSend = [],
-    err = "";
+    err = undefined;
   try {
     const data = await axios.get(config.getAllCampaigns);
     dataToSend = data.data;
   } catch (error) {
-    console.log(error);
     err = error;
   }
-  return { data: dataToSend, error: err };
+  return { data: dataToSend, err: err };
 };
 
 export const getCampaignData = async (id) => {
   let dataToSend = {},
-    err = "";
+    err = undefined;
   try {
     const data = await axios.get(config.getCampaignDataById + id);
     dataToSend = data.data;
   } catch (error) {
-    console.log(error);
     err = error;
   }
-  return { data: dataToSend, error: err };
+  return { data: dataToSend, err: err };
 };
 
 export const newCampaign = async (data, props) => {
