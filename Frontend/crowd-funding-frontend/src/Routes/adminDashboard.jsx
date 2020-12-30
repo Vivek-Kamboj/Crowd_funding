@@ -18,7 +18,7 @@ const AdminDashboard = (p) => {
         New Admin +
       </button>
       <button
-        className="btn btn-primary"
+        className="btn btn-warning"
         onClick={() => {
           p.history.push("/admin/campaign/new");
         }}
@@ -26,7 +26,15 @@ const AdminDashboard = (p) => {
         New Campaign
       </button>
       <button
-        className="btn btn-danger m-2"
+        className="btn btn-primary m-2"
+        onClick={() => {
+          p.history.push("/all-campaigns");
+        }}
+      >
+        All Campaign
+      </button>
+      <button
+        className="btn btn-danger"
         onClick={() => {
           logout().then(() => {
             window.location = "/";

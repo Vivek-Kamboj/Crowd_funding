@@ -1,7 +1,8 @@
 import axios from "axios";
 import config from "../config.json";
 
-axios.defaults.headers.common["authorization"] = localStorage.getItem("token");
+axios.defaults.headers.common["authorization"] =
+  "Bearer " + localStorage.getItem("token");
 
 export const register = async (email, password) => {
   try {

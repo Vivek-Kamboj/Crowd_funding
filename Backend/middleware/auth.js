@@ -8,7 +8,7 @@ const verify = (req, res, next) => {
   if (typeof header !== "undefined") {
     const bearer = header.split(" ");
     const token = bearer[1];
-    jwt.verify(header, `${process.env.JWT_SECRET}`, function (err, decoded) {
+    jwt.verify(token, `${process.env.JWT_SECRET}`, function (err, decoded) {
       if (err)
         return res.status(400).json({ message: "You are not authorized" });
       req.curUserId = decoded.foo;
