@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donated";
+import Share from "../Components/shareComponent";
 import { getCampaignData } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
 
@@ -54,7 +55,7 @@ const Campaign = (props) => {
     }
     getData();
     return null;
-  });
+  }, [props.history, props.match.params.id]);
 
   const handleDonateClick = () => {
     alert("Donate Button Clicked!");
@@ -117,6 +118,9 @@ const Campaign = (props) => {
               Number of people donated:-{" "}
               <b>0{campaign.numberOfPeopleDonated}</b>
             </p>
+            <div className="border">
+              <Share url={window.location.href} title={campaign.title} />
+            </div>
           </div>
         </div>
         <p>{campaign.description}</p>
