@@ -313,7 +313,6 @@ const login = (req, res) => {
       errors: [{ message: "Please enter both your email and password" }],
     });
   }
-
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
     if (err)
       return res.status(500).json({
@@ -339,11 +338,11 @@ const login = (req, res) => {
     }
 
     // check user is verified or not
-    if (!foundUser.isVerified) {
-      return res.status(401).send({
-        msg: "Your Email has not been verified. Please click on resend",
-      });
-    }
+    // if (!foundUser.isVerified) {
+    //   return res.status(401).send({
+    //     msg: "Your Email has not been verified. Please click on resend",
+    //   });
+    // }
 
     bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
       if (err)

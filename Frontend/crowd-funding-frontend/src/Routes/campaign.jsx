@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import ProgressBar from "../Components/progressBar";
-import Donated from "../Components/donated";
+import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
 import { getCampaignData } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
@@ -61,37 +61,30 @@ const Campaign = (props) => {
     alert("Donate Button Clicked!");
   };
   const handleEdit = () => {
-    alert("Edit Button Clicked!");
-  };
-  const handleHide = () => {
-    alert("Hide Button Clicked!");
+    props.history.push(`/admin/campaign/${props.match.params.id}/edit`);
   };
 
   return (
     <React.Fragment>
       <div className="col-12 col-md-10 m-auto py-2">
         <div>Campaign id: {props.match.params.id}</div>
+        {localStorage.getItem("token") && (
+          <div className="bg-light border p-2">
+            <span className="m-2">
+              IsActivated: {campaign.isActivated === true ? "true" : "false"}
+            </span>
+            <span className="m-2">
+              IsHidden: {campaign.isHidden === true ? "true" : "false"}
+            </span>
+          </div>
+        )}
         <h2>{campaign.title}</h2>
         {localStorage.getItem("token") && (
           <React.Fragment>
-            <button onClick={handleEdit} className="btn btn-danger m-2">
+            <button onClick={handleEdit} className="btn btn-warning m-2">
               EDIT
             </button>
-            <button onClick={handleHide} className="btn btn-danger">
-              HIDE
-            </button>
-            <button
-              onClick={() => alert("Activate")}
-              className="btn btn-warning m-2"
-            >
-              Activate
-            </button>
-            <button
-              onClick={() => alert("Deactivate")}
-              className="btn btn-warning"
-            >
-              Deactivate
-            </button>
+
             <button
               onClick={() => alert("To delete")}
               className="btn btn-danger m-2"
@@ -115,8 +108,7 @@ const Campaign = (props) => {
               handleDonateClick={handleDonateClick}
             />
             <p>
-              Number of people donated:-{" "}
-              <b>0{campaign.numberOfPeopleDonated}</b>
+              Number of people donated:- <b>{campaign.donorsNum}</b>
             </p>
             <div className="border">
               <Share url={window.location.href} title={campaign.title} />

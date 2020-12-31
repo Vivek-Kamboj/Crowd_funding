@@ -29,9 +29,20 @@ export const getCampaignData = async (id) => {
 };
 
 export const newCampaign = async (data, props) => {
-  console.log(data);
   try {
     const x = await axios.post(config.createNewCampaign, data);
+    props.history.push("/campaign/" + x.data._id);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const updateCampaign = async (data, props) => {
+  try {
+    const x = await axios.put(
+      config.updateCampaign + props.match.params.id + "/update",
+      data
+    );
     props.history.push("/campaign/" + x.data._id);
   } catch (error) {
     console.log(error);
