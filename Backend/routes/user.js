@@ -13,5 +13,6 @@ router.post("/login", ctrl.user.login);
 
 router.post("/create", mw.auth.verify, ctrl.user.create);
 router.put("/:id/update", mw.auth.verify, ctrl.user.update);
+router.delete("/:id/delete", mw.auth.verify, ctrl.user.deleteCampaign);
 
 module.exports = router;

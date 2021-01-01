@@ -31,8 +31,19 @@ const CampaignSchema = mongoose.Schema({
   },
   donors: [
     {
-      type: Schema.Types.ObjectId,
-      ref: "Donation",
+      transactionID: {
+        type: String,
+        required: [true],
+        default: "",
+      },
+      donorName: {
+        type: String,
+        default: "",
+      },
+      donationAmount: {
+        type: Number,
+        default: 0,
+      },
     },
   ],
   isHidden: {
