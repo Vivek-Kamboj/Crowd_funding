@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "../Components/reuseableAdminForm";
+import NavBar from "../Components/navbar_notLanding";
 import { register } from "../services/auth";
 
 const RegisterAdmin = (props) => {
@@ -24,6 +25,7 @@ const RegisterAdmin = (props) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <Form
         title="Register Admin"
         handleSubmit={handleSubmit}

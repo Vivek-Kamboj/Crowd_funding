@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import NavBar from "../Components/navbar_notLanding";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
@@ -63,7 +64,6 @@ const Campaign = (props) => {
   }, [props.history, props.match.params.id]);
 
   const handleDonateClick = () => {
-    console.log("Donate Button Clicked!");
     setPopUp(true);
   };
   const handleEdit = () => {
@@ -72,6 +72,7 @@ const Campaign = (props) => {
 
   return (
     <React.Fragment>
+      <NavBar />
       {popUp && <PopUp toggle={togglePop} />}
       <div className="col-12 col-md-10 m-auto py-2">
         <div>Campaign id: {props.match.params.id}</div>

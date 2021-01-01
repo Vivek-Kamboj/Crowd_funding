@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Form from "../Components/reuseableCampaignForm";
+import NavBar from "../Components/navbar_notLanding";
 import { updateCampaign, getCampaignData } from "../services/campaign";
 
 const NewCampaign = (props) => {
@@ -70,6 +71,7 @@ const NewCampaign = (props) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <Form
         title={`Edit Campaign "${props.match.params.id}"`}
         data={data}

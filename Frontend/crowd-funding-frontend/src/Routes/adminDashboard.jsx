@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "../Components/navbar_notLanding";
 import { logout } from "../services/auth";
 
 const AdminDashboard = (p) => {
@@ -8,6 +9,7 @@ const AdminDashboard = (p) => {
   }
   return (
     <React.Fragment>
+      <NavBar />
       <div>AdminDashboard</div>
       <button
         className="btn btn-warning m-2"

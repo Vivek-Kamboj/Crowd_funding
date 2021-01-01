@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "../Components/reuseableCampaignForm";
+import NavBar from "../Components/navbar_notLanding";
 import { newCampaign } from "../services/campaign";
 
 const NewCampaign = (props) => {
@@ -50,6 +51,7 @@ const NewCampaign = (props) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <Form
         title="New Campaign"
         data={data}

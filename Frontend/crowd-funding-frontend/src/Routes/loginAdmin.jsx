@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Form from "../Components/reuseableAdminForm";
+import NavBar from "../Components/navbar_notLanding";
 import { login } from "../services/auth";
 
 const LoginAdmin = (p) => {
@@ -28,6 +29,7 @@ const LoginAdmin = (p) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <Form
         title="Login Admin"
         handleSubmit={handleSubmit}
