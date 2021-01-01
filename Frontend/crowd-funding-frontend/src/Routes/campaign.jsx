@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
+import PopUp from "../Components/popup";
 import { getCampaignData } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
 
@@ -41,6 +42,10 @@ const data = [
 
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
+  const [popUp, setPopUp] = useState(false);
+  const togglePop = () => {
+    setPopUp(!popUp);
+  };
   useEffect(() => {
     async function getData() {
       const { data, err } = await getCampaignData(props.match.params.id);
@@ -58,7 +63,8 @@ const Campaign = (props) => {
   }, [props.history, props.match.params.id]);
 
   const handleDonateClick = () => {
-    alert("Donate Button Clicked!");
+    console.log("Donate Button Clicked!");
+    setPopUp(true);
   };
   const handleEdit = () => {
     props.history.push(`/admin/campaign/${props.match.params.id}/edit`);
@@ -66,6 +72,7 @@ const Campaign = (props) => {
 
   return (
     <React.Fragment>
+      {popUp && <PopUp toggle={togglePop} />}
       <div className="col-12 col-md-10 m-auto py-2">
         <div>Campaign id: {props.match.params.id}</div>
         {localStorage.getItem("token") && (
@@ -93,6 +100,7 @@ const Campaign = (props) => {
             </button>
           </React.Fragment>
         )}
+
         <div className="row m-2">
           <div className="col-lg-7 col-md-6">
             <img
