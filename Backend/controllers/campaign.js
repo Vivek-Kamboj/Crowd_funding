@@ -64,12 +64,17 @@ db.Campaign.find().exec(function (err, results) {
 const show = async (req, res) => {
   try {
     let showCampaign = await db.Campaign.findById(req.params.id);
-    // console.log(showCampaign);
-    res.status(200).json(showCampaign);
+
+    if (showCampaign) {
+      res.status(200).json(showCampaign);
+    } else {
+      res.status(404).json({
+        message: "Page Not Found.",
+      });
+    }
   } catch (err) {
     return res.status(500).json({
       message: "Something wrong when getting the campaign",
-      err: err,
     });
   }
 };

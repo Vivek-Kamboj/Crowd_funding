@@ -13,9 +13,9 @@ app.use(cors());
 app.use(bodyParser.json());
 
 // -----Routes----- //
-app.get("/", (req, res) => {
-  res.sendFile(__dirname + "/index.html");
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(__dirname + "/index.html");
+// });
 
 app.use("/api/campaign", routes.campaign);
 app.use("/api/user", routes.user);

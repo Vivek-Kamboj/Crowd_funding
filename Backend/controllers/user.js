@@ -44,7 +44,7 @@ function validateEmail(email) {
       email.indexOf("@iiitm.ac.in", email.length - "@iiitm.ac.in".length) !== -1
     ) {
       //VALID
-      console.log("VALID");
+      //console.log("VALID");
       return true;
     }
   }
@@ -78,12 +78,12 @@ const addAdmin = (req, res) => {
     bcrypt.genSalt(10, (err, salt) => {
       if (err)
         return res
-          .status(400)
+          .status(500)
           .json({ message: "Something went wrong, try again" });
       bcrypt.hash(userData.password, salt, (err, hash) => {
         if (err)
           return res
-            .status(400)
+            .status(500)
             .json({ message: "Something went wrong, try again" });
 
         const { email, password } = req.body;
@@ -94,9 +94,8 @@ const addAdmin = (req, res) => {
 
         db.User.create(newUser, (err, createdUser) => {
           if (err)
-            return res.status(400).json({
-              message: "Bad Request, Please try again",
-              err: err.errmsg,
+            return res.status(500).json({
+              message: "Something went wrong, Please try again",
             });
           jwt.sign(
             { foo: createdUser._id },
@@ -104,13 +103,14 @@ const addAdmin = (req, res) => {
             { expiresIn: "10h" },
             (err, jwt) => {
               if (err)
-                return res.status(500).json({
-                  status: 503,
-                  errors: [{ message: "Access forbidden" }],
+                return res.status(403).json({
+                  message: "Access forbidden",
                 });
               if (`${process.env.NODE_ENV}` == "prod") {
               } else {
-                res.status(200).json({ jwt, userId: createdUser._id });
+                res.status(200).json({
+                  message: "Admin added successfully.",
+                });
               }
             }
           );
@@ -309,16 +309,14 @@ const resend = (req, res) => {
 const login = (req, res) => {
   if (!req.body.email || !req.body.password) {
     return res.status(400).json({
-      status: 400,
-      errors: [{ message: "Please enter both your email and password" }],
+      message: "Please enter both your email and password",
     });
   }
 
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
     if (err)
       return res.status(500).json({
-        status: 500,
-        errors: [{ message: "Something went wrong. Please try again" }],
+        message: "Something went wrong. Please try again",
       });
 
     if (!validateEmail(req.body.email))
@@ -328,28 +326,22 @@ const login = (req, res) => {
 
     if (!foundUser) {
       return res.status(400).json({
-        status: 400,
-        errors: [
-          {
-            message:
-              "Email address is not associated with any account. Please check and try again",
-          },
-        ],
+        message:
+          "Email address is not associated with any account. Please check and try again",
       });
     }
 
     // check user is verified or not
-    if (!foundUser.isVerified) {
-      return res.status(401).send({
-        msg: "Your Email has not been verified. Please click on resend",
-      });
-    }
+    // if (!foundUser.isVerified) {
+    //   return res.status(401).send({
+    //     msg: "Your Email has not been verified. Please click on resend",
+    //   });
+    // }
 
     bcrypt.compare(req.body.password, foundUser.password, (err, isMatch) => {
       if (err)
         return res.status(500).json({
-          status: 500,
-          errors: [{ message: "Something went wrong. Please try again" }],
+          message: "Something went wrong. Please try again",
         });
 
       if (isMatch) {
@@ -357,20 +349,18 @@ const login = (req, res) => {
         jwt.sign(
           { foo: foundUser._id },
           `${process.env.JWT_SECRET}`,
-          { expiresIn: "24h" },
+          { expiresIn: "10h" },
           (err, jwt) => {
             if (err)
-              return res.status(500).json({
-                status: 503,
-                errors: [{ message: "access forbidden" }],
+              return res.status(403).json({
+                message: "Access Forbidden",
               });
             res.status(200).json({ jwt, userId: foundUser._id });
           }
         );
       } else {
-        return res.json({
-          status: 400,
-          errors: [{ message: "Password is not correct." }],
+        return res.status(400).json({
+          message: "Password is not correct.",
         });
       }
     });
@@ -538,7 +528,6 @@ const create = async (req, res) => {
   } catch (err) {
     return res.status(500).json({
       message: "Something went wrong when creating a new campaign",
-      err: err,
     });
   }
 };
@@ -564,13 +553,33 @@ const update = async (req, res) => {
     res.status(200).json(updatedCampaign);
   } catch (err) {
     return res.status(500).json({
-      message: "Something went wrong while updating campaign",
-      err: err,
+      message: "Something went wrong while updating campaign. Try again.",
     });
   }
 };
 //-------------------------------------------------------------------------------------------------------
 
+const deleteCampaign = async (req, res) => {
+  try {
+    db.Campaign.findByIdAndRemove(req.params.id, (err, success) => {
+      if (err) {
+        return res.status(500).json({
+          message: "Something went wrong while deleting campaign. Try again.",
+        });
+      }
+
+      return res.status(200).json({
+        message: "Successfully deleted the campaign.",
+      });
+    });
+  } catch (err) {
+    return res.status(500).json({
+      message: "Something went wrong while deleting campaign. Try again.",
+    });
+  }
+};
+
+//-------------------------------------------------------------------------------------------------------
 module.exports = {
   addAdmin,
   //verify,
@@ -580,4 +589,5 @@ module.exports = {
   //resetPassword,
   create,
   update,
+  deleteCampaign,
 };
