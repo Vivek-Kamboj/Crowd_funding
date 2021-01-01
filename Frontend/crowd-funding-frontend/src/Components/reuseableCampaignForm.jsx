@@ -4,7 +4,7 @@ const Form = (props) => {
   return (
     <React.Fragment>
       <div className="col-8 mx-auto my-2 border p-2">
-        <h1>{props.title}</h1>
+        <h3>{props.title}</h3>
         <form onSubmit={props.handleSubmit}>
           <div className="mb-3">
             <label htmlFor="Campaign Name" className="form-label">
@@ -12,11 +12,13 @@ const Form = (props) => {
             </label>
             <input
               type="text"
+              value={props.data.title}
               className="form-control"
               id="Campaign Name"
               aria-describedby="emailHelp"
               onChange={props.handleCampaignNameChange}
               placeholder="Enter Campaign Name"
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -25,11 +27,13 @@ const Form = (props) => {
             </label>
             <input
               type="text"
+              value={props.data.imageUrl}
               className="form-control"
               id="Image"
               aria-describedby="emailHelp"
               onChange={props.handleImageChange}
               placeholder="Enter Image URL"
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -38,11 +42,13 @@ const Form = (props) => {
             </label>
             <textarea
               type="text"
+              value={props.data.description}
               className="form-control"
               id="Campaign Description"
               aria-describedby="emailHelp"
               onChange={props.handleCampaignDescriptionChange}
               placeholder="Enter description..."
+              required={true}
             />
           </div>
           <div className="mb-3">
@@ -51,12 +57,40 @@ const Form = (props) => {
             </label>
             <input
               type="number"
+              value={props.data.required}
               className="form-control"
               id="Amount"
               aria-describedby="emailHelp"
               onChange={props.handleAmountChange}
               placeholder="Enter amount to be raised"
+              required={true}
             />
+          </div>
+
+          <div className="form-group form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="Hide"
+              checked={props.data.isHidden}
+              onChange={props.handleHiddenBtn}
+            />
+            <label className="form-check-label" htmlFor="Hide">
+              Hide
+            </label>
+          </div>
+
+          <div className="form-group form-check">
+            <input
+              type="checkbox"
+              className="form-check-input"
+              id="Activate"
+              checked={props.data.isActivated}
+              onChange={props.handleActivateBtn}
+            />
+            <label className="form-check-label" htmlFor="Activate">
+              Activate
+            </label>
           </div>
           <button type="submit" className="btn btn-primary">
             Submit

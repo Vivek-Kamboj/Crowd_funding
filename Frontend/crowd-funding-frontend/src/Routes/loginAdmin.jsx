@@ -1,19 +1,25 @@
 import React, { useState } from "react";
+import { toast } from "react-toastify";
 import Form from "../Components/reuseableAdminForm";
+import NavBar from "../Components/navbar_notLanding";
 import { login } from "../services/auth";
 
-const LoginAdmin = (props) => {
+const LoginAdmin = (p) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  if (localStorage.getItem("token")) {
+    p.history.replace("/admin/dashboard");
+    toast.success("Alredy Logged In....");
+    return null;
+  }
 
   const handleSubmit = (p) => {
     p.preventDefault();
     // console.log("Email:", email);
     // console.log("Password:", password);
-    login(email, password);
-    // .then(() => {
-    //   window.location = "/admin/dashboard";
-    // });
+    login(email, password).then(() => {
+      window.location = "/admin/dashboard";
+    });
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);
@@ -23,6 +29,7 @@ const LoginAdmin = (props) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <Form
         title="Login Admin"
         handleSubmit={handleSubmit}

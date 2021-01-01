@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-toastify";
 import Form from "../Components/reuseableCampaignForm";
 import NavBar from "../Components/navbar_notLanding";
-import { newCampaign } from "../services/campaign";
+import { updateCampaign, getCampaignData } from "../services/campaign";
 
 const NewCampaign = (props) => {
   const [campaignName, setCampaignName] = useState("");
@@ -10,7 +11,26 @@ const NewCampaign = (props) => {
   const [image, setImage] = useState("");
   const [isActivated, setActivated] = useState(true);
   const [isHidden, setHidden] = useState(false);
+  useEffect(() => {
+    async function getData() {
+      const { data, err } = await getCampaignData(props.match.params.id);
 
+      if (err === undefined) {
+        setCampaignName(data.title);
+        setCampaignDescription(data.description);
+        setAmount(data.required);
+        setImage(data.imageUrl);
+        setActivated(data.isActivated);
+        setHidden(data.isHidden);
+      } else {
+        console.log(err);
+        toast.error("Campaign not found");
+        props.history.replace("/page-not-found");
+      }
+    }
+    getData();
+    return null;
+  }, [props.history, props.match.params.id]);
   if (!localStorage.getItem("token")) {
     props.history.replace("/page-not-found");
     return null;
@@ -26,10 +46,10 @@ const NewCampaign = (props) => {
   };
   const handleSubmit = (p) => {
     p.preventDefault();
-    async function createCampaign(data) {
-      await newCampaign(data, props);
+    async function editCampaign(data) {
+      await updateCampaign(data, props);
     }
-    createCampaign(data);
+    editCampaign(data);
   };
   const handleCampaignNameChange = (p) => {
     setCampaignName(p.target.value);
@@ -53,7 +73,7 @@ const NewCampaign = (props) => {
     <React.Fragment>
       <NavBar />
       <Form
-        title="New Campaign"
+        title={`Edit Campaign "${props.match.params.id}"`}
         data={data}
         handleSubmit={handleSubmit}
         handleCampaignNameChange={handleCampaignNameChange}

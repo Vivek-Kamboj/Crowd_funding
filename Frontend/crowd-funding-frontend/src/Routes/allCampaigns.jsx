@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import NavBar from "../Components/navbar_notLanding";
 import Campaign from "../Components/everyOngoingCampaigns";
 import { getAllCampaigns } from "../services/campaign";
 
@@ -24,6 +25,7 @@ const AllCampaigns = (props) => {
   };
   return (
     <React.Fragment>
+      <NavBar />
       <h1>All Campaigns</h1>
       <div className="row">
         {data.map((d) => (

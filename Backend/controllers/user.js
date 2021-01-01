@@ -312,7 +312,6 @@ const login = (req, res) => {
       message: "Please enter both your email and password",
     });
   }
-
   db.User.findOne({ email: req.body.email }, (err, foundUser) => {
     if (err)
       return res.status(500).json({

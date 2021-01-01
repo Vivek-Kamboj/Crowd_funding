@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
+import NavBar from "../Components/navbar_Landing";
 import ImageLanding from "../Components/image_landing";
 import OnGoingCampaigns from "../Components/onGoingCampaigns";
 import WhyUs from "../Components/whyUsSection";
@@ -67,6 +68,7 @@ const LandingPage = (props) => {
 
   return (
     <React.Fragment>
+      <NavBar />
       <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns handleClick={handleClick} data={data} />
