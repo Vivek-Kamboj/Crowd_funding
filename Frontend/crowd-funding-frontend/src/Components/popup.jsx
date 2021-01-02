@@ -5,6 +5,8 @@ const PopUp = (props) => {
   const handleClick = () => {
     props.toggle();
   };
+  const send_to = "http://localhost:4000/api/donate/" + props.id + "/payment";
+
   return (
     <React.Fragment>
       <div className={styles.modal}>
@@ -12,13 +14,14 @@ const PopUp = (props) => {
           <span className={styles.close} onClick={handleClick}>
             &times;
           </span>
-          <form>
+          <form method="POST" action={send_to}>
             <div className="form-group">
               <label htmlFor="Name">Enter Name</label>
               <input
                 type="text"
                 className="form-control"
                 id="Name"
+                name="name"
                 aria-describedby="nameHelp"
                 placeholder="Enter Name"
               />
@@ -32,6 +35,7 @@ const PopUp = (props) => {
                 type="number"
                 className="form-control"
                 id="Amount"
+                name="amount"
                 placeholder="Amount"
               />
             </div>

@@ -49,6 +49,17 @@ export const updateCampaign = async (data, props) => {
   }
 };
 
+export const deleteCampaign = async (props) => {
+  try {
+    await axios.delete(
+      config.updateCampaign + props.match.params.id + "/delete"
+    );
+    props.history.push("/");
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 // const d = [
 //   {
 //     _id: "abc1",

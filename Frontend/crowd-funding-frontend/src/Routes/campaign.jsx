@@ -5,7 +5,7 @@ import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
 import PopUp from "../Components/popup";
-import { getCampaignData } from "../services/campaign";
+import { getCampaignData, deleteCampaign } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
 
 const data = [
@@ -69,11 +69,16 @@ const Campaign = (props) => {
   const handleEdit = () => {
     props.history.push(`/admin/campaign/${props.match.params.id}/edit`);
   };
-
+  const handledelete = () => {
+    async function DeleteCampaign(data) {
+      await deleteCampaign(props);
+    }
+    DeleteCampaign(data);
+  };
   return (
     <React.Fragment>
       <NavBar />
-      {popUp && <PopUp toggle={togglePop} />}
+      {popUp && <PopUp id={props.match.params.id} toggle={togglePop} />}
       <div className="col-12 col-md-10 m-auto py-2">
         {localStorage.getItem("token") && (
           <div className="bg-light border p-2">
@@ -92,10 +97,7 @@ const Campaign = (props) => {
               EDIT
             </button>
 
-            <button
-              onClick={() => alert("To delete")}
-              className="btn btn-danger m-2"
-            >
+            <button onClick={handledelete} className="btn btn-danger m-2">
               Delete
             </button>
           </React.Fragment>
