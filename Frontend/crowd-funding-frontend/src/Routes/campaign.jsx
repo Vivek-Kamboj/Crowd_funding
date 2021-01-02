@@ -8,39 +8,6 @@ import PopUp from "../Components/popup";
 import { getCampaignData, deleteCampaign } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
 
-const data = [
-  {
-    t_id: "abc1",
-    amount: 100,
-    name: "Ramesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc2",
-    amount: 100,
-    name: "Samesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc3",
-    amount: 100,
-    name: "Darmesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc4",
-    amount: 100,
-    name: "papnesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc5",
-    amount: 100,
-    name: "katappa",
-    time: "32/12/20",
-  },
-];
-
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
   const [popUp, setPopUp] = useState(false);
@@ -70,10 +37,10 @@ const Campaign = (props) => {
     props.history.push(`/admin/campaign/${props.match.params.id}/edit`);
   };
   const handledelete = () => {
-    async function DeleteCampaign(data) {
+    async function DeleteCampaign() {
       await deleteCampaign(props);
     }
-    DeleteCampaign(data);
+    DeleteCampaign();
   };
   return (
     <React.Fragment>
@@ -130,7 +97,7 @@ const Campaign = (props) => {
           Donate Now {">"}{" "}
         </button>
         <hr />
-        {localStorage.getItem("token") && <Donated data={data} />}
+        {localStorage.getItem("token") && <Donated data={campaign.donors} />}
       </div>
     </React.Fragment>
   );
