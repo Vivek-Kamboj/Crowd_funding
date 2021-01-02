@@ -20,7 +20,7 @@ const ShareButtons = (props) => {
   //     title = "props.title";
   return (
     <React.Fragment>
-      <div className="p-2 bg-light">
+      <div className="p-2 bg-light" style={{ textAlign: "center" }}>
         <h4>Share with your friends:</h4>
         <FacebookShareButton url={url} className="m-2">
           <FacebookIcon size={40} round={true} />

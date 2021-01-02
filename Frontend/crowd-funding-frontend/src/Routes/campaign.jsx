@@ -75,7 +75,6 @@ const Campaign = (props) => {
       <NavBar />
       {popUp && <PopUp toggle={togglePop} />}
       <div className="col-12 col-md-10 m-auto py-2">
-        <div>Campaign id: {props.match.params.id}</div>
         {localStorage.getItem("token") && (
           <div className="bg-light border p-2">
             <span className="m-2">
