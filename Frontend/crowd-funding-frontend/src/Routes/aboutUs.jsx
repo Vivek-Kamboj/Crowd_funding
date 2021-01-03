@@ -1,10 +1,10 @@
 import React from "react";
-import NavBar from "../Components/navbar_notLanding";
+// import NavBar from "../Components/navbar_notLanding";
 
 const AboutUs = () => {
   return (
     <React.Fragment>
-      <NavBar />
+      {/* <NavBar /> */}
       <div className="col-10 m-auto">
         <h1>About us</h1>
         <p>

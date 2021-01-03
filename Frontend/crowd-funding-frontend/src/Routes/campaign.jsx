@@ -4,16 +4,13 @@ import NavBar from "../Components/navbar_notLanding";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
-import PopUp from "../Components/popup";
+import DonateForm from "../Components/donateform";
 import { getCampaignData, deleteCampaign } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
 
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
-  const [popUp, setPopUp] = useState(false);
-  const togglePop = () => {
-    setPopUp(!popUp);
-  };
+
   useEffect(() => {
     async function getData() {
       const { data, err } = await getCampaignData(props.match.params.id);
@@ -30,9 +27,6 @@ const Campaign = (props) => {
     return null;
   }, [props.history, props.match.params.id]);
 
-  const handleDonateClick = () => {
-    setPopUp(true);
-  };
   const handleEdit = () => {
     props.history.push(`/admin/campaign/${props.match.params.id}/edit`);
   };
@@ -45,7 +39,7 @@ const Campaign = (props) => {
   return (
     <React.Fragment>
       <NavBar />
-      {popUp && <PopUp id={props.match.params.id} toggle={togglePop} />}
+
       <div className="col-12 col-md-10 m-auto py-2">
         {localStorage.getItem("token") && (
           <div className="bg-light border p-2">
@@ -82,7 +76,7 @@ const Campaign = (props) => {
             <ProgressBar
               fundRequired={campaign.required}
               fundRaised={campaign.raised}
-              handleDonateClick={handleDonateClick}
+              id={props.match.params.id}
             />
             <p>
               Number of people donated:- <b>{campaign.donorsNum}</b>
@@ -93,9 +87,7 @@ const Campaign = (props) => {
           </div>
         </div>
         <p>{campaign.description}</p>
-        <button onClick={handleDonateClick} className="btn btn-success col-12">
-          Donate Now {">"}{" "}
-        </button>
+        <DonateForm id={props.match.params.id} />
         <hr />
         {localStorage.getItem("token") && <Donated data={campaign.donors} />}
       </div>
