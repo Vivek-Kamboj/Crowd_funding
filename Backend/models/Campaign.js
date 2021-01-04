@@ -36,10 +36,6 @@ const CampaignSchema = mongoose.Schema({
         required: [true],
         default: "",
       },
-      donorName: {
-        type: String,
-        default: "",
-      },
       donationAmount: {
         type: Number,
         default: 0,
