@@ -1,6 +1,5 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
-import NavBar from "./Components/navbar";
 import LandingPage from "./Routes/landingPage";
 import Campaign from "./Routes/campaign";
 import LoginAdmin from "./Routes/loginAdmin";
@@ -21,7 +20,6 @@ const App = () => {
   return (
     <React.Fragment>
       <ToastContainer />
-      <NavBar />
       <Switch>
         <Route path="/all-campaigns" exact component={AllCampaigns} />
         <Route path="/campaign/:id" exact component={Campaign} />

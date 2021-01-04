@@ -72,7 +72,7 @@ const Campaign = (props) => {
               alt={campaign.title}
             />
           </div>
-          <div className=" col-lg-5 col-md-6 p-5">
+          <div className=" col-lg-5 col-md-6 p-2">
             <ProgressBar
               fundRequired={campaign.required}
               fundRaised={campaign.raised}
