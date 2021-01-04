@@ -14,7 +14,6 @@ const { Donation } = require("../models");
 
 router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
   var donation = new Donation({
-    name: req.body.name,
     amount: req.body.amount,
     campaign: req.params.id,
   });
@@ -24,11 +23,10 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
     .then(() => {
       var paymentDetails = {
         amount: req.body.amount,
-        customerId: req.body.name,
       };
 
-      if (!paymentDetails.amount || !paymentDetails.customerId) {
-        res.status(400).send("Please fill all the fields!");
+      if (!paymentDetails.amount) {
+        res.status(400).send("Please enter the amount!");
       } else {
         var params = {};
         params["MID"] = config.PaytmConfig.mid;
@@ -36,7 +34,7 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
         params["CHANNEL_ID"] = "WEB";
         params["INDUSTRY_TYPE_ID"] = "Retail";
         params["ORDER_ID"] = donation._id.toString();
-        params["CUST_ID"] = paymentDetails.customerId + new Date().getTime();
+        params["CUST_ID"] = donation._id + new Date().getTime();
         params["TXN_AMOUNT"] = paymentDetails.amount.toString();
         params["CALLBACK_URL"] =
           "http://localhost:4000" + "/api/donate/" + "success";

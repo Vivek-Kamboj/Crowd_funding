@@ -1,0 +1,7 @@
+NODE_ENV = development
+PORT = <port>
+
+JWT_SECRET = <key>
+RESET_PASSWORD_KEY = <key>
+
+MONGODB_URI = <Your Database URL>

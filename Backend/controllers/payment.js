@@ -94,9 +94,9 @@ const success = async (req, res) => {
 
                         var details = {
                           transactionID: donation.transactionID,
-                          donorName: donation.name,
                           donationAmount: donation.amount,
                         };
+
                         campaign.donors.push(details);
                         campaign.donorsNum = campaign.donorsNum + 1;
                         campaign.raised = campaign.raised + donation.amount;
@@ -105,11 +105,13 @@ const success = async (req, res) => {
                         await donation.save();
 
                         console.log("Payment Successful");
-                        res.status(200).json({
-                          message: "Payment Successful",
-                        });
+                        // res.redirect("/");
+                        // res.write(
+                        //   "<html><head><title>Payment Successful</title></head><body><center><h1>Payment Successful!! THANK YOU</h1></center></body></html>"
+                        // );
+                        res.status(200).json(transactionID);
                       } else {
-                        res.send("Payment Failed");
+                        res.status(400).json({ messsage: "Payment Failed" });
                       }
                     });
                   }
