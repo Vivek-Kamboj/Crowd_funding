@@ -4,49 +4,13 @@ import NavBar from "../Components/navbar_notLanding";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
-import PopUp from "../Components/popup";
-import { getCampaignData } from "../services/campaign";
+import DonateForm from "../Components/donateform";
+import { getCampaignData, deleteCampaign } from "../services/campaign";
 import styles from "../Components/styles/campaign.module.css";
-
-const data = [
-  {
-    t_id: "abc1",
-    amount: 100,
-    name: "Ramesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc2",
-    amount: 100,
-    name: "Samesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc3",
-    amount: 100,
-    name: "Darmesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc4",
-    amount: 100,
-    name: "papnesh",
-    time: "32/12/20",
-  },
-  {
-    t_id: "abc5",
-    amount: 100,
-    name: "katappa",
-    time: "32/12/20",
-  },
-];
 
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
-  const [popUp, setPopUp] = useState(false);
-  const togglePop = () => {
-    setPopUp(!popUp);
-  };
+
   useEffect(() => {
     async function getData() {
       const { data, err } = await getCampaignData(props.match.params.id);
@@ -63,17 +27,19 @@ const Campaign = (props) => {
     return null;
   }, [props.history, props.match.params.id]);
 
-  const handleDonateClick = () => {
-    setPopUp(true);
-  };
   const handleEdit = () => {
     props.history.push(`/admin/campaign/${props.match.params.id}/edit`);
   };
-
+  const handledelete = () => {
+    async function DeleteCampaign() {
+      await deleteCampaign(props);
+    }
+    DeleteCampaign();
+  };
   return (
     <React.Fragment>
       <NavBar />
-      {popUp && <PopUp toggle={togglePop} />}
+
       <div className="col-12 col-md-10 m-auto py-2">
         {localStorage.getItem("token") && (
           <div className="bg-light border p-2">
@@ -92,10 +58,7 @@ const Campaign = (props) => {
               EDIT
             </button>
 
-            <button
-              onClick={() => alert("To delete")}
-              className="btn btn-danger m-2"
-            >
+            <button onClick={handledelete} className="btn btn-danger m-2">
               Delete
             </button>
           </React.Fragment>
@@ -109,11 +72,11 @@ const Campaign = (props) => {
               alt={campaign.title}
             />
           </div>
-          <div className=" col-lg-5 col-md-6 p-5">
+          <div className=" col-lg-5 col-md-6 p-2">
             <ProgressBar
               fundRequired={campaign.required}
               fundRaised={campaign.raised}
-              handleDonateClick={handleDonateClick}
+              id={props.match.params.id}
             />
             <p>
               Number of people donated:- <b>{campaign.donorsNum}</b>
@@ -124,11 +87,9 @@ const Campaign = (props) => {
           </div>
         </div>
         <p>{campaign.description}</p>
-        <button onClick={handleDonateClick} className="btn btn-success col-12">
-          Donate Now {">"}{" "}
-        </button>
+        <DonateForm id={props.match.params.id} />
         <hr />
-        {localStorage.getItem("token") && <Donated data={data} />}
+        {localStorage.getItem("token") && <Donated data={campaign.donors} />}
       </div>
     </React.Fragment>
   );

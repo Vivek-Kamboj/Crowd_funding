@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import DonateForm from "./donateform";
 
 const percentCompleted = (Raised, Required) => {
   return (Raised * 100) / Required;
@@ -52,12 +53,8 @@ const ProgressBar = (props) => {
             </p>
           </div>
         </div>
-        <button
-          onClick={props.handleDonateClick}
-          className="btn btn-success col-12"
-        >
-          Donate Now {">"}{" "}
-        </button>
+
+        <DonateForm id={props.id} />
       </div>
     </React.Fragment>
   );

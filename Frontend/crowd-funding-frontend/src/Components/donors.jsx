@@ -6,11 +6,18 @@ const Donated = (props) => {
       <div>
         <h1>Donated People List</h1>
         <ul className="list-group">
-          {props.data.map((d) => (
-            <li className="list-group-item" key={d.t_id}>
-              T_id:{d.t_id} name:{d.name} time:{d.time} Rupees:Rs{d.amount}
-            </li>
-          ))}
+          {props.data &&
+            (props.data.length === 0 ? (
+              <li className="list-group-item">No one donated yet...</li>
+            ) : (
+              props.data.map((d) => (
+                <li className="list-group-item" key={d.transactionID}>
+                  transactionID:{d.transactionID} <br /> name:{d.donorName}{" "}
+                  <br /> Rupees: Rs
+                  {d.donationAmount}
+                </li>
+              ))
+            ))}
         </ul>
       </div>
     </React.Fragment>

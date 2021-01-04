@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/proudToDonate.module.css";
 
 const ProudToDonate = () => {
@@ -17,8 +17,10 @@ const ProudToDonate = () => {
     setProperty(current);
     setIndex(i);
   };
-
-  setTimeout(setImage, 3000);
+  useEffect(() => {
+    const timer = setTimeout(setImage, 3000);
+    return () => clearTimeout(timer);
+  });
 
   return (
     <React.Fragment>
