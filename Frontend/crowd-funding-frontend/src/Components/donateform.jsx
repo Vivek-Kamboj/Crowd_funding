@@ -6,14 +6,14 @@ const DonateForm = (props) => {
   return (
     <React.Fragment>
       <form method="POST" action={send_to}>
-        <input
+        {/* <input
           type="text"
           className="form-control"
           name="name"
           placeholder="Enter Name"
           defaultValue="Anonymous"
           style={{ display: "none" }}
-        />
+        /> */}
         <div className="form-group">
           <input
             type="number"

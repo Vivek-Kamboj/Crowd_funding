@@ -12,6 +12,7 @@ const AdminDashboard = (p) => {
       <NavBar />
       <div className="col-12 col-md-10">
         <div>AdminDashboard</div>
+
         <button
           className="btn btn-warning m-2"
           onClick={() => {
