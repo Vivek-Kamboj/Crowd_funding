@@ -109,7 +109,8 @@ const success = async (req, res) => {
                         // res.write(
                         //   "<html><head><title>Payment Successful</title></head><body><center><h1>Payment Successful!! THANK YOU</h1></center></body></html>"
                         // );
-                        res.status(200).json(transactionID);
+                        // res.status(200).json(transactionID);
+                        res.status(200).send("payment success");
                       } else {
                         res.status(400).json({ messsage: "Payment Failed" });
                       }

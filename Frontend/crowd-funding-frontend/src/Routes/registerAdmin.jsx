@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import Form from "../Components/reuseableAdminForm";
 import NavBar from "../Components/navbar_notLanding";
-import { register } from "../services/auth";
+import { register, isAuthorised } from "../services/auth";
 
 const RegisterAdmin = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  if (!localStorage.getItem("token")) {
-    props.history.replace("/page-not-found");
+  if (!isAuthorised()) {
+    window.location = "/page-not-found";
     return null;
   }
   const handleSubmit = (p) => {

@@ -1,10 +1,17 @@
 import React from "react";
+// import jwtDecode from "jwt-decode";
 import NavBar from "../Components/navbar_notLanding";
-import { logout } from "../services/auth";
+import { logout, isAuthorised } from "../services/auth";
 
 const AdminDashboard = (p) => {
-  if (!localStorage.getItem("token")) {
-    p.history.replace("/page-not-found");
+  // if (!localStorage.getItem("token")) {
+  //   p.history.replace("/page-not-found");
+  //   return null;
+  // }
+  // console.log(jwtDecode(localStorage.getItem("token")));
+  // console.log(jwtDecode(localStorage.getItem("token")).iat * 1000, Date.now());
+  if (!isAuthorised()) {
+    window.location = "/page-not-found";
     return null;
   }
   return (

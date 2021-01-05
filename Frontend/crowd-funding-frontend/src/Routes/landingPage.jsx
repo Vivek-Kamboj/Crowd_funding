@@ -52,7 +52,11 @@ const LandingPage = (props) => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
-        setData(data);
+        if (data.length > 4) {
+          setData(data.slice(0, 4));
+        } else {
+          setData(data);
+        }
       } else {
         console.log(err);
         toast.error("Something went wrong");

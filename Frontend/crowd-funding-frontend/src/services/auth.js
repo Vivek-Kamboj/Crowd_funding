@@ -1,4 +1,5 @@
 import axios from "axios";
+import jwtDecode from "jwt-decode";
 import config from "../config.json";
 import { toast } from "react-toastify";
 
@@ -35,4 +36,14 @@ export const login = async (email, password) => {
 
 export const logout = async () => {
   localStorage.removeItem("token");
+};
+
+export const isAuthorised = () => {
+  if (!localStorage.getItem("token")) return false;
+  let exp = jwtDecode(localStorage.getItem("token")).exp;
+  if (!exp || exp * 1000 < Date.now()) {
+    localStorage.removeItem("token");
+    return false;
+  }
+  return true;
 };
