@@ -12,8 +12,7 @@ const Donated = (props) => {
             ) : (
               props.data.map((d) => (
                 <li className="list-group-item" key={d.transactionID}>
-                  transactionID:{d.transactionID} <br /> name:{d.donorName}{" "}
-                  <br /> Rupees: Rs
+                  transactionID:{d.transactionID} <br /> Rupees: Rs
                   {d.donationAmount}
                 </li>
               ))
