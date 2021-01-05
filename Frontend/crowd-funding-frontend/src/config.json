@@ -4,5 +4,6 @@
     "createNewCampaign":"http://localhost:4000/api/user/create",
     "updateCampaign":"http://localhost:4000/api/user/",
     "registerAdminUrl":"http://localhost:4000/api/user/addAdmin",
-    "loginAdminUrl" : "http://localhost:4000/api/user/login"
+    "loginAdminUrl" : "http://localhost:4000/api/user/login",
+    "donateTo": "http://localhost:4000/api/donate/"
 }

@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import Form from "../Components/reuseableCampaignForm";
 import NavBar from "../Components/navbar_notLanding";
 import { updateCampaign, getCampaignData } from "../services/campaign";
+import { isAuthorised } from "../services/auth";
 
 const NewCampaign = (props) => {
   const [campaignName, setCampaignName] = useState("");
@@ -31,8 +32,9 @@ const NewCampaign = (props) => {
     getData();
     return null;
   }, [props.history, props.match.params.id]);
-  if (!localStorage.getItem("token")) {
-    props.history.replace("/page-not-found");
+
+  if (!isAuthorised()) {
+    window.location = "/page-not-found";
     return null;
   }
 

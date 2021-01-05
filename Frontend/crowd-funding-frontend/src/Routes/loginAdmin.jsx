@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Form from "../Components/reuseableAdminForm";
 import NavBar from "../Components/navbar_notLanding";
-import { login } from "../services/auth";
+import { login, isAuthorised } from "../services/auth";
 
 const LoginAdmin = (p) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  if (localStorage.getItem("token")) {
+  if (isAuthorised()) {
     p.history.replace("/admin/dashboard");
     toast.success("Alredy Logged In....");
     return null;
