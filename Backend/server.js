@@ -21,6 +21,10 @@ app.use("/api/campaign", routes.campaign);
 app.use("/api/user", routes.user);
 app.use("/api/donate", routes.payment);
 
+app.get("*",function(req,res){
+	res.send("404 Error");
+});
+
 app.listen(PORT, function () {
   console.log("Server running successfully");
 });
