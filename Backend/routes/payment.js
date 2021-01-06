@@ -46,7 +46,6 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
             var txn_url =
               "https://securegw-stage.paytm.in/theia/processTransaction"; // for staging
             // var txn_url = "https://securegw.paytm.in/theia/processTransaction"; // for production
-
             var form_fields = "";
             for (var x in params) {
               form_fields +=
@@ -61,6 +60,7 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
               checksum +
               "' >";
 
+            // console.log(res);
             res.writeHead(200, { "Content-Type": "text/html" });
             res.write(
               '<html><head><title>Merchant Checkout Page</title></head><body><center><h1>Please do not refresh this page...</h1></center><form method="post" action="' +

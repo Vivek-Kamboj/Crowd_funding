@@ -1,8 +1,8 @@
 import React from "react";
-import config from "../config.json";
+import config from "../config.js";
 
 const DonateForm = (props) => {
-  const send_to = config.donateTo + props.id + "/payment";
+  const send_to = config.donateTo(props.id);
 
   return (
     <React.Fragment>
