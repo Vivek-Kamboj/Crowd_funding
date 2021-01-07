@@ -54,7 +54,11 @@ const ProgressBar = (props) => {
           </div>
         </div>
 
-        <DonateForm id={props.id} />
+        <DonateForm
+          id={props.id}
+          amount={props.amount}
+          onAmountChange={props.onAmountChange}
+        />
       </div>
     </React.Fragment>
   );

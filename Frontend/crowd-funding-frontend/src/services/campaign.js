@@ -1,5 +1,5 @@
 import axios from "axios";
-import config from "../config.json";
+import config from "../config.js";
 
 axios.defaults.headers.common["authorization"] =
   "Bearer " + localStorage.getItem("token");
@@ -8,7 +8,7 @@ export const getAllCampaigns = async () => {
   let dataToSend = [],
     err = undefined;
   try {
-    const data = await axios.get(config.getAllCampaigns);
+    const data = await axios.get(config.getAllCampaignsUrl());
     dataToSend = data.data;
   } catch (error) {
     err = error;
@@ -20,7 +20,7 @@ export const getCampaignData = async (id) => {
   let dataToSend = {},
     err = undefined;
   try {
-    const data = await axios.get(config.getCampaignDataById + id);
+    const data = await axios.get(config.getCampaignDataByIdUrl(id));
     dataToSend = data.data;
   } catch (error) {
     err = error;
@@ -30,7 +30,7 @@ export const getCampaignData = async (id) => {
 
 export const newCampaign = async (data, props) => {
   try {
-    const x = await axios.post(config.createNewCampaign, data);
+    const x = await axios.post(config.createNewCampaignUrl(), data);
     props.history.push("/campaign/" + x.data._id);
   } catch (error) {
     console.log(error);
@@ -40,7 +40,7 @@ export const newCampaign = async (data, props) => {
 export const updateCampaign = async (data, props) => {
   try {
     const x = await axios.put(
-      config.updateCampaign + props.match.params.id + "/update",
+      config.updateCampaignUrl(props.match.params.id),
       data
     );
     props.history.push("/campaign/" + x.data._id);
@@ -51,9 +51,7 @@ export const updateCampaign = async (data, props) => {
 
 export const deleteCampaign = async (props) => {
   try {
-    await axios.delete(
-      config.updateCampaign + props.match.params.id + "/delete"
-    );
+    await axios.delete(config.deleteCampaignUrl(props.match.params.id));
     props.history.push("/");
   } catch (error) {
     console.log(error);
