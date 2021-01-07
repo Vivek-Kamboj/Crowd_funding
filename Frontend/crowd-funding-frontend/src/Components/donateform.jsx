@@ -9,11 +9,12 @@ const DonateForm = (props) => {
       <form method="POST" action={send_to}>
         <div className="form-group">
           <input
-            type="number"
             className="form-control"
             name="amount"
             placeholder="Enter Amount"
             required={true}
+            value={props.amount}
+            onChange={props.onAmountChange}
           />
         </div>
 

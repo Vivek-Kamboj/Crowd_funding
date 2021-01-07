@@ -12,6 +12,18 @@ import styles from "../Components/styles/campaign.module.css";
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
 
+  const [amount, setAmount] = useState("");
+
+  function isNormalInteger(str) {
+    var n = Math.floor(Number(str));
+    return n !== Infinity && String(n) === str && n > 0;
+  }
+
+  const handleAmountChange = (p) => {
+    if (p.target.value === "" || isNormalInteger(p.target.value))
+      setAmount(p.target.value);
+  };
+
   useEffect(() => {
     async function getData() {
       const { data, err } = await getCampaignData(props.match.params.id);
@@ -78,6 +90,8 @@ const Campaign = (props) => {
               fundRequired={campaign.required}
               fundRaised={campaign.raised}
               id={props.match.params.id}
+              amount={amount}
+              onAmountChange={handleAmountChange}
             />
             <p>
               Number of people donated:- <b>{campaign.donorsNum}</b>
@@ -88,9 +102,13 @@ const Campaign = (props) => {
           </div>
         </div>
         <p>{campaign.description}</p>
-        <DonateForm id={props.match.params.id} />
+        <DonateForm
+          id={props.match.params.id}
+          amount={amount}
+          onAmountChange={handleAmountChange}
+        />
         <hr />
-        {isAuthorised() && <Donated data={campaign.donors} />}
+        <Donated data={campaign.donors} />
       </div>
     </React.Fragment>
   );
