@@ -5,7 +5,7 @@ const Donated = (props) => {
   return (
     <React.Fragment>
       <div>
-        <h1>Donated People List</h1>
+        <h3>List of donations:</h3>
         <ul className="list-group">
           {props.data &&
             (props.data.length === 0 ? (
