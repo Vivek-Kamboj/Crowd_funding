@@ -20,7 +20,7 @@ const success = async (req, res) => {
       var post_data = qs.parse(body);
 
       // received params in callback
-      // console.log("Callback Response: ", post_data, "\n");
+      //console.log("Callback Response: ", post_data, "\n");
 
       if (post_data.RESPCODE == "01") {
         try {
@@ -77,7 +77,7 @@ const success = async (req, res) => {
                     });
 
                     post_res.on("end", async function () {
-                      // console.log("S2S Response: ", response, "\n");
+                      //console.log("S2S Response: ", response, "\n");
 
                       var _result = JSON.parse(response);
                       //We need to match donationID and amount
@@ -92,6 +92,8 @@ const success = async (req, res) => {
                           donation.campaign
                         );
 
+                        const donationId = donation._id;
+
                         var details = {
                           transactionID: donation.transactionID,
                           donationAmount: donation.amount,
@@ -104,15 +106,17 @@ const success = async (req, res) => {
 
                         await donation.save();
 
-                        console.log("Payment Successful");
-                        // res.redirect("/");
-                        // res.write(
-                        //   "<html><head><title>Payment Successful</title></head><body><center><h1>Payment Successful!! THANK YOU</h1></center></body></html>"
-                        // );
-                        // res.status(200).json(transactionID);
-                        res.status(200).send("payment success");
+                        //console.log("Payment Successful");
+                        res
+                          .status(200)
+                          .redirect(
+                            "http://localhost:3000/donation/success/" +
+                              donationId
+                          );
                       } else {
-                        res.status(400).json({ messsage: "Payment Failed" });
+                        res
+                          .status(400)
+                          .redirect("http://localhost:3000/donation/failure");
                       }
                     });
                   }
@@ -126,21 +130,19 @@ const success = async (req, res) => {
           }
         } catch (err) {
           //console.log(err);
-          return res.status(500).json({
-            message: "Something went wrong. Please try again.",
+          res.status(500).json({
+            message: "Server error. Sorry from our end.",
           });
         }
       } else {
         //console.log(err);
-        return res.status(500).json({
-          message: "Transaction Failed. Please try again.",
-        });
+        res.status(400).redirect("http://localhost:3000/donation/failure");
       }
     });
   } catch (err) {
     //console.log(err);
-    return res.status(500).json({
-      message: "Something went wrong. Please try again.",
+    res.status(500).json({
+      message: "Server error. Sorry from our end.",
     });
   }
 };

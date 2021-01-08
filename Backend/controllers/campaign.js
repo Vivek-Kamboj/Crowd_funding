@@ -80,7 +80,7 @@ const show = async (req, res) => {
 };
 
 const showAll = async (req, res) => {
-  console.log("success");
+  //console.log("success");
   try {
     // Add this code in CreateCampaign Route during production
     // To sort campaign in descending order of dates
@@ -89,7 +89,7 @@ const showAll = async (req, res) => {
       .exec(function (err, allCampaign) {
         if (err) console.log(err);
         else {
-          console.log("Sorted");
+          //console.log("Sorted");
           res.status(200).json(allCampaign);
         }
       });
