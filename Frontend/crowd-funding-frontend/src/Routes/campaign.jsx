@@ -97,7 +97,11 @@ const Campaign = (props) => {
               Number of people donated:- <b>{campaign.donorsNum}</b>
             </p>
             <div className="border">
-              <Share url={window.location.href} title={campaign.title} />
+              <Share
+                url={window.location.href}
+                title={campaign.title}
+                description={campaign.description}
+              />
             </div>
           </div>
         </div>

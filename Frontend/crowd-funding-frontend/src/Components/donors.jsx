@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./styles/donors.module.css";
 
 const Donated = (props) => {
   return (
@@ -13,13 +14,13 @@ const Donated = (props) => {
               <>
                 <li className="list-group-item">
                   <div className="row">
-                    <div className="col-4 text-center">
+                    <div className="col-6 text-center">
                       <b>TransactionId</b>
                     </div>
-                    <div className="col-4 text-center">
+                    <div className="col-3 text-center">
                       <b>Amount</b>
                     </div>
-                    <div className="col-4 text-center">
+                    <div className="col-3 text-center">
                       <b>Status</b>
                     </div>
                   </div>
@@ -27,11 +28,15 @@ const Donated = (props) => {
                 {props.data.map((d) => (
                   <li className="list-group-item" key={d.transactionID}>
                     <div className="row">
-                      <div className="col-4 text-center">{d.transactionID}</div>
-                      <div className="col-4 text-center">
+                      <div className="col-md-6 text-center">
+                        {d.transactionID}
+                      </div>
+                      <div className="col-md-3 text-center">
                         Rs. {d.donationAmount}
                       </div>
-                      <div className="col-4 text-center">Successful</div>
+                      <div className={`col-md-3 text-center ${styles.success}`}>
+                        Successful
+                      </div>
                     </div>
                   </li>
                 ))}
