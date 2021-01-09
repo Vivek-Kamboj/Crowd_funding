@@ -1,5 +1,5 @@
 import React from "react";
-// import jwtDecode from "jwt-decode";
+import jwtDecode from "jwt-decode";
 import NavBar from "../Components/navbar_notLanding";
 import { logout, isAuthorised } from "../services/auth";
 
@@ -14,12 +14,13 @@ const AdminDashboard = (p) => {
     window.location = "/page-not-found";
     return null;
   }
+  let id = jwtDecode(localStorage.getItem("token")).foo;
   return (
     <React.Fragment>
       <NavBar />
       <div className="col-12 col-md-10">
         <div>AdminDashboard</div>
-
+        <p>Id: {id}</p>
         <button
           className="btn btn-warning m-2"
           onClick={() => {

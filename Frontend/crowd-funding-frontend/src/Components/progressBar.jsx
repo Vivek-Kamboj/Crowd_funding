@@ -15,10 +15,16 @@ const ProgressBar = (props) => {
 
   return (
     <React.Fragment>
-      <div className="p-2 border bg-warning">
+      <div
+        className={`p-2 border ${
+          props.isActivated === false ? "bg-light" : "bg-warning"
+        } `}
+      >
         <div className="progress ">
           <div
-            className="progress-bar bg-danger progress-bar-animated"
+            className={`progress-bar progress-bar-animated ${
+              props.isActivated === false ? "bg-secondary" : "bg-danger"
+            }`}
             role="progressbar"
             aria-valuenow={state}
             aria-valuemin="0"
@@ -31,30 +37,25 @@ const ProgressBar = (props) => {
           <div className="col-4">
             <p>Goal:</p>
             <p>
-              <img
-                src="http://i.stack.imgur.com/nGbfO.png"
-                width="8"
-                height="10"
-                alt="Rupee icon"
-              />
+              Rs.
               {props.fundRequired}
             </p>
           </div>
           <div className="col-4 text-right">
             <p>Raised:</p>
             <p>
-              <img
-                src="http://i.stack.imgur.com/nGbfO.png"
-                width="8"
-                height="10"
-                alt="Rupee icon"
-              />
+              Rs.
               {props.fundRaised}
             </p>
           </div>
         </div>
 
-        <DonateForm id={props.id} />
+        <DonateForm
+          id={props.id}
+          amount={props.amount}
+          onAmountChange={props.onAmountChange}
+          isActivated={props.isActivated}
+        />
       </div>
     </React.Fragment>
   );
