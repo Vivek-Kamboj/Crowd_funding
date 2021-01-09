@@ -54,7 +54,7 @@ const Campaign = (props) => {
       <NavBar />
 
       <div className="col-12 col-md-10 m-auto py-2">
-        {isAuthorised() && (
+        {/* {isAuthorised() && (
           <div className="bg-light border p-2">
             <span className="m-2">
               IsActivated: {campaign.isActivated === true ? "true" : "false"}
@@ -63,10 +63,16 @@ const Campaign = (props) => {
               IsHidden: {campaign.isHidden === true ? "true" : "false"}
             </span>
           </div>
+        )} */}
+        {!campaign.isActivated && (
+          <div className="alert alert-warning" role="alert">
+            <b>Warning:</b> Campaign is deactivated. Please contact to admin for
+            more information.
+          </div>
         )}
         <h2>{campaign.title}</h2>
         {isAuthorised() && (
-          <React.Fragment>
+          <>
             <button onClick={handleEdit} className="btn btn-warning m-2">
               EDIT
             </button>
@@ -74,7 +80,7 @@ const Campaign = (props) => {
             <button onClick={handledelete} className="btn btn-danger m-2">
               Delete
             </button>
-          </React.Fragment>
+          </>
         )}
 
         <div className="row m-2">
@@ -92,12 +98,17 @@ const Campaign = (props) => {
               id={props.match.params.id}
               amount={amount}
               onAmountChange={handleAmountChange}
+              isActivated={campaign.isActivated}
             />
             <p>
               Number of people donated:- <b>{campaign.donorsNum}</b>
             </p>
             <div className="border">
-              <Share url={window.location.href} title={campaign.title} />
+              <Share
+                url={window.location.href}
+                title={campaign.title}
+                description={campaign.description}
+              />
             </div>
           </div>
         </div>
@@ -106,6 +117,7 @@ const Campaign = (props) => {
           id={props.match.params.id}
           amount={amount}
           onAmountChange={handleAmountChange}
+          isActivated={campaign.isActivated}
         />
         <hr />
         <Donated data={campaign.donors} />

@@ -64,3 +64,16 @@
 .DonateNow_p {
   margin: auto auto auto auto;
 }
+
+.disabled .allContent {
+  background-color: rgba(229, 229, 229, 1);
+}
+
+.disabled .bottomSection {
+  background-color: rgba(203, 203, 203, 1);
+}
+
+.disabled img {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
