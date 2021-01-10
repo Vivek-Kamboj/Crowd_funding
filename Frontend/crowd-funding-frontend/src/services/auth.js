@@ -1,6 +1,6 @@
 import axios from "axios";
 import jwtDecode from "jwt-decode";
-import config from "../config.json";
+import config from "../config.js";
 import { toast } from "react-toastify";
 
 axios.defaults.headers.common["authorization"] =
@@ -8,7 +8,7 @@ axios.defaults.headers.common["authorization"] =
 
 export const register = async (email, password) => {
   try {
-    const x = await axios.post(config.registerAdminUrl, {
+    const x = await axios.post(config.registerAdminUrl(), {
       email: email,
       password: password,
     });
@@ -21,7 +21,7 @@ export const register = async (email, password) => {
 
 export const login = async (email, password) => {
   try {
-    const x = await axios.post(config.loginAdminUrl, {
+    const x = await axios.post(config.loginAdminUrl(), {
       email: email,
       password: password,
     });

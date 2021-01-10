@@ -55,6 +55,7 @@ const OnGoingCampaigns = (props) => {
                 description={d.description}
                 image={d.imageUrl}
                 requiredAmount={d.required}
+                isActivated={d.isActivated}
               />
             </div>
           ))}
