@@ -22,6 +22,7 @@ const Donated = (props) => {
   let data = [...props.data];
   data = data.reverse();
   const donors = paginate(data, currentPage, pageSize);
+
   return (
     <React.Fragment>
       <h3>List of donations:</h3>
@@ -45,8 +46,12 @@ const Donated = (props) => {
             <div className="row">
               <div className="col-md-6 text-center">{d.transactionID}</div>
               <div className="col-md-3 text-center">Rs. {d.donationAmount}</div>
-              <div className={`col-md-3 text-center ${styles.success}`}>
-                Successful
+              <div
+                className={`col-md-3 text-center ${
+                  d.transactionStatus === true ? styles.success : styles.fail
+                }`}
+              >
+                {d.transactionStatus === true ? "Successful" : "Unsuccessful"}
               </div>
             </div>
           </li>

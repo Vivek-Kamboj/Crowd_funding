@@ -1,8 +1,10 @@
 .nav {
   padding: 5px;
   margin: 5px;
+  overflow: scroll;
 }
 
 .ul {
   background-color: white;
+  overflow: scroll;
 }

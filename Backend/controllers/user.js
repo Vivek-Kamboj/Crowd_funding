@@ -346,7 +346,8 @@ const login = (req, res) => {
       if (isMatch) {
         /* jwt */
         jwt.sign(
-          { foo: foundUser._id },
+          { foo: foundUser._id, email: foundUser.email },
+
           `${process.env.JWT_SECRET}`,
           { expiresIn: "10h" },
           (err, jwt) => {
