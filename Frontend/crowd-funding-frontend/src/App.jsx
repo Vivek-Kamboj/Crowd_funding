@@ -25,7 +25,7 @@ const App = () => {
       <Switch>
         <Route path="/all-campaigns" exact component={AllCampaigns} />
         <Route
-          path="/campaign/:cid/donation/success/:did"
+          path="/:cid/donation/success/:did"
           exact
           component={DonationSuccess}
         />

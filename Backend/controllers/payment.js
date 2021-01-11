@@ -125,7 +125,10 @@ const success = async (req, res) => {
                     res
                       .status(200)
                       .redirect(
-                        "http://localhost:3000/donation/success/" + donationId
+                        "http://localhost:3000/" +
+                          campaignId +
+                          "/donation/success/" +
+                          donationId
                       );
                   } else {
                     paymentFailure(donation);
