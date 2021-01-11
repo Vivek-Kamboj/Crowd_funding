@@ -7,6 +7,22 @@ const config = require("../config");
 
 const app = express();
 
+// Function to save details about failed payments
+// From client side
+async function paymentFailure(donation) {
+  const campaign = await db.Campaign.findById(donation.campaign);
+
+  var details = {
+    transactionID: donation.transactionID,
+    donationAmount: donation.amount,
+  };
+
+  campaign.donors.push(details);
+  await campaign.save();
+
+  return;
+}
+
 const success = async (req, res) => {
   try {
     var body = "";
@@ -22,120 +38,115 @@ const success = async (req, res) => {
       // received params in callback
       //console.log("Callback Response: ", post_data, "\n");
 
+      const donation = await db.Donation.findOne({
+        _id: post_data.ORDERID,
+      });
+
+      if (!donation) {
+        return res.send("Transaction Failed, Please retry!!");
+      }
+
       if (post_data.RESPCODE == "01") {
-        try {
-          const donation = await db.Donation.findOne({
-            _id: post_data.ORDERID,
-          });
+        var params = post_data;
+        donation.transactionID = params.TXNID;
+        var checkSumHash = params.CHECKSUMHASH;
+        delete params.CHECKSUMHASH;
+        var result = checksum_lib.verifychecksum(
+          params,
+          config.PaytmConfig.key,
+          checkSumHash
+        );
 
-          if (!donation) {
-            return res.send("Transaction Failed, Please retry!!");
-          }
+        //CheckSum has been Verified
 
-          var params = post_data;
-          donation.transactionID = params.TXNID;
-          var checkSumHash = params.CHECKSUMHASH;
-          delete params.CHECKSUMHASH;
-          var result = checksum_lib.verifychecksum(
+        if (result) {
+          //Final Step
+          //Let's do final re-verification
+
+          checksum_lib.genchecksum(
             params,
             config.PaytmConfig.key,
-            checkSumHash
-          );
+            function (err, checksum) {
+              params.CHECKSUMHASH = checksum;
+              post_data = "JsonData=" + JSON.stringify(params);
 
-          //CheckSum has been Verified
+              var options = {
+                hostname: "securegw-stage.paytm.in", // for staging
+                // hostname: 'securegw.paytm.in', // for production
+                port: 443,
+                path: "/merchant-status/getTxnStatus",
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/x-www-form-urlencoded",
+                  "Content-Length": post_data.length,
+                },
+              };
 
-          if (result) {
-            //Final Step
-            //Let's do final re-verification
+              // Set up the request
+              var response = "";
+              var post_req = https.request(options, async function (post_res) {
+                post_res.on("data", function (chunk) {
+                  response += chunk;
+                });
 
-            checksum_lib.genchecksum(
-              params,
-              config.PaytmConfig.key,
-              function (err, checksum) {
-                params.CHECKSUMHASH = checksum;
-                post_data = "JsonData=" + JSON.stringify(params);
+                post_res.on("end", async function () {
+                  //console.log("S2S Response: ", response, "\n");
 
-                var options = {
-                  hostname: "securegw-stage.paytm.in", // for staging
-                  // hostname: 'securegw.paytm.in', // for production
-                  port: 443,
-                  path: "/merchant-status/getTxnStatus",
-                  method: "POST",
-                  headers: {
-                    "Content-Type": "application/x-www-form-urlencoded",
-                    "Content-Length": post_data.length,
-                  },
-                };
+                  var _result = JSON.parse(response);
+                  //We need to match donationID and amount
+                  if (
+                    _result.STATUS == "TXN_SUCCESS" &&
+                    _result.TXNAMOUNT == params.TXNAMOUNT &&
+                    _result.ORDERID == params.ORDERID
+                  ) {
+                    donation.transactionComplete = true;
 
-                // Set up the request
-                var response = "";
-                var post_req = https.request(
-                  options,
-                  async function (post_res) {
-                    post_res.on("data", function (chunk) {
-                      response += chunk;
-                    });
+                    const campaign = await db.Campaign.findById(
+                      donation.campaign
+                    );
 
-                    post_res.on("end", async function () {
-                      //console.log("S2S Response: ", response, "\n");
+                    const donationId = donation._id;
+                    const campaignId = campaign._id;
 
-                      var _result = JSON.parse(response);
-                      //We need to match donationID and amount
-                      if (
-                        _result.STATUS == "TXN_SUCCESS" &&
-                        _result.TXNAMOUNT == params.TXNAMOUNT &&
-                        _result.ORDERID == params.ORDERID
-                      ) {
-                        donation.transactionComplete = true;
+                    var details = {
+                      transactionID: donation.transactionID,
+                      donationAmount: donation.amount,
+                      transactionStatus: true,
+                    };
 
-                        const campaign = await db.Campaign.findById(
-                          donation.campaign
-                        );
+                    campaign.donors.push(details);
+                    campaign.donorsNum = campaign.donorsNum + 1;
+                    campaign.raised = campaign.raised + donation.amount;
+                    await campaign.save();
 
-                        const donationId = donation._id;
+                    await donation.save();
 
-                        var details = {
-                          transactionID: donation.transactionID,
-                          donationAmount: donation.amount,
-                        };
-
-                        campaign.donors.push(details);
-                        campaign.donorsNum = campaign.donorsNum + 1;
-                        campaign.raised = campaign.raised + donation.amount;
-                        await campaign.save();
-
-                        await donation.save();
-
-                        //console.log("Payment Successful");
-                        res
-                          .status(200)
-                          .redirect(
-                            "http://localhost:3000/donation/success/" +
-                              donationId
-                          );
-                      } else {
-                        res
-                          .status(400)
-                          .redirect("http://localhost:3000/donation/failure");
-                      }
-                    });
+                    console.log("Payment Successful");
+                    res
+                      .status(200)
+                      .redirect(
+                        "http://localhost:3000/donation/success/" + donationId
+                      );
+                  } else {
+                    paymentFailure(donation);
+                    res
+                      .status(400)
+                      .redirect("http://localhost:3000/donation/failure");
                   }
-                );
+                });
+              });
 
-                // post the data
-                post_req.write(post_data);
-                post_req.end();
-              }
-            );
-          }
-        } catch (err) {
-          //console.log(err);
-          res.status(500).json({
-            message: "Server error. Sorry from our end.",
-          });
+              // post the data
+              post_req.write(post_data);
+              post_req.end();
+            }
+          );
+        } else {
+          paymentFailure(donation);
+          res.status(400).redirect("http://localhost:3000/donation/failure");
         }
       } else {
-        //console.log(err);
+        paymentFailure(donation);
         res.status(400).redirect("http://localhost:3000/donation/failure");
       }
     });
