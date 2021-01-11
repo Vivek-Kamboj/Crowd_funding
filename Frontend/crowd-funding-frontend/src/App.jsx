@@ -11,6 +11,8 @@ import PageNotFound from "./Routes/PageNotFound";
 import NewCampaign from "./Routes/newCampaign";
 import AllCampaigns from "./Routes/allCampaigns";
 import EditCampaign from "./Routes/editCampaign";
+import DonationSuccess from "./Routes/donationSuccess";
+import DonationFailure from "./Routes/donationFailure";
 import Footer from "./Components/footer";
 import "./App.css";
 import { ToastContainer } from "react-toastify";
@@ -22,6 +24,13 @@ const App = () => {
       <ToastContainer />
       <Switch>
         <Route path="/all-campaigns" exact component={AllCampaigns} />
+        <Route
+          path="/campaign/:cid/donation/success/:did"
+          exact
+          component={DonationSuccess}
+        />
+        <Route path="/donation/failure" exact component={DonationFailure} />
+
         <Route path="/campaign/:id" exact component={Campaign} />
         <Route path="/admin/login" exact component={LoginAdmin} />
         <Route path="/admin/dashboard" exact component={AdminDashboard} />
