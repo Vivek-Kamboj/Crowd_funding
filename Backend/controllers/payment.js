@@ -10,17 +10,21 @@ const app = express();
 // Function to save details about failed payments
 // From client side
 async function paymentFailure(donation) {
-  const campaign = await db.Campaign.findById(donation.campaign);
+  try {
+    const campaign = await db.Campaign.findById(donation.campaign);
 
-  var details = {
-    transactionID: donation.transactionID,
-    donationAmount: donation.amount,
-  };
+    var details = {
+      transactionID: donation.transactionID,
+      donationAmount: donation.amount,
+    };
 
-  campaign.donors.push(details);
-  await campaign.save();
+    campaign.donors.push(details);
+    await campaign.save();
 
-  return;
+    return;
+  } catch (err) {
+    console.log(err);
+  }
 }
 
 const success = async (req, res) => {
@@ -46,9 +50,10 @@ const success = async (req, res) => {
         return res.send("Transaction Failed, Please retry!!");
       }
 
+      donation.transactionID = post_data.TXNID;
+
       if (post_data.RESPCODE == "01") {
         var params = post_data;
-        donation.transactionID = params.TXNID;
         var checkSumHash = params.CHECKSUMHASH;
         delete params.CHECKSUMHASH;
         var result = checksum_lib.verifychecksum(
@@ -119,8 +124,6 @@ const success = async (req, res) => {
                     campaign.raised = campaign.raised + donation.amount;
                     await campaign.save();
 
-                    await donation.save();
-
                     console.log("Payment Successful");
                     res
                       .status(200)
@@ -132,6 +135,7 @@ const success = async (req, res) => {
                       );
                   } else {
                     paymentFailure(donation);
+                    console.log("Payment Failed");
                     res
                       .status(400)
                       .redirect("http://localhost:3000/donation/failure");
@@ -146,12 +150,16 @@ const success = async (req, res) => {
           );
         } else {
           paymentFailure(donation);
+          console.log("Payment Failed");
           res.status(400).redirect("http://localhost:3000/donation/failure");
         }
       } else {
         paymentFailure(donation);
+        console.log("Payment Failed");
         res.status(400).redirect("http://localhost:3000/donation/failure");
       }
+
+      await donation.save();
     });
   } catch (err) {
     //console.log(err);
