@@ -70,7 +70,7 @@ const Campaign = (props) => {
             more information.
           </div>
         )}
-        <h2>{campaign.title}</h2>
+        <h2 className={styles.title}>{campaign.title}</h2>
         {isAuthorised() && (
           <>
             <button onClick={handleEdit} className="btn btn-warning m-2">
@@ -112,7 +112,7 @@ const Campaign = (props) => {
             </div>
           </div>
         </div>
-        <p>{campaign.description}</p>
+        <p className={styles.description}>{campaign.description}</p>
         <DonateForm
           id={props.match.params.id}
           amount={amount}
