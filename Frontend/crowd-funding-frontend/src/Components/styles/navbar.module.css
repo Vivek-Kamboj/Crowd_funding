@@ -1,6 +1,6 @@
 :root {
   --scrolled: rgba(0, 0, 0, 0.5);
-  --notscrolled: rgba(0, 0, 0, 0.1);
+  --notscrolled: rgba(0, 0, 0, 0);
   --hover-bg-color: rgba(0, 0, 0, 0.7);
   --color: white;
 }
@@ -9,12 +9,17 @@
   height: 50px;
   width: 100%;
 }
-
+.title {
+  height: 50px;
+}
 .navbar {
   overflow: hidden;
   position: fixed;
   top: 0;
   width: 100%;
+  background-color: var(--notscrolled);
+  margin: 0;
+  padding: 0;
 }
 
 ul {
@@ -22,11 +27,14 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: var(--notscrolled);
 }
 
 li {
+  list-style-type: none;
   float: left;
+}
+a {
+  height: 50px;
 }
 
 li a {

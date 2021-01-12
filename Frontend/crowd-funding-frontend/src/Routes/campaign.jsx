@@ -65,9 +65,20 @@ const Campaign = (props) => {
           </div>
         )} */}
         {!campaign.isActivated && (
-          <div className="alert alert-warning" role="alert">
+          <div
+            className="alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
             <b>Warning:</b> Campaign is deactivated. Please contact to admin for
             more information.
+            <button
+              type="button"
+              className="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
         )}
         <h2 className={styles.title}>{campaign.title}</h2>
