@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import DonateForm from "./donateform";
+import styles from "./styles/progressBar.module.css";
 
 const percentCompleted = (Raised, Required) => {
   return (Raised * 100) / Required;
@@ -18,7 +19,7 @@ const ProgressBar = (props) => {
       <div
         className={`p-2 border ${
           props.isActivated === false ? "bg-light" : "bg-warning"
-        } `}
+        } ${styles.progressBar} `}
       >
         <div className="progress ">
           <div

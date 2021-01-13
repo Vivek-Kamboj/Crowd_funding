@@ -8,7 +8,7 @@ const NavBar = () => {
   useEffect(() => {
     let listener = document.addEventListener("scroll", (e) => {
       var scrolled = document.scrollingElement.scrollTop;
-      if (scrolled >= 80) {
+      if (scrolled >= 120) {
         if (navBackground !== styles.scrolled) {
           setNavBackground(styles.scrolled);
         }
