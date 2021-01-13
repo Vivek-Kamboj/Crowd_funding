@@ -32,6 +32,10 @@ export const donateTo = (id) => {
   return backendURL + "api/donate/" + id + "/payment";
 };
 
+export const donationData = (id) => {
+  return backendURL + "api/donation/success/" + id;
+};
+
 const toExport = {
   getAllCampaignsUrl,
   getCampaignDataByIdUrl,
@@ -41,6 +45,7 @@ const toExport = {
   registerAdminUrl,
   loginAdminUrl,
   donateTo,
+  donationData,
 };
 
 export default toExport;
