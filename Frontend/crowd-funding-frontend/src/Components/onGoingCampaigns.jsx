@@ -26,7 +26,7 @@ const OnGoingCampaigns = (props) => {
           <div className={`col-sm-5 ${styles.directions}`}>
             <span>
               <button
-                className={`btn btn-primary m-1 ${styles.button}`}
+                className={`btn btn-success m-1 ${styles.button}`}
                 onClick={() => handleScroll("left")}
               >
                 <i className="fa fa-chevron-left" aria-hidden="true"></i>
@@ -34,7 +34,7 @@ const OnGoingCampaigns = (props) => {
             </span>
             <span>
               <button
-                className={`btn btn-primary m-1 ${styles.button}`}
+                className={`btn btn-success m-1 ${styles.button}`}
                 onClick={() => handleScroll("right")}
               >
                 <i className="fa fa-chevron-right" aria-hidden="true"></i>
@@ -46,7 +46,7 @@ const OnGoingCampaigns = (props) => {
           {props.data.map((d) => (
             <div
               key={d._id}
-              className={`col-sm-8 col-12 ${styles.eachCampaign}`}
+              className={`col-sm-8 col-12 p-0 ${styles.eachCampaign}`}
             >
               <Campaign
                 id={d._id}
