@@ -46,7 +46,7 @@ const OnGoingCampaigns = (props) => {
           {props.data.map((d) => (
             <div
               key={d._id}
-              className={`col-sm-8 ${styles.eachCampaign}`}
+              className={`col-sm-8 col-12 ${styles.eachCampaign}`}
             >
               <Campaign
                 id={d._id}
