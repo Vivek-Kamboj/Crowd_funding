@@ -29,7 +29,7 @@ const DonateForm = (props) => {
               : "btn-success"
           }`}
         >
-          Donate Now {">"}{" "}
+          Donate Now <i className="fa fa-arrow-right" aria-hidden="true"></i>
         </button>
       </form>
     </React.Fragment>

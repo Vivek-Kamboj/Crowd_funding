@@ -29,7 +29,7 @@ const OnGoingCampaigns = (props) => {
                 className="btn btn-primary m-1"
                 onClick={() => handleScroll("left")}
               >
-                {"<"}
+                <i className="fa fa-chevron-left" aria-hidden="true"></i>
               </button>
             </span>
             <span>
@@ -37,7 +37,7 @@ const OnGoingCampaigns = (props) => {
                 className="btn btn-primary m-1"
                 onClick={() => handleScroll("right")}
               >
-                {">"}
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
               </button>
             </span>
           </div>

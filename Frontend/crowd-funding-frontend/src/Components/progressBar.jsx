@@ -38,14 +38,14 @@ const ProgressBar = (props) => {
           <div className="col-4">
             <p>Goal:</p>
             <p>
-              Rs.
+              <i className="fa fa-inr" aria-hidden="true"></i>
               {props.fundRequired}
             </p>
           </div>
           <div className="col-4 text-right">
             <p>Raised:</p>
             <p>
-              Rs.
+              <i className="fa fa-inr" aria-hidden="true"></i>
               {props.fundRaised}
             </p>
           </div>

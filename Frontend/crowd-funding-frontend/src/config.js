@@ -1,4 +1,4 @@
-const backendURL = "http://localhost:4000/";
+const backendURL = "https://backend-liart.vercel.app/";
 
 export const getAllCampaignsUrl = () => {
   return backendURL + "api/campaign/all";
