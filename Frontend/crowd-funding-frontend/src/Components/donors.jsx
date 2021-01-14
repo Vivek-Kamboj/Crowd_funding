@@ -6,14 +6,7 @@ import { paginate } from "./utills/paginate";
 const Donated = (props) => {
   const [currentPage, setCurrentPage] = useState(1);
   if (!props.data || props.data.length === 0) {
-    return (
-      <>
-        <h3>List of donations:</h3>
-        <ul className="list-group">
-          <li className="list-group-item">No one donated yet...</li>
-        </ul>
-      </>
-    );
+    return null;
   }
   const handlePageChange = (page) => {
     setCurrentPage(page);
@@ -30,13 +23,13 @@ const Donated = (props) => {
       <ul className="list-group">
         <li className="list-group-item">
           <div className="row">
-            <div className="col-6 text-center">
+            <div className="col-12 col-sm-6 text-center">
               <b>TransactionId</b>
             </div>
-            <div className="col-3 text-center">
+            <div className="col-6 col-sm-3 text-center">
               <b>Amount</b>
             </div>
-            <div className="col-3 text-center">
+            <div className="col-6 col-sm-3 text-center">
               <b>Status</b>
             </div>
           </div>
@@ -44,10 +37,14 @@ const Donated = (props) => {
         {donors.map((d) => (
           <li className="list-group-item" key={d.transactionID}>
             <div className="row">
-              <div className="col-md-6 text-center">{d.transactionID}</div>
-              <div className="col-md-3 text-center">Rs. {d.donationAmount}</div>
+              <div className="col-12 col-sm-6 text-center">
+                {d.transactionID}
+              </div>
+              <div className="col-6 col-sm-3 text-center">
+                <i>Rs. {d.donationAmount}</i>
+              </div>
               <div
-                className={`col-md-3 text-center ${
+                className={`col-6 col-sm-3 text-center ${
                   d.transactionStatus === true ? styles.success : styles.fail
                 }`}
               >

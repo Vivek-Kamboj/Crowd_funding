@@ -53,7 +53,7 @@ const Campaign = (props) => {
     <React.Fragment>
       <NavBar />
 
-      <div className="col-12 col-md-10 m-auto py-2">
+      <div className=" col-md-10 m-auto py-2 border ">
         {/* {isAuthorised() && (
           <div className="bg-light border p-2">
             <span className="m-2">
@@ -64,13 +64,25 @@ const Campaign = (props) => {
             </span>
           </div>
         )} */}
-        {!campaign.isActivated && (
-          <div className="alert alert-warning" role="alert">
+        {campaign.isActivated === false && (
+          <div
+            className="alert alert-warning alert-dismissible fade show"
+            role="alert"
+          >
             <b>Warning:</b> Campaign is deactivated. Please contact to admin for
             more information.
+            <button
+              type="button"
+              className="close"
+              data-dismiss="alert"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
         )}
         <h2 className={styles.title}>{campaign.title}</h2>
+        <hr />
         {isAuthorised() && (
           <>
             <button onClick={handleEdit} className="btn btn-warning m-2">
@@ -83,7 +95,7 @@ const Campaign = (props) => {
           </>
         )}
 
-        <div className="row m-2">
+        <div className="row ">
           <div className="col-lg-7 col-md-6">
             <img
               className={styles.image}
@@ -91,7 +103,7 @@ const Campaign = (props) => {
               alt={campaign.title}
             />
           </div>
-          <div className=" col-lg-5 col-md-6 p-2">
+          <div className=" col-lg-5 col-md-6 p-2 m-auto">
             <ProgressBar
               fundRequired={campaign.required}
               fundRaised={campaign.raised}
@@ -100,10 +112,10 @@ const Campaign = (props) => {
               onAmountChange={handleAmountChange}
               isActivated={campaign.isActivated}
             />
-            <p>
+            <p className={styles.numDonors}>
               Number of people donated:- <b>{campaign.donorsNum}</b>
             </p>
-            <div className="border">
+            <div className={styles.shareSection}>
               <Share
                 url={window.location.href}
                 title={campaign.title}
@@ -112,6 +124,7 @@ const Campaign = (props) => {
             </div>
           </div>
         </div>
+        <hr />
         <p className={styles.description}>{campaign.description}</p>
         <DonateForm
           id={props.match.params.id}

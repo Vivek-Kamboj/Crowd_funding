@@ -35,9 +35,8 @@ const AllCampaigns = (props) => {
   return (
     <React.Fragment>
       <NavBar />
-      <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
-        All Campaigns
-      </h1>
+      <h1 style={{ textAlign: "center" }}>All Campaigns</h1>
+      <hr />
       <div className="row">
         {allCampaigns.map((d) => (
           <div key={d._id} className={`col-sm-6 col-11 }`}>

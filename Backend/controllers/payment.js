@@ -129,15 +129,13 @@ const success = async (req, res) => {
                     res
                       .status(200)
                       .redirect(
-                        "http://localhost:3000/" +
-                          campaignId +
-                          "/donation/success/" +
-                          donationId
+                        "http://localhost:3000/donation/success/" + donationId
                       );
                   } else {
                     paymentFailure(donation);
                     await donation.save();
                     console.log("Payment Failed");
+                    await donation.save();
                     res
                       .status(400)
                       .redirect("http://localhost:3000/donation/failure");
@@ -154,12 +152,14 @@ const success = async (req, res) => {
           paymentFailure(donation);
           await donation.save();
           console.log("Payment Failed");
+          await donation.save();
           res.status(400).redirect("http://localhost:3000/donation/failure");
         }
       } else {
         paymentFailure(donation);
         await donation.save();
         console.log("Payment Failed");
+        await donation.save();
         res.status(400).redirect("http://localhost:3000/donation/failure");
       }
     });

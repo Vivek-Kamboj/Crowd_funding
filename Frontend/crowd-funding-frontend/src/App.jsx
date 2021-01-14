@@ -24,11 +24,7 @@ const App = () => {
       <ToastContainer />
       <Switch>
         <Route path="/all-campaigns" exact component={AllCampaigns} />
-        <Route
-          path="/:cid/donation/success/:did"
-          exact
-          component={DonationSuccess}
-        />
+        <Route path="/donation/success/:id" exact component={DonationSuccess} />
         <Route path="/donation/failure" exact component={DonationFailure} />
 
         <Route path="/campaign/:id" exact component={Campaign} />

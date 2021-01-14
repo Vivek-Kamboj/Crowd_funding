@@ -29,12 +29,20 @@ const Campaigns = (props) => {
             <div className={styles.bottomSection}>
               <div className={`col-7 ${styles.contentBottomSection}`}>
                 <div className="row">
-                  <div className={`col-sm-7 ${styles.requiredAmount}`}>
-                    <p>Required Amount:</p>
-                    <b>₹ {props.requiredAmount}</b>
+
+                  <div className={`col-7 ${styles.requiredAmount}`}>
+                    <b>Required Amount:</b>
+                    <p>
+                      <i className="fa fa-inr" aria-hidden="true"></i>{" "}
+                      {props.requiredAmount}
+                    </p>
                   </div>
-                  <div className={`col-sm-5  ${styles.DonateNow}`}>
-                    <p className={styles.DonateNow_p}>Donate Now{" >"}</p>
+                  <div className={`col-5  ${styles.DonateNow}`}>
+                    <p className={styles.DonateNow_p}>
+                      Donate Now{" "}
+                      <i className="fa fa-arrow-right" aria-hidden="true"></i>
+                    </p>
+
                   </div>
                 </div>
               </div>
