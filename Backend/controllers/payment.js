@@ -124,6 +124,7 @@ const success = async (req, res) => {
                     campaign.raised = campaign.raised + donation.amount;
                     await campaign.save();
                     await donation.save();
+
                     console.log("Payment Successful");
                     res
                       .status(200)
@@ -132,6 +133,7 @@ const success = async (req, res) => {
                       );
                   } else {
                     paymentFailure(donation);
+                    await donation.save();
                     console.log("Payment Failed");
                     await donation.save();
                     res
@@ -148,12 +150,14 @@ const success = async (req, res) => {
           );
         } else {
           paymentFailure(donation);
+          await donation.save();
           console.log("Payment Failed");
           await donation.save();
           res.status(400).redirect("http://localhost:3000/donation/failure");
         }
       } else {
         paymentFailure(donation);
+        await donation.save();
         console.log("Payment Failed");
         await donation.save();
         res.status(400).redirect("http://localhost:3000/donation/failure");

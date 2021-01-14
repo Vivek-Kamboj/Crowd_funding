@@ -10,10 +10,22 @@
 .title {
   overflow: auto;
   max-height: 48px;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 23px;
+  font-weight: bolder;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
+
+@media only screen and (max-width: 700px) {
+  .title {
+    max-height: 100px;
+  }
+}
+
 .description {
   overflow: auto;
+  line-height: 2;
+  font-size: 14px;
   max-height: 140px;
 }
 ::-webkit-scrollbar {
@@ -31,7 +43,7 @@
 }
 
 .bottomSection {
-  background-color: rgba(21, 191, 215, 0.5);
+  background-color: rgba(32, 178, 170, 1);
   width: 100%;
   margin: 0%;
   padding: 0%;
@@ -63,6 +75,7 @@
 }
 .DonateNow_p {
   margin: auto auto auto auto;
+  font-size: 15px;
 }
 
 .disabled .allContent {
