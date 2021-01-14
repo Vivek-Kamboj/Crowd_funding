@@ -20,13 +20,13 @@ const OnGoingCampaigns = (props) => {
 
   return (
     <React.Fragment>
-      <section id="Donate" className="col-12">
+      <section id="Donate" className={`col-12 ${styles.container}`}>
         <div className="row">
-          <h1 className={`col-7 ${styles.title}`}>On Going Campaigns</h1>
-          <div className={`col-5 ${styles.directions}`}>
+          <h1 className={`col-sm-7 ${styles.title}`}>Ongoing Campaigns</h1>
+          <div className={`col-sm-5 ${styles.directions}`}>
             <span>
               <button
-                className="btn btn-primary m-1"
+                className={`btn btn-primary m-1 ${styles.button}`}
                 onClick={() => handleScroll("left")}
               >
                 {"<"}
@@ -34,7 +34,7 @@ const OnGoingCampaigns = (props) => {
             </span>
             <span>
               <button
-                className="btn btn-primary m-1"
+                className={`btn btn-primary m-1 ${styles.button}`}
                 onClick={() => handleScroll("right")}
               >
                 {">"}
@@ -60,9 +60,11 @@ const OnGoingCampaigns = (props) => {
             </div>
           ))}
         </div>
-        <div className="col-12 text-right">
+        <div className="col-12 text-center">
           <Link to="/all-campaigns">
-            <button className="btn btn-primary">For More </button>
+            <button className={`btn btn-primary ${styles.showAll}`}>
+              See More{" "}
+            </button>
           </Link>
         </div>
       </section>

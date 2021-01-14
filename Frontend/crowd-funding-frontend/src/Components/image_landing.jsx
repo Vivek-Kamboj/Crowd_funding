@@ -10,6 +10,10 @@ const ImageLanding = (props) => {
   return (
     <React.Fragment>
       <div className={styles.backgroundImage} style={divStyle}>
+        <div className={styles.title}>
+          <p className={styles.text}> ROTORACT IIITM</p>
+          <p className={styles.header}> You Bestow, We Deliver</p>
+        </div>
         <Link
           to="Donate"
           activeClass="active"
@@ -19,7 +23,7 @@ const ImageLanding = (props) => {
           duration={500}
         >
           <button className={`btn btn-success p-3 ${styles.donateBtn}`}>
-            Donate
+            DONATE NOW
           </button>
         </Link>
       </div>

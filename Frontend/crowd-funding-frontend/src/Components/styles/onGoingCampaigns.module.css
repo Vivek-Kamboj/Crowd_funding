@@ -1,8 +1,17 @@
+.container {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 73.5%,
+    rgba(245, 245, 245) 26.5%
+  );
+}
+
 .campaigns {
   overflow: auto;
   display: flex;
   flex-direction: row;
   scroll-behavior: smooth;
+  padding: 2% 0 0 7.2%;
 }
 
 .eachCampaign div {
@@ -10,9 +19,46 @@
 }
 
 .title {
-  text-align: center;
+  padding: 9% 0 0 9.5%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 45px;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 575px) {
+  .title {
+    padding: 9% 0 0 0;
+    text-align: center;
+  }
 }
 
 .directions {
   font-weight: bold;
+  padding: 9% 2% 0 20%;
+}
+
+.button {
+  background-color: rgba(21, 215, 180, 1);
+  border: none;
+  font-weight: bold;
+  margin-right: 20% !important;
+}
+
+@media only screen and (min-width: 575px) and (max-width: 660px) {
+  .directions {
+    padding: 9% 0 0 19%;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .directions {
+    text-align: center;
+    padding-top: 3%;
+  }
+}
+
+.showAll {
+  background-color: rgba(21, 215, 180, 1);
+  font-weight: bold;
+  border: none;
 }
