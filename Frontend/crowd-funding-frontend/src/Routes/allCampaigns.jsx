@@ -2,10 +2,13 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import NavBar from "../Components/navbar_notLanding";
 import Campaign from "../Components/everyOngoingCampaigns";
+import Pagination from "../Components/pagination";
 import { getAllCampaigns } from "../services/campaign";
+import { paginate } from "../Components/utills/paginate";
 
 const AllCampaigns = (props) => {
   const [data, setData] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
@@ -23,12 +26,20 @@ const AllCampaigns = (props) => {
     let url = "/campaign/" + p;
     props.history.push(url);
   };
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  const pageSize = 6;
+  const allCampaigns = paginate(data, currentPage, pageSize);
   return (
     <React.Fragment>
       <NavBar />
-      <h1>All Campaigns</h1>
+      <h1 style={{ textAlign: "center", textDecoration: "underline" }}>
+        All Campaigns
+      </h1>
       <div className="row">
-        {data.map((d) => (
+        {allCampaigns.map((d) => (
           <div key={d._id} className={`col-sm-6 col-11 }`}>
             <Campaign
               id={d._id}
@@ -42,6 +53,12 @@ const AllCampaigns = (props) => {
           </div>
         ))}
       </div>
+      <Pagination
+        itemsCount={data.length}
+        pageSize={pageSize}
+        currentPage={currentPage}
+        onPageChange={handlePageChange}
+      />
     </React.Fragment>
   );
 };
