@@ -1,5 +1,47 @@
-.image {
-  border: 10px solid rgba(21, 215, 180, 1);
+.whyUs {
+  padding: 8% 8% 2% 10%;
+}
 
-  width: 90%;
+.header {
+  padding-bottom: 3%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 45px;
+  font-weight: bolder;
+}
+
+.para {
+  line-height: 2;
+  font-size: 14px;
+}
+
+.image {
+  border: 1.2vw solid rgba(21, 215, 180, 1);
+  z-index: 1;
+  width: 100%;
+}
+
+@media only screen and (min-width: 1000px) {
+  .image {
+    height: 125%;
+    position: relative;
+    bottom: 20%;
+    right: 10%;
+  }
+}
+
+@media only screen and (min-width: 765px) and (max-width: 1000px) {
+  .image {
+    height: 80%;
+    position: relative;
+    top: 20%;
+    right: 10%;
+  }
+}
+
+@media only screen and (max-width: 765px) {
+  .image {
+    margin: 5% 10% 5% 7%;
+    max-width: 92%;
+    max-height: 80%;
+  }
 }

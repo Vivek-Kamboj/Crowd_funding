@@ -18,7 +18,7 @@ const Campaigns = (props) => {
 
             <div className={`col-7 ${styles.campaignContent}`}>
               <div className={styles.title}>
-                <h5>{props.title}</h5>
+                <p>{props.title}</p>
               </div>
               <div className={styles.description}>
                 <p>{props.description}</p>
@@ -29,11 +29,11 @@ const Campaigns = (props) => {
             <div className={styles.bottomSection}>
               <div className={`col-7 ${styles.contentBottomSection}`}>
                 <div className="row">
-                  <div className={`col-7 ${styles.requiredAmount}`}>
-                    <b>Required Amount:</b>
-                    <p>Rs.{props.requiredAmount}</p>
+                  <div className={`col-sm-7 ${styles.requiredAmount}`}>
+                    <p>Required Amount:</p>
+                    <b>₹ {props.requiredAmount}</b>
                   </div>
-                  <div className={`col-5  ${styles.DonateNow}`}>
+                  <div className={`col-sm-5  ${styles.DonateNow}`}>
                     <p className={styles.DonateNow_p}>Donate Now{" >"}</p>
                   </div>
                 </div>
