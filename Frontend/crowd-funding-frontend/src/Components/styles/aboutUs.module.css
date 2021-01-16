@@ -1,0 +1,65 @@
+.container {
+  /* background-color: rgb(220, 220, 220); */
+  background: linear-gradient(to bottom, rgba(245, 245, 245) 45%, white 55%);
+}
+
+.header {
+  overflow: hidden;
+  text-align: center;
+  padding-top: 3%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.header:before,
+.header:after {
+  background-color: rgba(21, 215, 180, 1);
+  content: "";
+  display: inline-block;
+  height: 5px;
+  position: relative;
+  vertical-align: middle;
+  width: 20vw;
+}
+
+.header:before {
+  right: 1.5em;
+  margin-left: -50%;
+}
+
+.header:after {
+  left: 1.5em;
+  margin-right: -50%;
+}
+
+.content {
+  text-align: center;
+  padding: 2% 16%;
+  line-height: 2;
+  font-size: 16px;
+}
+
+.image {
+  width: 85%;
+  padding: 4%;
+}
+
+@media only screen and (max-width: 550px) {
+  .header:before,
+  .header:after {
+    width: 10vw;
+  }
+
+  .header:before {
+    right: 0.5em;
+  }
+
+  .header:after {
+    left: 0.5em;
+  }
+
+  .image {
+    width: 100%;
+  }
+}
