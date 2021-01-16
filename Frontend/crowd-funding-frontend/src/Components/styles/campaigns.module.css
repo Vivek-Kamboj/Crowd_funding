@@ -27,6 +27,8 @@
   line-height: 2;
   font-size: 14px;
   max-height: 140px;
+  text-align: justify;
+  line-height: 1.4;
 }
 ::-webkit-scrollbar {
   width: 0px;
