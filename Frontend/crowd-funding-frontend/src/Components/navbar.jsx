@@ -31,11 +31,10 @@ const Navbar = (props) => {
         className={`navbar navbar-expand-md sticky-top ${styles.navbar} ${props.navBackground}`}
       >
         <li className={styles.title}>
-          <Link className="navbar-brand" to="/">
-            LandingPage
+          <Link className={styles.brand} to="/">
+            <img src="/logo512.png" alt="title" />
           </Link>
         </li>
-        <Link to="/admin/login">loginPage</Link>
 
         <button
           className="navbar-toggler"
@@ -54,6 +53,7 @@ const Navbar = (props) => {
         </button>
 
         <div className="collapse navbar-collapse" id="navbarToggler">
+          <Link to="/admin/login">loginPage</Link>
           <ul className={`navbar-nav   `} style={{ margin: "0 0 0 auto" }}>
             <li style={{ float: "right" }}>
               <Link to="/about-us">ABOUT US</Link>

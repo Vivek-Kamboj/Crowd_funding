@@ -6,11 +6,21 @@
 }
 
 .bodyPadding {
-  height: 50px;
+  height: 70px;
   width: 100%;
 }
 .title {
-  height: 50px;
+  height: 70px;
+}
+.brand {
+  padding: 0%;
+  height: 70px;
+  width: 40%;
+}
+.brand img {
+  padding: 0%;
+  margin: 0%;
+  height: 70px;
 }
 .navbar {
   overflow: hidden;
@@ -34,14 +44,14 @@ li {
   float: left;
 }
 a {
-  height: 50px;
+  height: 70px;
 }
 
 li a {
   display: block;
   color: var(--color);
   text-align: center;
-  padding: 14px 16px;
+  padding: 20px 16px;
   text-decoration: none;
 }
 
