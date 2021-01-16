@@ -7,7 +7,7 @@
 
 .title {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -27,6 +27,15 @@
   font-weight: lighter;
   font-size: 30px;
   letter-spacing: 8px;
+}
+
+.donateBtn {
+  position: relative;
+  top: 63%;
+  background-color: rgba(21, 215, 180, 1);
+  border: none;
+  display: block;
+  margin: auto;
 }
 
 @media only screen and (max-width: 550px) {
@@ -53,18 +62,18 @@
   }
 }
 
-.donateBtn {
-  position: relative;
-  top: 54%;
-  background-color: rgba(21, 215, 180, 1);
-  border: none;
-  display: block;
-  margin: auto;
-}
-
 @media only screen and (max-width: 575px) {
   .donateBtn {
-    top: 60%;
+    top: 63%;
     font-size: 3vw;
   }
+}
+
+@media only screen and (min-width: 1000px) and (max-width: 1050px) {
+  .title {
+    top: 28%;
+  }
+  /* .donateBtn {
+    top: 70%;
+  } */
 }
