@@ -14,10 +14,10 @@
 
 .header:before,
 .header:after {
-  background-color: #000;
+  background-color: rgba(21, 215, 180, 1);
   content: "";
   display: inline-block;
-  height: 3px;
+  height: 5px;
   position: relative;
   vertical-align: middle;
   width: 20vw;
