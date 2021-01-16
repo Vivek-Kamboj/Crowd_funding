@@ -20,7 +20,7 @@ const OnGoingCampaigns = (props) => {
 
   return (
     <React.Fragment>
-      <section id="Donate" className={`col-11 ${styles.container}`}>
+      <section id="Donate" className={` ${styles.container}`}>
         <div className="row">
           <h1 className={`col-sm-7 ${styles.title}`}>Ongoing Campaigns</h1>
           <div className={`col-sm-5 ${styles.directions}`}>
