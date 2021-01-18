@@ -45,6 +45,9 @@
   font-weight: bold;
   margin-right: 20% !important;
 }
+.button:hover {
+  background-color: rgb(11, 146, 121);
+}
 
 @media only screen and (min-width: 575px) and (max-width: 660px) {
   .directions {
@@ -63,4 +66,8 @@
   background-color: rgba(21, 215, 180, 1);
   font-weight: bold;
   border: none;
+}
+
+.showAll:hover {
+  background-color: rgb(11, 146, 121);
 }

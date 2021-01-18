@@ -62,7 +62,7 @@ const OnGoingCampaigns = (props) => {
         </div>
         <div className="col-12 text-center">
           <Link to="/all-campaigns">
-            <button className={`btn btn-primary ${styles.showAll}`}>
+            <button className={`btn btn-success ${styles.showAll}`}>
               See More{" "}
             </button>
           </Link>
