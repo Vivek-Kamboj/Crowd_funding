@@ -6,5 +6,31 @@
 
 .ul {
   background-color: white;
+  /* padding: 0 48%; */
+  margin: auto;
+  width: 25%;
+  padding: 0 10%;
   overflow: scroll;
+}
+
+.active {
+  background-color: rgba(21, 215, 180, 1) !important;
+  border-color: turquoise !important;
+}
+
+.inactive {
+  border-color: turquoise !important;
+}
+
+@media only screen and (max-width: 400px) {
+  .ul {
+    width: 40%;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 700px) {
+  .ul {
+    width: 40%;
+    padding: 0 13%;
+  }
 }
