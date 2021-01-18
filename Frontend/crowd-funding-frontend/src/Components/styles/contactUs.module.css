@@ -1,0 +1,59 @@
+.map {
+  position: relative;
+  padding-bottom: 30%;
+  height: 0;
+  overflow: hidden;
+}
+
+.map iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+}
+
+.contactUs {
+  padding: 2% 7% 2% 7%;
+}
+
+.content {
+  line-height: 2;
+  font-size: 14px;
+}
+
+.details {
+  padding: 2% 7% 2% 7%;
+}
+
+.header {
+  padding-bottom: 3%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 35px;
+  font-weight: bolder;
+}
+
+@media only screen and (max-width: 500px) {
+  .map {
+    padding-bottom: 115%;
+  }
+
+  .map iframe {
+    height: 110%;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 850px) {
+  .map {
+    padding-bottom: 56.25%;
+  }
+
+  .map iframe {
+    height: 120%;
+  }
+}
+
+@media only screen and (max-width: 770px) {
+  .contactUs {
+    padding: 7% 7% 2% 7%;
+  }
+}
