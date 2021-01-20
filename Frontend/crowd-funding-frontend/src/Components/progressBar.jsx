@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import DonateForm from "./donateform";
+import { percentCompleted } from "../utills/math";
 import styles from "./styles/progressBar.module.css";
-
-const percentCompleted = (Raised, Required) => {
-  return (Raised * 100) / Required;
-};
 
 const ProgressBar = (props) => {
   const [state, setState] = useState(0);

@@ -5,34 +5,12 @@ import styles from "./styles/navbar.module.css";
 const Navbar = (props) => {
   return (
     <React.Fragment>
-      {/* <div className={styles.bodyPadding}></div> */}
-      {/* <nav className={`sticky-top ${styles.navbar}`}>
-        <ul className={navBackground}>
-          <li>
-            <Link to="/">LandingPage</Link>
-          </li>
-          {localStorage.getItem("token") && (
-            <li style={{ float: "right" }}>
-              <Link to="/admin/dashboard">Admin-Dashboard</Link>
-            </li>
-          )}
-
-          <li style={{ float: "right" }}>
-            <Link to="/contact-us">CONTACT US</Link>
-          </li>
-          <li style={{ float: "right" }}>
-            <Link to="/about-us">ABOUT US</Link>
-          </li>
-          <Link to="/admin/login">loginPage</Link>
-        </ul>
-      </nav> */}
-
       <nav
         className={`navbar navbar-expand-md sticky-top ${styles.navbar} ${props.navBackground}`}
       >
         <li className={styles.title}>
           <Link className={styles.brand} to="/">
-            <img src="/logo512.png" alt="title" />
+            <img src="/navImage.png" alt="title" />
           </Link>
         </li>
 
@@ -74,3 +52,26 @@ const Navbar = (props) => {
 };
 
 export default Navbar;
+
+/* <div className={styles.bodyPadding}></div> */
+
+/* <nav className={`sticky-top ${styles.navbar}`}>
+  <ul className={navBackground}>
+    <li>
+      <Link to="/">LandingPage</Link>
+    </li>
+    {localStorage.getItem("token") && (
+      <li style={{ float: "right" }}>
+        <Link to="/admin/dashboard">Admin-Dashboard</Link>
+      </li>
+    )}
+
+    <li style={{ float: "right" }}>
+      <Link to="/contact-us">CONTACT US</Link>
+    </li>
+    <li style={{ float: "right" }}>
+      <Link to="/about-us">ABOUT US</Link>
+    </li>
+    <Link to="/admin/login">loginPage</Link>
+  </ul>
+</nav> */

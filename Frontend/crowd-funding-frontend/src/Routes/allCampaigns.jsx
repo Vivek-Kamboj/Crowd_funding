@@ -3,9 +3,11 @@ import { toast } from "react-toastify";
 import NavBar from "../Components/navbar_notLanding";
 import Campaign from "../Components/everyOngoingCampaigns";
 import Pagination from "../Components/pagination";
-import styles from "../Components/styles/allCampaigns.module.css";
+import { paginate } from "../utills/paginate";
 import { getAllCampaigns } from "../services/campaign";
-import { paginate } from "../Components/utills/paginate";
+import styles from "../Components/styles/allCampaigns.module.css";
+
+
 
 const AllCampaigns = (props) => {
   const [data, setData] = useState([]);

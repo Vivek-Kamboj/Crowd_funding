@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { getDonationData } from "../services/donation";
 import NavBar from "../Components/navbar_notLanding";
+import { getDonationData } from "../services/donation";
 import styles from "../Components/styles/donationStatus.module.css";
 
 const DonationSuccess = (props) => {

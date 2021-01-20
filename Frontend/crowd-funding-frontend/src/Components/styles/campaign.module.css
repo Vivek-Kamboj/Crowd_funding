@@ -10,6 +10,7 @@
 }
 
 .title {
+  overflow: hidden;
   text-align: center;
   font-family: Georgia, Times, "Times New Roman", serif;
   font-size: 40px;
