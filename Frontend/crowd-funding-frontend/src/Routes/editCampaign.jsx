@@ -34,7 +34,8 @@ const NewCampaign = (props) => {
   }, [props.history, props.match.params.id]);
 
   if (!isAuthorised()) {
-    window.location = "/page-not-found";
+    props.history.replace("/page-not-found");
+    toast.error("Not authorised");
     return null;
   }
 

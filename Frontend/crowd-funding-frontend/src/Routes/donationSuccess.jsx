@@ -15,12 +15,13 @@ const DonationSuccess = (props) => {
     return null;
   }, [props.match.params.id]);
   const url = "/campaign/" + data.campaign;
+
   return (
     <React.Fragment>
       <NavBar />
       <div className={styles.container}>
         <div className={styles.success}>
-          <i class="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
+          <i className="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
         </div>
         <h3>Thank you for donating in such a nobel cause.</h3>
         <p>

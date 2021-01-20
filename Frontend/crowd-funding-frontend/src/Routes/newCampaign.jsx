@@ -3,6 +3,7 @@ import Form from "../Components/reuseableCampaignForm";
 import NavBar from "../Components/navbar_notLanding";
 import { newCampaign } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
+import { toast } from "react-toastify";
 
 const NewCampaign = (props) => {
   const [campaignName, setCampaignName] = useState("");
@@ -13,7 +14,8 @@ const NewCampaign = (props) => {
   const [isHidden, setHidden] = useState(false);
 
   if (!isAuthorised()) {
-    window.location = "/page-not-found";
+    props.history.replace("/page-not-found");
+    toast.error("Not authorised");
     return null;
   }
 

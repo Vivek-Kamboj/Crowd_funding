@@ -2,15 +2,12 @@ import React from "react";
 import jwtDecode from "jwt-decode";
 import NavBar from "../Components/navbar_notLanding";
 import { logout, isAuthorised } from "../services/auth";
+import { toast } from "react-toastify";
 
 const AdminDashboard = (p) => {
-  // if (!localStorage.getItem("token")) {
-  //   p.history.replace("/page-not-found");
-  //   return null;
-  // }
-
   if (!isAuthorised()) {
-    window.location = "/page-not-found";
+    p.history.replace("/page-not-found");
+    toast.error("Not authorised");
     return null;
   }
   let email = jwtDecode(localStorage.getItem("token")).email;

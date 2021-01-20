@@ -28,8 +28,8 @@ const Campaign = (props) => {
         setCampaign(data);
       } else {
         console.log(err);
-        toast.error("Campaign not found");
         props.history.replace("/page-not-found");
+        toast.error("Campaign not found");
       }
     }
     getData();
