@@ -1,3 +1,7 @@
+.container {
+  margin: 2% auto !important;
+}
+
 .image {
   width: 100%;
   height: 400px;
@@ -7,11 +11,17 @@
 
 .title {
   text-align: center;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 40px;
+  font-weight: bolder;
 }
 
 .description {
   text-align: justify;
+  line-height: 2;
+  font-size: 14px;
 }
+
 .numDonors {
   margin: 10px;
 }

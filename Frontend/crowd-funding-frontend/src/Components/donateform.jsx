@@ -26,7 +26,7 @@ const DonateForm = (props) => {
           className={`btn col-12 ${
             props.isActivated === false
               ? `btn-secondary ${styles.disabled}`
-              : "btn-success"
+              : `btn-success ${styles.active}`
           }`}
         >
           Donate Now <i className="fa fa-arrow-right" aria-hidden="true"></i>
