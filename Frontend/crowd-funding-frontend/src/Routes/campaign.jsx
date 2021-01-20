@@ -49,7 +49,7 @@ const Campaign = (props) => {
     <React.Fragment>
       <NavBar />
 
-      <div className=" col-md-10 m-auto py-2 border ">
+      <div className={`col-md-10 m-auto py-2 border ${styles.container}`}>
         {/* {isAuthorised() && (
           <div className="bg-light border p-2">
             <span className="m-2">

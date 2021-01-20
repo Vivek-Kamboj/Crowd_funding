@@ -18,10 +18,10 @@ const ProgressBar = (props) => {
           props.isActivated === false ? "bg-light" : "bg-warning"
         } ${styles.progressBar} `}
       >
-        <div className="progress ">
+        <div className={`progress ${styles.barColor}`}>
           <div
             className={`progress-bar progress-bar-animated ${
-              props.isActivated === false ? "bg-secondary" : "bg-danger"
+              props.isActivated === false ? "bg-secondary" : "bg-info"
             }`}
             role="progressbar"
             aria-valuenow={state}
