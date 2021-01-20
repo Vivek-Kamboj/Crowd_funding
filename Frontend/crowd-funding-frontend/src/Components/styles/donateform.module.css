@@ -1,3 +1,8 @@
 .disabled {
   cursor: not-allowed;
 }
+
+.active {
+  background-color: rgba(21, 215, 180, 1);
+  border: none;
+}

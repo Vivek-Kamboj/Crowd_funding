@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import NavBar from "../Components/navbar_notLanding";
 import Campaign from "../Components/everyOngoingCampaigns";
 import Pagination from "../Components/pagination";
+import styles from "../Components/styles/allCampaigns.module.css";
 import { getAllCampaigns } from "../services/campaign";
 import { paginate } from "../Components/utills/paginate";
 
@@ -35,11 +36,13 @@ const AllCampaigns = (props) => {
   return (
     <React.Fragment>
       <NavBar />
-      <h1 style={{ textAlign: "center" }}>All Campaigns</h1>
-      <hr />
-      <div className="row">
+      <div className={styles.header}>
+        <p>All Campaigns</p>
+      </div>
+      {/* <hr /> */}
+      <div className={`row ${styles.section}`}>
         {allCampaigns.map((d) => (
-          <div key={d._id} className={`col-sm-6 col-11 }`}>
+          <div key={d._id} className={`col-md-6 col-12 ${styles.campaign}`}>
             <Campaign
               id={d._id}
               handleClick={handleClick}
