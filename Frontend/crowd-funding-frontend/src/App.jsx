@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import LandingPage from "./Routes/landingPage";
 import Campaign from "./Routes/campaign";
 import LoginAdmin from "./Routes/loginAdmin";
@@ -15,7 +16,6 @@ import DonationSuccess from "./Routes/donationSuccess";
 import DonationFailure from "./Routes/donationFailure";
 import Footer from "./Components/footer";
 import "./App.css";
-import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const App = () => {
@@ -26,7 +26,6 @@ const App = () => {
         <Route path="/all-campaigns" exact component={AllCampaigns} />
         <Route path="/donation/success/:id" exact component={DonationSuccess} />
         <Route path="/donation/failure" exact component={DonationFailure} />
-
         <Route path="/campaign/:id" exact component={Campaign} />
         <Route path="/admin/login" exact component={LoginAdmin} />
         <Route path="/admin/dashboard" exact component={AdminDashboard} />

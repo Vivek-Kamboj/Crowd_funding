@@ -5,6 +5,7 @@ import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
 import DonateForm from "../Components/donateform";
+import { isNormalInteger } from "../utills/math";
 import { getCampaignData, deleteCampaign } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
 import styles from "../Components/styles/campaign.module.css";
@@ -13,11 +14,6 @@ const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
 
   const [amount, setAmount] = useState("");
-
-  function isNormalInteger(str) {
-    var n = Math.floor(Number(str));
-    return n !== Infinity && String(n) === str && n > 0;
-  }
 
   const handleAmountChange = (p) => {
     if (p.target.value === "" || isNormalInteger(p.target.value))

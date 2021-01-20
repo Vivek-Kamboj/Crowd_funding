@@ -3,13 +3,9 @@ import { Link } from "react-scroll";
 import styles from "./styles/image_landing.module.css";
 
 const ImageLanding = (props) => {
-  const divStyle = {
-    height: "800px",
-    backgroundSize: "cover",
-  };
   return (
     <React.Fragment>
-      <div className={styles.backgroundImage} style={divStyle}>
+      <div className={styles.backgroundImage}>
         <div className={styles.title}>
           <p className={styles.text}> ROTORACT IIITM</p>
           <p className={styles.header}> You Bestow, We Deliver</p>

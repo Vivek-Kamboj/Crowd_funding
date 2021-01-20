@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Pagination from "./pagination";
 import styles from "./styles/donors.module.css";
-import { paginate } from "./utills/paginate";
+import { paginate } from "../utills/paginate";
 
 const Donated = (props) => {
   const [currentPage, setCurrentPage] = useState(1);

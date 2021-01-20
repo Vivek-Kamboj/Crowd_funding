@@ -22,6 +22,8 @@
 
 .image {
   border: 5vw solid rgba(21, 215, 180, 1);
+  width: 100%;
+  margin: 10px;
   border-image: linear-gradient(
       to bottom,
       rgba(21, 215, 180, 1) 66.67%,

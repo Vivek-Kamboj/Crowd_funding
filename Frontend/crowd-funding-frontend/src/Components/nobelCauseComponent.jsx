@@ -1,8 +1,7 @@
 import React from "react";
 import styles from "./styles/nobelCauseComponent.module.css";
 
-const BottomLandingPage = () => {
-  const x = { width: "100%", margin: "10px" };
+const NobelCauseComponent = () => {
   return (
     <React.Fragment>
       <div className={`col-12 m-auto ${styles.container}`}>
@@ -15,7 +14,6 @@ const BottomLandingPage = () => {
         </p>
         <img
           className={styles.image}
-          style={x}
           src="https://summitlife.org/wp-content/uploads/2017/08/Helping-the-Poor-Website.jpg"
           alt="noble cause"
         />
@@ -24,4 +22,4 @@ const BottomLandingPage = () => {
   );
 };
 
-export default BottomLandingPage;
+export default NobelCauseComponent;

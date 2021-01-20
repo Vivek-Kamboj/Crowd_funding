@@ -15,8 +15,6 @@ const LoginAdmin = (p) => {
 
   const handleSubmit = (p) => {
     p.preventDefault();
-    // console.log("Email:", email);
-    // console.log("Password:", password);
     login(email, password).then(() => {
       window.location = "/admin/dashboard";
     });
