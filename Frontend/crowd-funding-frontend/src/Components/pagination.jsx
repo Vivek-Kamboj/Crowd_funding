@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useRef } from "react";
 import _ from "lodash";
 import styles from "./styles/paginate.module.css";
 
 const Pagination = (props) => {
+  const ref = useRef();
+
+  const handleScroll = (direction) => {
+    if (direction === "left") {
+      if (ref) {
+        ref.current.scrollLeft -= 40;
+      }
+    } else {
+      if (ref) {
+        ref.current.scrollLeft += 40;
+      }
+    }
+  };
   const { itemsCount, pageSize, currentPage, onPageChange } = props;
 
   const pagesCount = Math.ceil(itemsCount / pageSize);
@@ -13,7 +26,11 @@ const Pagination = (props) => {
   return (
     <React.Fragment>
       <nav className={styles.nav}>
-        <ul className={`pagination ${styles.ul}`}>
+        <ul
+          className={`pagination ${styles.ul}`}
+          ref={ref}
+          style={{ width: "200px", overflow: "scroll" }}
+        >
           {pages.map((page) => (
             <li
               className={
@@ -35,6 +52,23 @@ const Pagination = (props) => {
             </li>
           ))}
         </ul>
+        {pagesCount > 6 && (
+          <div className={styles.scroll}>
+            <button
+              className={`btn btn-success m-2 ${styles.active}`}
+              onClick={() => handleScroll("left")}
+            >
+              <i className="fa fa-chevron-left" aria-hidden="true"></i>
+            </button>
+
+            <button
+              className={`btn btn-success ${styles.active}`}
+              onClick={() => handleScroll("right")}
+            >
+              <i className="fa fa-chevron-right" aria-hidden="true"></i>
+            </button>
+          </div>
+        )}
       </nav>
     </React.Fragment>
   );

@@ -16,9 +16,16 @@
   padding: 2% 7% 2% 7%;
 }
 
-.content {
+.incontent {
   line-height: 2;
   font-size: 14px;
+  text-align: left;
+}
+.content {
+  text-align: center;
+  padding: 2% 5%;
+  line-height: 2;
+  font-size: 16px;
 }
 
 .details {
@@ -26,10 +33,32 @@
 }
 
 .header {
-  padding-bottom: 3%;
+  overflow: hidden;
+  text-align: center;
+  padding-top: 3%;
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bolder;
+}
+.header:before,
+.header:after {
+  background-color: rgba(21, 215, 180, 1);
+  content: "";
+  display: inline-block;
+  height: 5px;
+  position: relative;
+  vertical-align: middle;
+  width: 20vw;
+}
+
+.header:before {
+  right: 1.5em;
+  margin-left: -50%;
+}
+
+.header:after {
+  left: 1.5em;
+  margin-right: -50%;
 }
 
 @media only screen and (max-width: 500px) {
@@ -56,4 +85,21 @@
   .contactUs {
     padding: 7% 7% 2% 7%;
   }
+}
+
+.inheader {
+  overflow: hidden;
+  text-align: center;
+  padding-top: 3%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 40px;
+  font-weight: bolder;
+}
+.inpara {
+  overflow: hidden;
+  text-align: center;
+  padding-top: 3%;
+  font-family: Georgia, Times, "Times New Roman", serif;
+
+  font-weight: bolder;
 }

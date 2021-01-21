@@ -11,7 +11,7 @@ const Donated = (props) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-  const pageSize = 5;
+  const pageSize = 10;
   let data = [...props.data];
   data = data.reverse();
   const donors = paginate(data, currentPage, pageSize);
