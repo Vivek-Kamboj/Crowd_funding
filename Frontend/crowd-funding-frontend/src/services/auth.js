@@ -8,14 +8,14 @@ axios.defaults.headers.common["authorization"] =
 
 export const register = async (email, password) => {
   try {
-    const x = await axios.post(config.registerAdminUrl(), {
+    await axios.post(config.registerAdminUrl(), {
       email: email,
       password: password,
     });
-    console.log("register_api", x);
     toast.success("Registered");
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    if (e.response && e.response.data) toast.error(e.response.data.message);
+    else toast.error("Something went wrong.");
   }
 };
 
@@ -26,13 +26,11 @@ export const login = async (email, password) => {
       email: email,
       password: password,
     });
-    console.log("login_api", x.data);
-    console.log("Status:", x.data.status);
+
     localStorage.setItem("token", x.data.jwt);
     console.log("LoggedIn");
-  } catch (error) {
-    console.log(error);
-    err = error;
+  } catch (e) {
+    err = e;
   }
   return err;
 };

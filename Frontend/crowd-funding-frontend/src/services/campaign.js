@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import config from "../config.js";
 
 axios.defaults.headers.common["authorization"] =
@@ -32,8 +33,10 @@ export const newCampaign = async (data, props) => {
   try {
     const x = await axios.post(config.createNewCampaignUrl(), data);
     props.history.push("/campaign/" + x.data._id);
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    if (e.response && e.response.data) {
+      toast.error(e.response.data.message);
+    } else toast.error("Something went wrong");
   }
 };
 
@@ -44,8 +47,10 @@ export const updateCampaign = async (data, props) => {
       data
     );
     props.history.push("/campaign/" + x.data._id);
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    if (e.response && e.response.data) {
+      toast.error(e.response.data.message);
+    } else toast.error("Something went wrong");
   }
 };
 
@@ -53,8 +58,10 @@ export const deleteCampaign = async (props) => {
   try {
     await axios.delete(config.deleteCampaignUrl(props.match.params.id));
     props.history.push("/");
-  } catch (error) {
-    console.log(error);
+  } catch (e) {
+    if (e.response && e.response.data) {
+      toast.error(e.response.data.message);
+    } else toast.error("Something went wrong");
   }
 };
 

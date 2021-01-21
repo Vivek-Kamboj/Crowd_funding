@@ -7,8 +7,6 @@ import { paginate } from "../utills/paginate";
 import { getAllCampaigns } from "../services/campaign";
 import styles from "../Components/styles/allCampaigns.module.css";
 
-
-
 const AllCampaigns = (props) => {
   const [data, setData] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
@@ -16,10 +14,15 @@ const AllCampaigns = (props) => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
-        setData(data);
+        if (data.length > 4) {
+          setData(data.slice(0, 4));
+        } else {
+          setData(data);
+        }
       } else {
-        console.log(err);
-        toast.error("Something went wrong");
+        if (err.response && err.response.data) {
+          toast.error(err.response.data.message);
+        } else toast.error("Something went wrong");
       }
     }
     getData();

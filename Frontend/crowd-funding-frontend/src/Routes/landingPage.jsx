@@ -20,8 +20,9 @@ const LandingPage = (props) => {
           setData(data);
         }
       } else {
-        console.log(err);
-        toast.error("Something went wrong");
+        if (err.response && err.response.data) {
+          toast.error(err.response.data.message);
+        } else toast.error("Something went wrong");
       }
     }
     getData();

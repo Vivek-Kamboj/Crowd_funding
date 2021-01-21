@@ -27,9 +27,10 @@ const Campaign = (props) => {
       if (err === undefined) {
         setCampaign(data);
       } else {
-        console.log(err);
         props.history.replace("/page-not-found");
-        toast.error("Campaign not found");
+        if (err.response && err.response.data) {
+          toast.error(err.response.data.message);
+        } else toast.error("Something went wrong");
         return null;
       }
     }

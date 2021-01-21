@@ -24,9 +24,11 @@ const NewCampaign = (props) => {
         setActivated(data.isActivated);
         setHidden(data.isHidden);
       } else {
-        console.log(err);
-        toast.error("Campaign not found");
         props.history.replace("/page-not-found");
+        if (err.response && err.response.data) {
+          toast.error(err.response.data.message);
+        } else toast.error("Something went wrong");
+        return null;
       }
     }
     getData();
