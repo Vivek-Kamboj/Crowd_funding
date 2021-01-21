@@ -14,6 +14,9 @@ const Pagination = (props) => {
     <React.Fragment>
       <nav className={styles.nav}>
         <ul className={`pagination ${styles.ul}`}>
+          {/* <li className="page-item">
+            <button className={`page-link ${styles.inactive}`}>Previous</button>
+          </li> */}
           {pages.map((page) => (
             <li
               className={
@@ -34,6 +37,10 @@ const Pagination = (props) => {
               </button>
             </li>
           ))}
+          {/* ...
+          <li className="page-item">
+            <button className={`page-link ${styles.inactive}`}> Next</button>
+          </li> */}
         </ul>
       </nav>
     </React.Fragment>

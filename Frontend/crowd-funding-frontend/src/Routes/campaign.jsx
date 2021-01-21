@@ -30,6 +30,7 @@ const Campaign = (props) => {
         console.log(err);
         props.history.replace("/page-not-found");
         toast.error("Campaign not found");
+        return null;
       }
     }
     getData();

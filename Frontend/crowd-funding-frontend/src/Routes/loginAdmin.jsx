@@ -13,9 +13,9 @@ const LoginAdmin = (p) => {
     return null;
   }
 
-  const handleSubmit = (p) => {
+  const handleSubmit = async (p) => {
     p.preventDefault();
-    login(email, password).then(() => {
+    await login(email, password).then(() => {
       window.location = "/admin/dashboard";
     });
   };

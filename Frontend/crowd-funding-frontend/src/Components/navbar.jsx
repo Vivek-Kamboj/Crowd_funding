@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles/navbar.module.css";
 
 const Navbar = (props) => {
+  const [navBackground, setNavBackGround] = useState(styles.notscrolled);
+  const handleBtnClick = () => {
+    if (navBackground === styles.scrolled) setNavBackGround(styles.notScrolled);
+    else setNavBackGround(styles.scrolled);
+  };
   return (
     <React.Fragment>
       <nav
-        className={`navbar navbar-expand-md sticky-top ${styles.navbar} ${props.navBackground}`}
+        className={`navbar navbar-expand-md sticky-top ${styles.navbar} ${props.navBackground} ${navBackground}`}
       >
         <li className={styles.title}>
           <Link className={styles.brand} to="/">
@@ -15,6 +20,7 @@ const Navbar = (props) => {
         </li>
 
         <button
+          onClick={handleBtnClick}
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"

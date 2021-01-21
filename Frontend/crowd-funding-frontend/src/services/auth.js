@@ -20,6 +20,7 @@ export const register = async (email, password) => {
 };
 
 export const login = async (email, password) => {
+  let err = undefined;
   try {
     const x = await axios.post(config.loginAdminUrl(), {
       email: email,
@@ -31,7 +32,9 @@ export const login = async (email, password) => {
     console.log("LoggedIn");
   } catch (error) {
     console.log(error);
+    err = error;
   }
+  return err;
 };
 
 export const logout = async () => {

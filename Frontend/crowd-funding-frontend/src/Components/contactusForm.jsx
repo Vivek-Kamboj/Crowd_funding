@@ -6,17 +6,18 @@ const ContactusForm = () => {
   const [email, setEmail] = useState("");
   const [message, setmessage] = useState("");
 
-  const handleSubmit = (p) => {
+  const handleSubmit = async (p) => {
     p.preventDefault();
-    const x =
+    const sendUrl =
       "https://docs.google.com/forms/d/e/1FAIpQLSdMXyH7E5OuwAabQz_HyCLo8UUiT_RVCav3jg5Vt49JT0GuzA/formResponse";
+    const cors = "https://cors-anywhere.herokuapp.com/";
 
     // axios.post(x, { "entry.1743311847": email, "entry.2014806996": message });
-    axios({
-      url: x,
+    await axios({
+      url: `${cors}${sendUrl}`,
       data: { "entry.1743311847": email, "entry.2014806996": message },
-      type: "GET",
-      dataType: "xml",
+      method: "POST",
+      responseType: "json",
     });
     console.log("entry.1743311847", email, "entry.2014806996", message);
     toast.success("Send");
