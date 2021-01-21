@@ -63,16 +63,25 @@ db.Campaign.find().exec(function (err, results) {
 
 const show = async (req, res) => {
   try {
-    let showCampaign = await db.Campaign.findById(req.params.id);
+    if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+      let showCampaign = await db.Campaign.findById(req.params.id);
 
-    if (showCampaign) {
-      res.status(200).json(showCampaign);
+      if (showCampaign) {
+        res.status(200).json(showCampaign);
+      } else {
+        // console.log("Invalid Campaign Id.");
+        res.status(404).json({
+          message: "Page Not Found",
+        });
+      }
     } else {
+      // console.log("Invalid Campaign Id.");
       res.status(404).json({
         message: "Page Not Found.",
       });
     }
   } catch (err) {
+    console.log("Server error.");
     return res.status(500).json({
       message: "Something wrong when getting the campaign",
     });
@@ -94,7 +103,7 @@ const showAll = async (req, res) => {
         }
       });
   } catch (err) {
-    console.log(err);
+    console.log("Server error.");
     return res.status(500).json({
       message: "Something went wrong when trying to get all campaign",
     });
