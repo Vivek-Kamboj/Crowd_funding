@@ -8,12 +8,15 @@ const DonationSuccess = (props) => {
   const [data, setData] = useState({});
   useEffect(() => {
     async function callback() {
-      const res = await getDonationData(props.match.params.id);
+      const { err, data: res } = await getDonationData(props.match.params.id);
+      if (err !== undefined) {
+        props.history.replace("/page-not-found");
+      }
       if (res) setData(res.data);
     }
     callback();
     return null;
-  }, [props.match.params.id]);
+  }, [props.match.params.id, props.history]);
   const url = "/campaign/" + data.campaign;
 
   return (
@@ -31,10 +34,10 @@ const DonationSuccess = (props) => {
             {data.amount}
           </b>{" "}
           with transaction id:<b>{data.transactionID}</b> is{" "}
-          {data.transactionComplete === true ? (
-            <b className={styles.success}>success</b>
-          ) : (
+          {data.transactionComplete === false ? (
             <b className={styles.fail}>failed</b>
+          ) : (
+            <b className={styles.success}>success</b>
           )}
           .
         </p>

@@ -53,9 +53,9 @@ const Pagination = (props) => {
           ))}
         </ul>
         {pagesCount > 6 && (
-          <div style={{ margin: "auto", textAlign: "center" }}>
+          <div className={styles.scroll}>
             <button
-              className={`btn btn-success ${styles.active}`}
+              className={`btn btn-success m-2 ${styles.active}`}
               onClick={() => handleScroll("left")}
             >
               <i className="fa fa-chevron-left" aria-hidden="true"></i>
