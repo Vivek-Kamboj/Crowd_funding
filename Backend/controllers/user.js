@@ -523,9 +523,10 @@ const create = async (req, res) => {
   try {
     const newCampaign = await db.Campaign.create(campaign);
 
-    console.log("newCampaign", newCampaign);
+    //console.log("newCampaign", newCampaign);
     res.status(200).json(newCampaign);
   } catch (err) {
+    console.log("Server error.");
     return res.status(500).json({
       message: "Something went wrong when creating a new campaign",
     });
@@ -552,6 +553,7 @@ const update = async (req, res) => {
     console.log(updatedCampaign);
     res.status(200).json(updatedCampaign);
   } catch (err) {
+    console.log("Server error.");
     return res.status(500).json({
       message: "Something went wrong while updating campaign. Try again.",
     });
