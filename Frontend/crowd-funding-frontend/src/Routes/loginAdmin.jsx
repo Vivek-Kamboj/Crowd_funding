@@ -15,9 +15,14 @@ const LoginAdmin = (p) => {
 
   const handleSubmit = async (p) => {
     p.preventDefault();
-    await login(email, password).then(() => {
+    const error = await login(email, password);
+    if (error === undefined) {
       window.location = "/admin/dashboard";
-    });
+    } else {
+      if (error.response && error.response.data) {
+        toast.error(error.response.data.message);
+      } else toast.error("Something went wrong");
+    }
   };
   const handleEmailChange = (p) => {
     setEmail(p.target.value);

@@ -14,8 +14,6 @@ const RegisterAdmin = (props) => {
   }
   const handleSubmit = (p) => {
     p.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
     register(email, password);
     props.history.push("/admin/dashboard");
   };

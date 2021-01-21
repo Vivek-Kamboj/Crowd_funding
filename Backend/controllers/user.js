@@ -360,7 +360,7 @@ const login = (req, res) => {
         );
       } else {
         return res.status(400).json({
-          message: "Password is not correct.",
+          message: "Email or Password is not correct.",
         });
       }
     });

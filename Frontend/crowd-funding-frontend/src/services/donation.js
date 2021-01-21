@@ -10,10 +10,11 @@ export const getDonationData = async (id) => {
     sendItem;
   try {
     sendItem = await axios.get(config.donationData(id));
-  } catch (error) {
-    toast.error("Something went wrong!");
-    console.log(error);
-    err = error;
+  } catch (e) {
+    if (e.response && e.response.data) {
+      toast.error(e.response.data.message);
+    } else toast.error("Something went wrong");
+    err = e;
   }
   return { err: err, data: sendItem };
 };
