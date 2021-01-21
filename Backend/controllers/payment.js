@@ -23,7 +23,7 @@ async function paymentFailure(donation) {
 
     return;
   } catch (err) {
-    console.log(err);
+    console.log("Server err");
   }
 }
 
@@ -161,7 +161,7 @@ const success = async (req, res) => {
       }
     });
   } catch (err) {
-    //console.log(err);
+    console.log("Server error.");
     res.status(500).json({
       message: "Server error. Sorry from our end.",
     });
