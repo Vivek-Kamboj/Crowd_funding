@@ -545,13 +545,19 @@ const options = {
 
 const update = async (req, res) => {
   try {
-    let updatedCampaign = await db.Campaign.findByIdAndUpdate(
-      req.params.id,
-      req.body,
-      options
-    );
-    console.log(updatedCampaign);
-    res.status(200).json(updatedCampaign);
+    if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+      let updatedCampaign = await db.Campaign.findByIdAndUpdate(
+        req.params.id,
+        req.body,
+        options
+      );
+      //console.log(updatedCampaign);
+      res.status(200).json(updatedCampaign);
+    } else {
+      res.status(404).json({
+        message: "No such campaign exists.",
+      });
+    }
   } catch (err) {
     console.log("Server error.");
     return res.status(500).json({
@@ -563,17 +569,23 @@ const update = async (req, res) => {
 
 const deleteCampaign = async (req, res) => {
   try {
-    db.Campaign.findByIdAndRemove(req.params.id, (err, success) => {
-      if (err) {
-        return res.status(500).json({
-          message: "Something went wrong while deleting campaign. Try again.",
-        });
-      }
+    if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
+      db.Campaign.findByIdAndRemove(req.params.id, (err, success) => {
+        if (err) {
+          return res.status(500).json({
+            message: "Something went wrong while deleting campaign. Try again.",
+          });
+        }
 
-      return res.status(200).json({
-        message: "Successfully deleted the campaign.",
+        return res.status(200).json({
+          message: "Successfully deleted the campaign.",
+        });
       });
-    });
+    } else {
+      res.status(404).json({
+        message: "No such campaign exists.",
+      });
+    }
   } catch (err) {
     return res.status(500).json({
       message: "Something went wrong while deleting campaign. Try again.",
