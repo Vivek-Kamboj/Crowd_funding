@@ -14,11 +14,7 @@ const AllCampaigns = (props) => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
-        if (data.length > 4) {
-          setData(data.slice(0, 4));
-        } else {
-          setData(data);
-        }
+        setData(data);
       } else {
         if (err.response && err.response.data) {
           toast.error(err.response.data.message);
