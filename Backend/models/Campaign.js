@@ -40,10 +40,6 @@ const CampaignSchema = mongoose.Schema({
         type: Number,
         default: 0,
       },
-      transactionStatus: {
-        type: Boolean,
-        default: false,
-      },
     },
   ],
   isHidden: {
