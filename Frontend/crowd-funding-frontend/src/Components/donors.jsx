@@ -16,6 +16,16 @@ const Donated = (props) => {
   data = data.reverse();
   const donors = paginate(data, currentPage, pageSize);
 
+  const hide = (S) => {
+    var i,
+      text = "";
+    for (i = 0; i < S.length; i++) {
+      if (i > 3 && i < S.length - 2) text = text + "X";
+      else text = text + S[i];
+    }
+    return text;
+  };
+
   return (
     <React.Fragment>
       <h3>List of donations:</h3>
@@ -38,7 +48,7 @@ const Donated = (props) => {
           <li className="list-group-item" key={d.transactionID}>
             <div className="row">
               <div className="col-12 col-sm-6 text-center">
-                {d.transactionID}
+                <p>{hide(d.transactionID)}</p>
               </div>
               <div className="col-6 col-sm-3 text-center">
                 <i>Rs. {d.donationAmount}</i>
