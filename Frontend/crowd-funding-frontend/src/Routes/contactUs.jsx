@@ -1,6 +1,6 @@
 import React from "react";
 import NavBar from "../Components/navbar_notLanding";
-import Form from "../Components/contactusForm";
+import Form from "../Components/queryForm";
 import styles from "../Components/styles/contactUs.module.css";
 
 const AboutUs = () => {
@@ -34,7 +34,6 @@ const AboutUs = () => {
               </p>
               <div className={styles.content}>
                 <Form />
-                Abhi submit naa karna
               </div>
             </div>
             <div className={`col-md-4 ${styles.details}`}>

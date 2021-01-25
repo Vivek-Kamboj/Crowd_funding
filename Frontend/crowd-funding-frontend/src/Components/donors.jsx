@@ -53,12 +53,8 @@ const Donated = (props) => {
               <div className="col-6 col-sm-3 text-center">
                 <i>Rs. {d.donationAmount}</i>
               </div>
-              <div
-                className={`col-6 col-sm-3 text-center ${
-                  d.transactionStatus === true ? styles.success : styles.fail
-                }`}
-              >
-                {d.transactionStatus === true ? "Successful" : "Unsuccessful"}
+              <div className={`col-6 col-sm-3 text-center ${styles.success}`}>
+                Successful
               </div>
             </div>
           </li>
