@@ -1,3 +1,13 @@
+.campaignContainer {
+  width: 85%;
+}
+
+@media only screen and (max-width: 850px) {
+  .campaignContainer {
+    width: 80%;
+  }
+}
+
 .allContent {
   background-color: rgba(21, 215, 180, 1);
   cursor: default;
