@@ -6,9 +6,9 @@ const NavBar = () => {
   const [navBackground, setNavBackground] = useState(styles.notscrolled);
 
   useEffect(() => {
-    let listener = document.addEventListener("scroll", (e) => {
-      var scrolled = document.scrollingElement.scrollTop;
-      if (scrolled >= 120) {
+    const changeColor = () => {
+      var scrolled = window.scrollY;
+      if (scrolled >= 80) {
         if (navBackground !== styles.scrolled) {
           setNavBackground(styles.scrolled);
         }
@@ -17,11 +17,14 @@ const NavBar = () => {
           setNavBackground(styles.notscrolled);
         }
       }
-    });
-    return () => {
-      document.removeEventListener("scroll", listener);
+      return null;
     };
-  }, [navBackground]);
+
+    window.addEventListener("scroll", changeColor);
+    return () => {
+      window.removeEventListener("scroll", changeColor);
+    };
+  });
 
   return (
     <React.Fragment>

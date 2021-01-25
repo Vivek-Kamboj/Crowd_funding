@@ -21,6 +21,7 @@ const Navbar = (props) => {
 
         <button
           onClick={handleBtnClick}
+          style={{ color: "inherit" }}
           className="navbar-toggler"
           type="button"
           data-toggle="collapse"
@@ -31,13 +32,13 @@ const Navbar = (props) => {
         >
           <i
             className="fa fa-bars p-1"
-            style={{ color: "white" }}
+            style={{ color: "inherit" }}
             aria-hidden="true"
           ></i>
         </button>
 
         <div className="collapse navbar-collapse" id="navbarToggler">
-          <Link to="/admin/login">loginPage</Link>
+          {/* <Link to="/admin/login">loginPage</Link> */}
           <ul className={`navbar-nav   `} style={{ margin: "0 0 0 auto" }}>
             <li style={{ float: "right" }}>
               <Link to="/about-us">ABOUT US</Link>
