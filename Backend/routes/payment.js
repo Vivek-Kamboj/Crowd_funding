@@ -43,9 +43,12 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
           params,
           config.PaytmConfig.key,
           function (err, checksum) {
+            // console.log("Error1: ", err);
             var txn_url =
               "https://securegw-stage.paytm.in/theia/processTransaction"; // for staging
             // var txn_url = "https://securegw.paytm.in/theia/processTransaction"; // for production
+
+            // console.log("Error2: ", err);
             var form_fields = "";
             for (var x in params) {
               form_fields +=
@@ -69,13 +72,14 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
                 form_fields +
                 '</form><script type="text/javascript">document.f1.submit();</script></body></html>'
             );
+            // console.log("All ok");
             res.end();
           }
         );
       }
     })
     .catch((err) => {
-      console.log(err);
+      console.log("Error3:", err);
       return res.status(500).json({
         message: "Something went wrong while making payment. Please try again.",
         err: err,

@@ -7,26 +7,6 @@ const config = require("../config");
 
 const app = express();
 
-// Function to save details about failed payments
-// From client side
-async function paymentFailure(donation) {
-  try {
-    const campaign = await db.Campaign.findById(donation.campaign);
-
-    var details = {
-      transactionID: donation.transactionID,
-      donationAmount: donation.amount,
-    };
-
-    campaign.donors.push(details);
-    await campaign.save();
-
-    return;
-  } catch (err) {
-    console.log("Server err");
-  }
-}
-
 const success = async (req, res) => {
   try {
     var body = "";
@@ -116,7 +96,6 @@ const success = async (req, res) => {
                     var details = {
                       transactionID: donation.transactionID,
                       donationAmount: donation.amount,
-                      transactionStatus: true,
                     };
 
                     campaign.donors.push(details);
@@ -125,14 +104,13 @@ const success = async (req, res) => {
                     await campaign.save();
                     await donation.save();
 
-                    console.log("Payment Successful");
+                    //console.log("Payment Successful");
                     res
                       .status(200)
                       .redirect(
                         "http://localhost:3000/donation/success/" + donationId
                       );
                   } else {
-                    paymentFailure(donation);
                     await donation.save();
                     console.log("Payment Failed");
                     res
@@ -148,13 +126,11 @@ const success = async (req, res) => {
             }
           );
         } else {
-          paymentFailure(donation);
           await donation.save();
           console.log("Payment Failed");
           res.status(400).redirect("http://localhost:3000/donation/failure");
         }
       } else {
-        paymentFailure(donation);
         await donation.save();
         console.log("Payment Failed");
         res.status(400).redirect("http://localhost:3000/donation/failure");

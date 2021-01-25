@@ -6,6 +6,7 @@ mongoose
   .connect(dbUrl, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
+    useFindAndModify: false,
   })
   .then(() => console.log("MongoDB connected..."))
   .catch((err) => console.log(`MongoDB connection error : ${err}`));
@@ -15,4 +16,5 @@ module.exports = {
   Donation: require("./Donation"),
   User: require("./User"),
   Token: require("./Token"),
+  Query: require("./Query"),
 };

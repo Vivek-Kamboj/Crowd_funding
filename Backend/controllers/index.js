@@ -3,4 +3,5 @@ module.exports = {
   user: require("./user"),
   payment: require("./payment"),
   donation: require("./donation"),
+  query: require("./query"),
 };
