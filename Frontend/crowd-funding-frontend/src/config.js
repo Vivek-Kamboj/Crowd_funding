@@ -1,4 +1,4 @@
-const backendURL = "https://backend-liart.vercel.app/";
+const backendURL = "https://crowd-funding-backend.vercel.app/";
 // const backendURL = "http://localhost:4000/";
 
 export const getAllCampaignsUrl = () => {
