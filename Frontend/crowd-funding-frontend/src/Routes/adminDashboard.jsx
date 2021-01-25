@@ -1,6 +1,7 @@
 import React from "react";
 import jwtDecode from "jwt-decode";
 import NavBar from "../Components/navbar_notLanding";
+import ShowQuery from "../Components/showquery";
 import { logout, isAuthorised } from "../services/auth";
 import { toast } from "react-toastify";
 
@@ -11,7 +12,7 @@ const AdminDashboard = (p) => {
     return null;
   }
   let email = jwtDecode(localStorage.getItem("token")).email;
-  let id = jwtDecode(localStorage.getItem("token")).foo;
+  // let id = jwtDecode(localStorage.getItem("token")).foo;
   return (
     <React.Fragment>
       <NavBar />
@@ -21,8 +22,7 @@ const AdminDashboard = (p) => {
           alt="userIcon"
         />
         <h1>AdminDashboard</h1>
-        <p>Id: {id}</p>
-        <p>Email: {email}</p>
+        <b>{email}</b>
         <hr />
         <button
           className="btn btn-warning m-2"
@@ -58,6 +58,9 @@ const AdminDashboard = (p) => {
         >
           Logout
         </button>
+        <hr />
+        <ShowQuery />
+        <br />
       </div>
     </React.Fragment>
   );

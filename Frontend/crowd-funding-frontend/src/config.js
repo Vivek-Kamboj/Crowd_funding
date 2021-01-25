@@ -1,4 +1,4 @@
-const backendURL = "https://backend-liart.vercel.app/";
+const backendURL = "https://crowd-funding-backend.vercel.app/";
 // const backendURL = "http://localhost:4000/";
 
 export const getAllCampaignsUrl = () => {
@@ -37,6 +37,18 @@ export const donationData = (id) => {
   return backendURL + "api/donation/success/" + id;
 };
 
+export const getAllQueriesUrl = () => {
+  return backendURL + "api/query/all";
+};
+
+export const getCreateQueryUrl = () => {
+  return backendURL + "api/query/create";
+};
+
+export const querydeleteUrl = (id) => {
+  return backendURL + "api/query/" + id + "/delete";
+};
+
 const toExport = {
   getAllCampaignsUrl,
   getCampaignDataByIdUrl,
@@ -47,6 +59,9 @@ const toExport = {
   loginAdminUrl,
   donateTo,
   donationData,
+  getAllQueriesUrl,
+  getCreateQueryUrl,
+  querydeleteUrl,
 };
 
 export default toExport;
