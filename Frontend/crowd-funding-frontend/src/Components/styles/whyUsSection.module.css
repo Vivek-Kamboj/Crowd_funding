@@ -29,7 +29,7 @@
   }
 }
 
-@media only screen and (min-width: 765px) and (max-width: 1000px) {
+@media only screen and (min-width: 768px) and (max-width: 1000px) {
   .image {
     height: 80%;
     position: relative;
@@ -38,7 +38,7 @@
   }
 }
 
-@media only screen and (max-width: 765px) {
+@media only screen and (max-width: 767px) {
   .image {
     margin: 5% 10% 5% 7%;
     max-width: 92%;
