@@ -20,9 +20,29 @@
   padding: 10px 50px;
 }
 
-@media only screen and (max-width: 1100px) {
+@media only screen and (min-width: 767px) and (max-width: 1100px) {
   .section {
     padding: 2% 4%;
+  }
+
+  .campaign {
+    padding: 10px 18px;
+  }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 767px) {
+  .section {
+    padding: 2% 4% 0 14%;
+  }
+
+  .campaign {
+    padding: 10px 18px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .section {
+    padding: 2% 4% 0 8%;
   }
 
   .campaign {

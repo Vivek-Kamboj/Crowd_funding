@@ -1,5 +1,6 @@
 .backgroundImage {
-  background-image: url("https://images.unsplash.com/photo-1547722700-57de0f73d3a5?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cG9vcnxlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&w=1000&q=80");
+  background-image: url("https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1444664361762-afba083a4d77?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=751&q=80"); */
   background-position: center;
   background-repeat: no-repeat;
   display: block;
@@ -33,11 +34,14 @@
 
 .donateBtn {
   position: relative;
-  top: 63%;
+  top: 54%;
   background-color: rgba(21, 215, 180, 1);
   border: none;
   display: block;
   margin: auto;
+}
+.donateBtn:hover {
+  background-color: rgb(11, 146, 121);
 }
 
 @media only screen and (max-width: 550px) {
@@ -62,18 +66,6 @@
   .text {
     font-size: 25px;
   }
-}
-
-.donateBtn {
-  position: relative;
-  top: 54%;
-  background-color: rgba(21, 215, 180, 1);
-  border: none;
-  display: block;
-  margin: auto;
-}
-.donateBtn:hover {
-  background-color: rgb(11, 146, 121);
 }
 
 @media only screen and (max-width: 575px) {

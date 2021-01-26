@@ -6,7 +6,10 @@ const Campaigns = (props) => {
   return (
     <React.Fragment>
       <div className={disabledClass}>
-        <div className="m-4 p-0" onClick={() => props.handleClick(props.id)}>
+        <div
+          className={`m-4 p-0 ${styles.campaignContainer}`}
+          onClick={() => props.handleClick(props.id)}
+        >
           <div className={`row ${styles.allContent}`}>
             <div className={`col-5 ${styles.imageContainer}`}>
               <img
@@ -29,7 +32,6 @@ const Campaigns = (props) => {
             <div className={styles.bottomSection}>
               <div className={`col-7 ${styles.contentBottomSection}`}>
                 <div className="row">
-
                   <div className={`col-7 ${styles.requiredAmount}`}>
                     <b>Required Amount:</b>
                     <p>
@@ -42,7 +44,6 @@ const Campaigns = (props) => {
                       Donate Now{" "}
                       <i className="fa fa-arrow-right" aria-hidden="true"></i>
                     </p>
-
                   </div>
                 </div>
               </div>
