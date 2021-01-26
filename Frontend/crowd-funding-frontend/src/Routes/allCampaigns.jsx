@@ -40,7 +40,6 @@ const AllCampaigns = (props) => {
       <div className={styles.header}>
         <p>All Campaigns</p>
       </div>
-      {/* <hr /> */}
       <div className={`row ${styles.section}`}>
         {allCampaigns.map((d) => (
           <div key={d._id} className={`col-md-6 col-12 ${styles.campaign}`}>

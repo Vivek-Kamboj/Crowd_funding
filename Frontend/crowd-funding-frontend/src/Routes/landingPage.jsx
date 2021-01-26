@@ -8,12 +8,20 @@ import NobelCauseComponent from "../Components/nobelCauseComponent";
 import ProudToDonate from "../Components/proudToDonateComponent";
 import { getAllCampaigns } from "../services/campaign";
 
+const compare = (a, b) => {
+  if (a.isActivated === b.isActivated) return 0;
+  else if (a.isActivated === true) return -1;
+  else if (b.isActivated === true) return 1;
+  return 0;
+};
+
 const LandingPage = (props) => {
   const [data, setData] = useState([]);
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
+        data.sort(compare);
         if (data.length > 4) {
           setData(data.slice(0, 4));
         } else {

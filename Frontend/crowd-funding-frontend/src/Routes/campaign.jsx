@@ -79,8 +79,10 @@ const Campaign = (props) => {
             </button>
           </div>
         )}
-        <h2 className={styles.title}>{campaign.title}</h2>
-        <hr />
+        <div className={styles.header}>
+          <h2 className={styles.title}>{campaign.title}</h2>
+        </div>
+
         {isAuthorised() && (
           <>
             <button onClick={handleEdit} className="btn btn-warning m-2">
