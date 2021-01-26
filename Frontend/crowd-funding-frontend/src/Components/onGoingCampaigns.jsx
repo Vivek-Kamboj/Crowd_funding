@@ -9,11 +9,11 @@ const OnGoingCampaigns = (props) => {
   const handleScroll = (direction) => {
     if (direction === "left") {
       if (Ref) {
-        Ref.current.scrollLeft -= 200;
+        Ref.current.scrollLeft -= 325;
       }
     } else {
       if (Ref) {
-        Ref.current.scrollLeft += 200;
+        Ref.current.scrollLeft += 325;
       }
     }
   };
