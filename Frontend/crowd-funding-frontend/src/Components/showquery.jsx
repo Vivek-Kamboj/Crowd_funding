@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Pagination from "./pagination";
+import Loader from "./loader";
 import { getAllQueries, deleteQuery } from "../services/query";
 import { paginate } from "../utills/paginate";
 
 const Query = () => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllQueries();
       if (err === undefined) {
         setData(data);
+        setLoading(false);
       } else {
         if (err.response && err.response.data) {
           toast.error(err.response.data.message);
@@ -24,7 +27,7 @@ const Query = () => {
   }, []);
 
   if (!data || data.length === 0) {
-    return null;
+    return loading ? <Loader /> : null;
   }
 
   const handlePageChange = (page) => {
@@ -44,6 +47,7 @@ const Query = () => {
   return (
     <React.Fragment>
       <h1>Messages</h1>
+      {loading && <Loader />}
       <ul className="list-group">
         {showdata.map((d) => (
           <li className="list-group-item" key={d._id}>

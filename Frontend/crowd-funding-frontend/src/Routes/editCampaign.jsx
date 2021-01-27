@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import Form from "../Components/reuseableCampaignForm";
 import NavBar from "../Components/navbar_notLanding";
+import Loader from "../Components/loaderFullPage";
 import { updateCampaign, getCampaignData } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
 
@@ -12,11 +13,13 @@ const NewCampaign = (props) => {
   const [image, setImage] = useState("");
   const [isActivated, setActivated] = useState(true);
   const [isHidden, setHidden] = useState(false);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function getData() {
       const { data, err } = await getCampaignData(props.match.params.id);
 
       if (err === undefined) {
+        setLoading(false);
         setCampaignName(data.title);
         setCampaignDescription(data.description);
         setAmount(data.required);
@@ -77,6 +80,7 @@ const NewCampaign = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      {loading && <Loader />}
       <Form
         title={`Edit Campaign "${props.match.params.id}"`}
         data={data}
