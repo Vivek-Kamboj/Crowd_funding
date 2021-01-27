@@ -6,9 +6,10 @@
 
 .ul {
   background-color: white;
-  /* padding: 0 35%; */
+  /* padding: 0 48%; */
   margin: auto;
   width: 99%;
+  /* padding: 0 45%; */
   overflow: scroll;
 }
 
@@ -24,7 +25,13 @@
 @media only screen and (max-width: 400px) {
   .ul {
     width: 99%;
-    padding: 0 10%;
+    padding: 0 30%;
+  }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 700px) {
+  .ul {
+    padding: 0 40%;
   }
 }
 

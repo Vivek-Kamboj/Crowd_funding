@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../Components/navbar_notLanding";
+import Loader from "../Components/loaderFullPage";
 import { getDonationData } from "../services/donation";
 import styles from "../Components/styles/donationStatus.module.css";
 
 const DonationSuccess = (props) => {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function callback() {
       const { err, data: res } = await getDonationData(props.match.params.id);
+      setLoading(false);
       if (err !== undefined) {
         props.history.replace("/page-not-found");
       }
@@ -22,22 +25,23 @@ const DonationSuccess = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      {loading && <Loader />}
       <div className={styles.container}>
         <div className={styles.success}>
           <i className="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
         </div>
-        <h3>Thank you for donating in such a noble cause.</h3>
+        <h3>Thank you for donating in such a nobel cause.</h3>
         <p>
           Your donation of{" "}
           <b>
             <i className="fa fa-inr" aria-hidden="true"></i>
             {data.amount}
           </b>{" "}
-          with Transaction ID: <b>{data.transactionID}</b> is{" "}
+          with transaction id:<b>{data.transactionID}</b> is{" "}
           {data.transactionComplete === false ? (
             <b className={styles.fail}>failed</b>
           ) : (
-            <b className={styles.success}>successful</b>
+            <b className={styles.success}>success</b>
           )}
           .
         </p>

@@ -1,5 +1,6 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
+import Loader from "./loader";
 import styles from "./styles/onGoingCampaigns.module.css";
 import Campaign from "./everyOngoingCampaigns";
 
@@ -9,11 +10,11 @@ const OnGoingCampaigns = (props) => {
   const handleScroll = (direction) => {
     if (direction === "left") {
       if (Ref) {
-        Ref.current.scrollLeft -= 325;
+        Ref.current.scrollLeft -= 200;
       }
     } else {
       if (Ref) {
-        Ref.current.scrollLeft += 325;
+        Ref.current.scrollLeft += 200;
       }
     }
   };
@@ -42,6 +43,8 @@ const OnGoingCampaigns = (props) => {
             </span>
           </div>
         </div>
+
+        {props.loading && <Loader />}
         <div className={styles.campaigns} ref={Ref}>
           {props.data.map((d) => (
             <div

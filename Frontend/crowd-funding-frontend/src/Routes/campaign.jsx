@@ -5,6 +5,7 @@ import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
 import DonateForm from "../Components/donateform";
+import Loader from "../Components/loaderFullPage";
 import { isNormalInteger } from "../utills/math";
 import { getCampaignData, deleteCampaign } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
@@ -12,7 +13,7 @@ import styles from "../Components/styles/campaign.module.css";
 
 const Campaign = (props) => {
   const [campaign, setCampaign] = useState({});
-
+  const [loading, setLoading] = useState(true);
   const [amount, setAmount] = useState("");
 
   const handleAmountChange = (p) => {
@@ -26,6 +27,7 @@ const Campaign = (props) => {
 
       if (err === undefined) {
         setCampaign(data);
+        setLoading(false);
       } else {
         props.history.replace("/page-not-found");
         if (err.response && err.response.data) {
@@ -50,6 +52,7 @@ const Campaign = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      {loading && <Loader />}
 
       <div className={`col-md-10 m-auto py-2 border ${styles.container}`}>
         {/* {isAuthorised() && (

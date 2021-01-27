@@ -48,7 +48,7 @@ const Donated = (props) => {
           <li className="list-group-item" key={d.transactionID}>
             <div className="row">
               <div className="col-12 col-sm-6 text-center">
-                <p style={{ overflow: "auto" }}>{hide(d.transactionID)}</p>
+                <p>{hide(d.transactionID)}</p>
               </div>
               <div className="col-6 col-sm-3 text-center">
                 <i>Rs. {d.donationAmount}</i>

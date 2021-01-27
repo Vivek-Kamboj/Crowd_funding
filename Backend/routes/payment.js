@@ -1,6 +1,3 @@
-const backendURL = "https://crowd-funding-backend.vercel.app/";
-// const backendURL = "http://localhost:4000/";
-
 const express = require("express");
 const checksum_lib = require("../paytm/checksum");
 const https = require("https");
@@ -39,7 +36,8 @@ router.post("/:id/payment", [parseUrl, parseJson], (req, res) => {
         params["ORDER_ID"] = donation._id.toString();
         params["CUST_ID"] = donation._id + new Date().getTime();
         params["TXN_AMOUNT"] = paymentDetails.amount.toString();
-        params["CALLBACK_URL"] = backendURL + "api/donate/" + "success";
+        params["CALLBACK_URL"] =
+          "http://localhost:4000" + "/api/donate/" + "success";
 
         checksum_lib.genchecksum(
           params,
