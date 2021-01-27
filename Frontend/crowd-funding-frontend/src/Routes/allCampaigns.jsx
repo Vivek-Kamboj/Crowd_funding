@@ -3,17 +3,20 @@ import { toast } from "react-toastify";
 import NavBar from "../Components/navbar_notLanding";
 import Campaign from "../Components/everyOngoingCampaigns";
 import Pagination from "../Components/pagination";
+import Loader from "../Components/loaderFullPage";
 import { paginate } from "../utills/paginate";
 import { getAllCampaigns } from "../services/campaign";
 import styles from "../Components/styles/allCampaigns.module.css";
 
 const AllCampaigns = (props) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
+        setLoading(false);
         setData(data);
       } else {
         if (err.response && err.response.data) {
@@ -37,6 +40,7 @@ const AllCampaigns = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      {loading && <Loader />}
       <div className={styles.header}>
         <p>All Campaigns</p>
       </div>

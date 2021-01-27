@@ -7,20 +7,16 @@ import WhyUs from "../Components/whyUsSection";
 import NobelCauseComponent from "../Components/nobelCauseComponent";
 import ProudToDonate from "../Components/proudToDonateComponent";
 import { getAllCampaigns } from "../services/campaign";
-
-const compare = (a, b) => {
-  if (a.isActivated === b.isActivated) return 0;
-  else if (a.isActivated === true) return -1;
-  else if (b.isActivated === true) return 1;
-  return 0;
-};
+import { compare } from "../utills/math";
 
 const LandingPage = (props) => {
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function getData() {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
+        setLoading(false);
         data.sort(compare);
         if (data.length > 4) {
           setData(data.slice(0, 4));
@@ -46,7 +42,11 @@ const LandingPage = (props) => {
       <NavBar />
       <ImageLanding />
       <WhyUs />
-      <OnGoingCampaigns handleClick={handleClick} data={data} />
+      <OnGoingCampaigns
+        handleClick={handleClick}
+        data={data}
+        loading={loading}
+      />
       <NobelCauseComponent />
       <ProudToDonate />
     </React.Fragment>

@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../Components/navbar_notLanding";
+import Loader from "../Components/loaderFullPage";
 import { getDonationData } from "../services/donation";
 import styles from "../Components/styles/donationStatus.module.css";
 
 const DonationSuccess = (props) => {
   const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function callback() {
       const { err, data: res } = await getDonationData(props.match.params.id);
+      setLoading(false);
       if (err !== undefined) {
         props.history.replace("/page-not-found");
       }
@@ -22,6 +25,7 @@ const DonationSuccess = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      {loading && <Loader />}
       <div className={styles.container}>
         <div className={styles.success}>
           <i className="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
