@@ -41,10 +41,8 @@
 }
 
 .image {
-  width: 80%;
-  height: auto;
+  width: 85%;
   padding: 4%;
-  image-rendering: pixelated;
 }
 
 @media only screen and (max-width: 550px) {

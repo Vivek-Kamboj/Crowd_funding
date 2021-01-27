@@ -13,6 +13,7 @@ const Query = () => {
     async function getData() {
       const { data, err } = await getAllQueries();
       if (err === undefined) {
+        setLoading(false);
         setData(data);
         setLoading(false);
       } else {

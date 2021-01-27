@@ -10,11 +10,11 @@ const OnGoingCampaigns = (props) => {
   const handleScroll = (direction) => {
     if (direction === "left") {
       if (Ref) {
-        Ref.current.scrollLeft -= 325;
+        Ref.current.scrollLeft -= 200;
       }
     } else {
       if (Ref) {
-        Ref.current.scrollLeft += 325;
+        Ref.current.scrollLeft += 200;
       }
     }
   };
@@ -43,6 +43,7 @@ const OnGoingCampaigns = (props) => {
             </span>
           </div>
         </div>
+
         {props.loading && <Loader />}
         <div className={styles.campaigns} ref={Ref}>
           {props.data.map((d) => (

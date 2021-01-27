@@ -1,6 +1,3 @@
-const frontendURL = "https://crowd-funding.vercel.app/";
-// const frontendURL = "http://localhost:3000/";
-
 const express = require("express");
 const checksum_lib = require("../paytm/checksum");
 const https = require("https");
@@ -110,11 +107,15 @@ const success = async (req, res) => {
                     //console.log("Payment Successful");
                     res
                       .status(200)
-                      .redirect(frontendURL + "donation/success/" + donationId);
+                      .redirect(
+                        "http://localhost:3000/donation/success/" + donationId
+                      );
                   } else {
                     await donation.save();
                     console.log("Payment Failed");
-                    res.status(400).redirect(frontendURL + "donation/failure");
+                    res
+                      .status(400)
+                      .redirect("http://localhost:3000/donation/failure");
                   }
                 });
               });
@@ -127,12 +128,12 @@ const success = async (req, res) => {
         } else {
           await donation.save();
           console.log("Payment Failed");
-          res.status(400).redirect(frontendURL + "donation/failure");
+          res.status(400).redirect("http://localhost:3000/donation/failure");
         }
       } else {
         await donation.save();
         console.log("Payment Failed");
-        res.status(400).redirect(frontendURL + "donation/failure");
+        res.status(400).redirect("http://localhost:3000/donation/failure");
       }
     });
   } catch (err) {
