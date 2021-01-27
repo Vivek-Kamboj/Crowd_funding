@@ -45,7 +45,7 @@ const Donated = (props) => {
           </div>
         </li>
         {donors.map((d) => (
-          <li className="list-group-item" key={d.transactionID}>
+          <li className="list-group-item" key={d._id}>
             <div className="row">
               <div className="col-12 col-sm-6 text-center">
                 <p style={{ overflow: "auto" }}>{hide(d.transactionID)}</p>
