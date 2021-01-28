@@ -1,12 +1,14 @@
 import React from "react";
 import NavBar from "../Components/navbar_notLanding";
 import Form from "../Components/queryForm";
+import ScrollToTop from "../Components/scrollToTop";
 import styles from "../Components/styles/contactUs.module.css";
 
 const AboutUs = () => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <div className={styles.container}>
         <h1 className={styles.header}>CONTACT US</h1>
         <div className={styles.content}>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { toast } from "react-toastify";
 import Form from "../Components/reuseableAdminForm";
 import NavBar from "../Components/navbar_notLanding";
+import ScrollToTop from "../Components/scrollToTop";
 import { login, isAuthorised } from "../services/auth";
 
 const LoginAdmin = (p) => {
@@ -33,6 +34,7 @@ const LoginAdmin = (p) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <Form
         title="Login Admin"
         handleSubmit={handleSubmit}

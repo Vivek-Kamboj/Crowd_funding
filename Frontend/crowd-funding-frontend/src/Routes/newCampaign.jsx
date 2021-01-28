@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "../Components/reuseableCampaignForm";
 import NavBar from "../Components/navbar_notLanding";
+import ScrollToTop from "../Components/scrollToTop";
 import { newCampaign } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
 import { toast } from "react-toastify";
@@ -55,6 +56,7 @@ const NewCampaign = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <Form
         title="New Campaign"
         data={data}

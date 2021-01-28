@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Form from "../Components/reuseableAdminForm";
 import NavBar from "../Components/navbar_notLanding";
+import ScrollToTop from "../Components/scrollToTop";
 import { register, isAuthorised } from "../services/auth";
 import { toast } from "react-toastify";
 
@@ -26,6 +27,7 @@ const RegisterAdmin = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <Form
         title="Register Admin"
         handleSubmit={handleSubmit}
