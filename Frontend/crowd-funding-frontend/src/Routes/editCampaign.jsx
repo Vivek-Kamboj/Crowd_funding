@@ -3,6 +3,7 @@ import { toast } from "react-toastify";
 import Form from "../Components/reuseableCampaignForm";
 import NavBar from "../Components/navbar_notLanding";
 import Loader from "../Components/loaderFullPage";
+import ScrollToTop from "../Components/scrollToTop";
 import { updateCampaign, getCampaignData } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
 
@@ -80,6 +81,7 @@ const NewCampaign = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       {loading && <Loader />}
       <Form
         title={`Edit Campaign "${props.match.params.id}"`}

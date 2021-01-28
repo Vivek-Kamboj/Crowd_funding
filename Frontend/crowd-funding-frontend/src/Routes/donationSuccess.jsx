@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../Components/navbar_notLanding";
 import Loader from "../Components/loaderFullPage";
+import ScrollToTop from "../Components/scrollToTop";
 import { getDonationData } from "../services/donation";
 import styles from "../Components/styles/donationStatus.module.css";
 
@@ -25,6 +26,7 @@ const DonationSuccess = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       {loading && <Loader />}
       <div className={styles.container}>
         <div className={styles.success}>

@@ -6,6 +6,7 @@ import OnGoingCampaigns from "../Components/onGoingCampaigns";
 import WhyUs from "../Components/whyUsSection";
 import NobelCauseComponent from "../Components/nobelCauseComponent";
 import ProudToDonate from "../Components/proudToDonateComponent";
+import ScrollToTop from "../Components/scrollToTop";
 import { getAllCampaigns } from "../services/campaign";
 import { compare } from "../utills/math";
 
@@ -40,6 +41,7 @@ const LandingPage = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <ImageLanding />
       <WhyUs />
       <OnGoingCampaigns

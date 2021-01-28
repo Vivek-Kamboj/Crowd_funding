@@ -2,6 +2,7 @@ import React from "react";
 import jwtDecode from "jwt-decode";
 import NavBar from "../Components/navbar_notLanding";
 import ShowQuery from "../Components/showquery";
+import ScrollToTop from "../Components/scrollToTop";
 import { logout, isAuthorised } from "../services/auth";
 import { toast } from "react-toastify";
 
@@ -16,6 +17,7 @@ const AdminDashboard = (p) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <div className="col-md-10 m-auto border" style={{ textAlign: "center" }}>
         <img
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCbU49DD_iYcjSUEXG-Oy7POjJzaMn1GYEZg&usqp=CAU"

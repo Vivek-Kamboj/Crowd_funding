@@ -6,6 +6,7 @@ import Donated from "../Components/donors";
 import Share from "../Components/shareComponent";
 import DonateForm from "../Components/donateform";
 import Loader from "../Components/loaderFullPage";
+import ScrollToTop from "../Components/scrollToTop";
 import { isNormalInteger } from "../utills/math";
 import { getCampaignData, deleteCampaign } from "../services/campaign";
 import { isAuthorised } from "../services/auth";
@@ -52,6 +53,7 @@ const Campaign = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       {loading && <Loader />}
 
       <div className={`col-md-10 m-auto py-2 border ${styles.container}`}>
