@@ -2,6 +2,8 @@
   padding: 5px;
   margin: 5px;
   overflow: scroll;
+
+  scrollbar-width: none;
 }
 
 .ul {
@@ -10,6 +12,8 @@
   margin: auto;
   width: 99%;
   overflow: scroll;
+
+  scrollbar-width: none;
 }
 
 .active {
