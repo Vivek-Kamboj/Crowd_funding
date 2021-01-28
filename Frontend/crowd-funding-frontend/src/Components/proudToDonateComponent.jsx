@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import slide1 from "./assets/proudToDonate1.jpg";
+import slide2 from "./assets/proudToDonate2.jpg";
+import slide3 from "./assets/proudToDonate3.jpg";
 import styles from "./styles/proudToDonate.module.css";
 
 const ProudToDonate = () => {
@@ -27,21 +30,21 @@ const ProudToDonate = () => {
       <div className={`col-11 m-auto ${styles.container}`}>
         <h1 className={styles.header}>Proud to donate</h1>
         <img
-          src="https://images.unsplash.com/photo-1505155485412-30b3a45080ec?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=759&q=80s"
-          alt="ProudToDonate"
+          src={slide1}
+          alt="ProudToDonate1"
           className={
             proprety[0] === ".myactive" ? styles.myactive : styles.mynone
           }
         />
         <img
-          src="https://images.unsplash.com/photo-1530490125459-847a6d437825?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=763&q=80"
+          src={slide2}
           alt="ProudToDonate2"
           className={
             proprety[1] === ".myactive" ? styles.myactive : styles.mynone
           }
         />
         <img
-          src="https://images.unsplash.com/photo-1550328434-90bb77cf8b92?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=751&q=80"
+          src={slide3}
           alt="ProudToDonate3"
           className={
             proprety[2] === ".myactive" ? styles.myactive : styles.mynone

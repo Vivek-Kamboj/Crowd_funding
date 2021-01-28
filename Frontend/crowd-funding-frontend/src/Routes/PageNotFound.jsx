@@ -14,7 +14,7 @@ const PageNotFound = () => {
           When wealth is lost, nothing is lost; when health is lost, something
           is lost; when character is lost, all is lost. <br /> --Billy Graham
           <br />
-          <img className={styles.image} src={NotFound} alt="ChildImage" />
+          <img className={styles.image} src={NotFound} alt="PageNotFound" />
           <br />
           Please contact us for any issue : <Link to="/contact-us">here</Link>
           <br />

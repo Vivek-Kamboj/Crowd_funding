@@ -1,9 +1,8 @@
 import React from "react";
+import ChildImage from "./assets/whyUsSection-happyKids.jpg";
 import styles from "./styles/whyUsSection.module.css";
 
 const WhyUs = () => {
-  const url =
-    "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80";
   return (
     <React.Fragment>
       <div className="row col-12">
@@ -23,7 +22,7 @@ const WhyUs = () => {
           </p>
         </div>
         <div className="col-md-4">
-          <img className={styles.image} src={url} alt="ChildImage" />
+          <img className={styles.image} src={ChildImage} alt="HappyKids" />
         </div>
       </div>
     </React.Fragment>

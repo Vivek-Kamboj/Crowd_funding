@@ -1,10 +1,9 @@
 import React from "react";
 import NavBar from "../Components/navbar_notLanding";
+import aboutUsIIITM from "../Components/assets/aboutUs-iiitm.png";
 import styles from "../Components/styles/aboutUs.module.css";
 
 const AboutUs = () => {
-  const url =
-    "https://qphs.fs.quoracdn.net/main-qimg-958ff592629e78d8ef0ec849841a623d";
   return (
     <React.Fragment>
       <NavBar />
@@ -16,7 +15,11 @@ const AboutUs = () => {
           nobis laudantium tempora aut, animi praesentium id! Necessitatibus
           laborum vitae vero at!
           <br />
-          <img className={styles.image} src={url} alt="ChildImage" />
+          <img
+            className={styles.image}
+            src={aboutUsIIITM}
+            alt="aboutUs- IIITM Block View"
+          />
           <br />
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
           consequatur ea quia inventore excepturi officiis deserunt sequi, esse
