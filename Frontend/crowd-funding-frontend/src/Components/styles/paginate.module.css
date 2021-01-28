@@ -1,14 +1,16 @@
+.paginateSection {
+  width: 230px;
+  margin: 0 auto;
+}
 .nav {
   padding: 5px;
   margin: 5px;
   overflow: scroll;
-
   scrollbar-width: none;
 }
 
 .ul {
   background-color: white;
-  /* padding: 0 35%; */
   margin: auto;
   width: 99%;
   overflow: scroll;

@@ -25,51 +25,49 @@ const Pagination = (props) => {
 
   return (
     <React.Fragment>
-      <nav className={styles.nav}>
-        <ul
-          className={`pagination ${styles.ul}`}
-          ref={ref}
-          style={{ width: "200px", overflow: "scroll" }}
-        >
-          {pages.map((page) => (
-            <li
-              className={
-                page === currentPage ? "page-item active" : "page-item"
-              }
-              key={page}
-            >
-              <button
+      <div className={styles.paginateSection}>
+        <nav className={styles.nav}>
+          <ul className={`pagination ${styles.ul}`} ref={ref}>
+            {pages.map((page) => (
+              <li
                 className={
-                  "page-link " +
-                  (page === currentPage
-                    ? `${styles.active}`
-                    : `${styles.inactive}`)
+                  page === currentPage ? "page-item active" : "page-item"
                 }
-                onClick={() => onPageChange(page)}
+                key={page}
               >
-                {page}
+                <button
+                  className={
+                    "page-link " +
+                    (page === currentPage
+                      ? `${styles.active}`
+                      : `${styles.inactive}`)
+                  }
+                  onClick={() => onPageChange(page)}
+                >
+                  {page}
+                </button>
+              </li>
+            ))}
+          </ul>
+          {pagesCount > 6 && (
+            <div className={styles.scroll}>
+              <button
+                className={`btn btn-success m-2 ${styles.active}`}
+                onClick={() => handleScroll("left")}
+              >
+                <i className="fa fa-chevron-left" aria-hidden="true"></i>
               </button>
-            </li>
-          ))}
-        </ul>
-        {pagesCount > 6 && (
-          <div className={styles.scroll}>
-            <button
-              className={`btn btn-success m-2 ${styles.active}`}
-              onClick={() => handleScroll("left")}
-            >
-              <i className="fa fa-chevron-left" aria-hidden="true"></i>
-            </button>
 
-            <button
-              className={`btn btn-success ${styles.active}`}
-              onClick={() => handleScroll("right")}
-            >
-              <i className="fa fa-chevron-right" aria-hidden="true"></i>
-            </button>
-          </div>
-        )}
-      </nav>
+              <button
+                className={`btn btn-success ${styles.active}`}
+                onClick={() => handleScroll("right")}
+              >
+                <i className="fa fa-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          )}
+        </nav>
+      </div>
     </React.Fragment>
   );
 };
