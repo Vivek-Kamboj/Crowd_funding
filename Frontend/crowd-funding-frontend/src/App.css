@@ -11,3 +11,11 @@ body {
   padding: 0px;
   overflow-x: hidden;
 }
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+#content-wrap {
+  padding-bottom: 5rem;
+}

@@ -8,8 +8,9 @@
 }
 
 .title {
-  position: absolute;
-  top: 42%;
+  position: relative;
+  /* z-index: 10; */
+  top: 36%;
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
@@ -33,7 +34,7 @@
 
 .donateBtn {
   position: relative;
-  top: 54%;
+  top: 42%;
   background-color: rgba(21, 215, 180, 1);
   border: none;
   display: block;
@@ -55,7 +56,7 @@
 
 @media only screen and (max-height: 450px) {
   .title {
-    top: 60%;
+    top: 25%;
   }
 
   .header {
@@ -69,16 +70,16 @@
 
 @media only screen and (max-width: 575px) {
   .donateBtn {
-    top: 63%;
+    top: 42%;
     font-size: 3vw;
   }
 }
 
 @media only screen and (min-width: 750px) and (max-width: 1400px) and (min-height: 800px) {
   .title {
-    top: 28%;
+    top: 38%;
   }
   .donateBtn {
-    top: 65%;
+    top: 53%;
   }
 }
