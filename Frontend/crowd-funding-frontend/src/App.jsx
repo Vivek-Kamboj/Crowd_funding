@@ -21,24 +21,36 @@ import "react-toastify/dist/ReactToastify.css";
 const App = () => {
   return (
     <React.Fragment>
-      <ToastContainer />
-      <Switch>
-        <Route path="/all-campaigns" exact component={AllCampaigns} />
-        <Route path="/donation/success/:id" exact component={DonationSuccess} />
-        <Route path="/donation/failure" exact component={DonationFailure} />
-        <Route path="/campaign/:id" exact component={Campaign} />
-        <Route path="/admin/login" exact component={LoginAdmin} />
-        <Route path="/admin/dashboard" exact component={AdminDashboard} />
-        <Route path="/admin/new" exact component={RegisterAdmin} />
-        <Route path="/admin/campaign/:id/edit" exact component={EditCampaign} />
-        <Route path="/admin/campaign/new" exact component={NewCampaign} />
-        <Route path="/about-us" exact component={AboutUs} />
-        <Route path="/contact-us" exact component={ContactUs} />
-        <Route path="/page-not-found" exact component={PageNotFound} />
-        <Route path="/" exact component={LandingPage} />
-        <Redirect to="/page-not-found" />
-      </Switch>
-      <Footer />
+      <div id="page-container">
+        <div id="content-wrap">
+          <ToastContainer />
+          <Switch>
+            <Route path="/all-campaigns" exact component={AllCampaigns} />
+            <Route
+              path="/donation/success/:id"
+              exact
+              component={DonationSuccess}
+            />
+            <Route path="/donation/failure" exact component={DonationFailure} />
+            <Route path="/campaign/:id" exact component={Campaign} />
+            <Route path="/admin/login" exact component={LoginAdmin} />
+            <Route path="/admin/dashboard" exact component={AdminDashboard} />
+            <Route path="/admin/new" exact component={RegisterAdmin} />
+            <Route
+              path="/admin/campaign/:id/edit"
+              exact
+              component={EditCampaign}
+            />
+            <Route path="/admin/campaign/new" exact component={NewCampaign} />
+            <Route path="/about-us" exact component={AboutUs} />
+            <Route path="/contact-us" exact component={ContactUs} />
+            <Route path="/page-not-found" exact component={PageNotFound} />
+            <Route path="/" exact component={LandingPage} />
+            <Redirect to="/page-not-found" />
+          </Switch>
+        </div>
+        <Footer />
+      </div>
     </React.Fragment>
   );
 };
