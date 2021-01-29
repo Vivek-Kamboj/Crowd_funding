@@ -2,7 +2,141 @@
   position: absolute;
   bottom: 0;
   width: 100%;
-  background: rgba(15, 23, 46, 1);
+  background: rgb(0, 63, 63);
   color: white;
-  height: 5rem;
+  height: 20rem;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1070px) {
+  .footer {
+    height: 23rem;
+  }
+}
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  .footer {
+    height: 35.5rem;
+  }
+}
+
+@media only screen and (min-width: 326px) and (max-width: 479px) {
+  .footer {
+    height: 42rem;
+  }
+}
+
+@media only screen and (max-width: 325px) {
+  .footer {
+    height: 49rem;
+  }
+}
+
+.about {
+  padding: 2% 7% 2% 3%;
+}
+
+.header1 {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 25px;
+  font-weight: bolder;
+  letter-spacing: 4px;
+  padding-bottom: 8px;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-bottom-color: rgb(192, 192, 192);
+}
+
+.links {
+  padding: 2% 0% 2% 14%;
+}
+
+@media only screen and (max-width: 767px) {
+  .links {
+    padding: 2% 0% 2% 3%;
+  }
+}
+
+.header2 {
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 20px;
+  font-weight: bolder;
+  letter-spacing: 4px;
+  padding-bottom: 10px;
+}
+
+.link {
+  font-size: 17px;
+  color: white;
+}
+.link:hover {
+  color: #b30d3a;
+  text-decoration: none;
+}
+
+.footerBottom {
+  padding: 0 3%;
+}
+
+.line {
+  background-color: rgb(192, 192, 192);
+}
+
+.copyrightText {
+  padding: 0% 7% 0 0%;
+}
+
+.icons {
+  padding: 0% 7% 0 18%;
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1100px) {
+  .icons {
+    padding: 0% 7% 0 12%;
+  }
+}
+
+@media only screen and (max-width: 767px) {
+  .icons {
+    padding: 0% 7% 0% 0%;
+  }
+}
+
+.facebook {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 34px;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  margin-right: 12px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.facebook:hover {
+  color: white;
+  background-color: #3b5998;
+}
+
+.linkedin {
+  background-color: #eceeef;
+  color: #818a91;
+  font-size: 16px;
+  display: inline-block;
+  line-height: 34px;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  margin-right: 0;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.linkedin:hover {
+  color: white;
+  background-color: #007bb6;
 }
