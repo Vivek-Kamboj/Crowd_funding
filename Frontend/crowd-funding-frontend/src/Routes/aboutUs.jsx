@@ -1,5 +1,6 @@
 import React from "react";
 import NavBar from "../Components/navbar_notLanding";
+import ScrollToTop from "../Components/scrollToTop";
 import aboutUsIIITM from "../Components/assets/aboutUs-iiitm.png";
 import styles from "../Components/styles/aboutUs.module.css";
 
@@ -7,6 +8,7 @@ const AboutUs = () => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <div className={styles.container}>
         <h1 className={styles.header}>ABOUT US</h1>
         <p className={styles.content}>

@@ -4,6 +4,7 @@ import NavBar from "../Components/navbar_notLanding";
 import Campaign from "../Components/everyOngoingCampaigns";
 import Pagination from "../Components/pagination";
 import Loader from "../Components/loaderFullPage";
+import ScrollToTop from "../Components/scrollToTop";
 import { paginate } from "../utills/paginate";
 import { getAllCampaigns } from "../services/campaign";
 import styles from "../Components/styles/allCampaigns.module.css";
@@ -40,6 +41,7 @@ const AllCampaigns = (props) => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       {loading && <Loader />}
       <div className={styles.header}>
         <p>All Campaigns</p>

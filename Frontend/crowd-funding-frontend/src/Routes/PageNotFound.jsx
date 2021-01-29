@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../Components/navbar_notLanding";
+import ScrollToTop from "../Components/scrollToTop";
 import NotFound from "../Components/assets/404.jpg";
 import styles from "../Components/styles/pageNotFound.module.css";
 
@@ -8,6 +9,7 @@ const PageNotFound = () => {
   return (
     <React.Fragment>
       <NavBar />
+      <ScrollToTop />
       <div className={styles.container}>
         <h1 className={styles.header}>Page Not Found</h1>
         <p className={styles.content}>
