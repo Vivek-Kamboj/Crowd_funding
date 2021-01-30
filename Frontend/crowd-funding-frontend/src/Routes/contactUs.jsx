@@ -28,10 +28,10 @@ const AboutUs = () => {
               aria-hidden="false"
             ></iframe>
           </div>
-          <div className="row col-12">
+          <div className="row">
             <div className={`col-md-8 ${styles.contactUs}`}>
               <h1 className={styles.inheader}>Get In Touch</h1>
-              <p className={styles.para}>
+              <p className={styles.inpara}>
                 Feel free to contact us in case of any queries
               </p>
               <div className={styles.content}>

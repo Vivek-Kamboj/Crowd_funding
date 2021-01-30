@@ -10,18 +10,15 @@ const AboutUs = () => {
       <NavBar />
       <ScrollToTop />
       <div className={styles.container}>
-        <h1 className={styles.header}>ABOUT US</h1>
-        <p className={styles.content}>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
-          consequatur ea quia inventore excepturi officiis deserunt sequi, esse
-          nobis laudantium tempora aut, animi praesentium id! Necessitatibus
-          laborum vitae vero at!
-          <br />
+        <h1 className={styles.header}>About Us</h1>
+        <div className={styles.imageContainer}>
           <img
             className={styles.image}
             src={aboutUsIIITM}
             alt="aboutUs- IIITM Block View"
           />
+        </div>
+        <p className={styles.content}>
           <br />
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
           consequatur ea quia inventore excepturi officiis deserunt sequi, esse
@@ -44,7 +41,22 @@ const AboutUs = () => {
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
           consequatur ea quia inventore excepturi officiis deserunt sequi, esse
           nobis laudantium tempora aut, animi praesentium id! Necessitatibus
-          laborum vitae vero at!
+          laborum vitae vero at! Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Vero consequatur ea quia inventore excepturi
+          officiis deserunt sequi, esse nobis laudantium tempora aut, animi
+          praesentium id! Necessitatibus laborum vitae vero at!
+          <br />
+          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero
+          consequatur ea quia inventore excepturi officiis deserunt sequi, esse
+          nobis laudantium tempora aut, animi praesentium id! Necessitatibus
+          laborum vitae vero at! Lorem ipsum dolor, sit amet consectetur
+          adipisicing elit. Vero consequatur ea quia inventore excepturi
+          officiis deserunt sequi, esse nobis laudantium tempora aut, animi
+          praesentium id! Necessitatibus laborum vitae vero at!Lorem ipsum
+          dolor, sit amet consectetur adipisicing elit. Vero consequatur ea quia
+          inventore excepturi officiis deserunt sequi, esse nobis laudantium
+          tempora aut, animi praesentium id! Necessitatibus laborum vitae vero
+          at!
           <br />
         </p>
       </div>

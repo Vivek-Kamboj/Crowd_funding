@@ -36,9 +36,22 @@
   position: relative;
   top: 42%;
   background-color: rgba(21, 215, 180, 1);
+  border-radius: 66px 66px 66px 66px;
+  width: 200px;
   border: none;
   display: block;
   margin: auto;
+}
+.donateBtn:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -7px;
+  bottom: -7px;
+  left: -7px;
+  right: -7px;
+  border-radius: 66px;
+  border: 3px solid rgba(21, 215, 180, 1);
 }
 .donateBtn:hover {
   background-color: rgb(11, 146, 121);
@@ -71,7 +84,8 @@
 @media only screen and (max-width: 575px) {
   .donateBtn {
     top: 42%;
-    font-size: 3vw;
+    width: 150px;
+    font-size: 16px;
   }
 }
 
