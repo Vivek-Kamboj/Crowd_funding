@@ -42,6 +42,7 @@
 
 .button {
   background-color: rgba(21, 215, 180, 1);
+  border-radius: 100%;
   border: none;
   font-weight: bold;
   margin-right: 20% !important;
@@ -65,6 +66,7 @@
 
 .showAll {
   background-color: rgba(21, 215, 180, 1);
+  border-radius: 60px 60px 60px 60px;
   font-weight: bold;
   border: none;
 }

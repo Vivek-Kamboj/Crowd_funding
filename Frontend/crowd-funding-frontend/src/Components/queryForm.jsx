@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { createQuery } from "../services/query";
+import styles from "./styles/queryForm.module.css";
 
 const ContactusForm = () => {
   const [email, setEmail] = useState("");
@@ -27,7 +28,7 @@ const ContactusForm = () => {
             type="email"
             className="form-control"
             aria-describedby="emailHelp"
-            placeholder="Enter your Email here..."
+            placeholder="Enter your email ID here..."
             onChange={handleEmailChange}
             value={email}
             required
@@ -45,7 +46,10 @@ const ContactusForm = () => {
           />
         </div>
 
-        <button type="submit" className="btn btn-success p-2">
+        <button
+          type="submit"
+          className={`btn btn-success p-2 ${styles.button}`}
+        >
           Send <i className="fa fa-paper-plane"></i>
         </button>
       </form>

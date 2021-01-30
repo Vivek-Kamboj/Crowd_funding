@@ -20,7 +20,7 @@
   height: 5px;
   position: relative;
   vertical-align: middle;
-  width: 20vw;
+  width: 17vw;
 }
 
 .header:before {
@@ -34,23 +34,33 @@
 }
 
 .content {
-  text-align: center;
-  padding: 2% 16%;
+  text-align: left;
+  padding: 1% 12% 5% 12%;
   line-height: 2;
   font-size: 16px;
 }
 
+.imageContainer {
+  text-align: center;
+  padding: 4% 16%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0) 55%,
+    rgb(232, 232, 232) 45%
+  );
+}
+
 .image {
-  width: 80%;
+  width: 100%;
   height: auto;
-  padding: 4%;
+  padding: 1%;
   image-rendering: pixelated;
 }
 
 @media only screen and (max-width: 550px) {
   .header:before,
   .header:after {
-    width: 10vw;
+    width: 8vw;
   }
 
   .header:before {
