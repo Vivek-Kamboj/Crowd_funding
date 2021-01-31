@@ -6,6 +6,10 @@ const CampaignSchema = mongoose.Schema({
     type: String,
     required: [true, "Title cannot be blank"],
   },
+  subTitle: {
+    type: String,
+    required: [true, "Title cannot be blank"],
+  },
   description: {
     type: String,
     required: [true, "Please give a description"],

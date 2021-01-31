@@ -7,6 +7,7 @@ import Loader from "../Components/loaderFullPage";
 import ScrollToTop from "../Components/scrollToTop";
 import { paginate } from "../utills/paginate";
 import { getAllCampaigns } from "../services/campaign";
+import { compare } from "../utills/math";
 import styles from "../Components/styles/allCampaigns.module.css";
 
 const AllCampaigns = (props) => {
@@ -18,6 +19,7 @@ const AllCampaigns = (props) => {
       const { data, err } = await getAllCampaigns();
       if (err === undefined) {
         setLoading(false);
+        data.sort(compare);
         setData(data);
       } else {
         if (err.response && err.response.data) {

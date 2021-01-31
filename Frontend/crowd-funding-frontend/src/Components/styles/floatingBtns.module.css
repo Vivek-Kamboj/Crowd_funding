@@ -1,0 +1,63 @@
+.container {
+  position: fixed;
+  right: 2%;
+  z-index: 999;
+  transition: all 150ms;
+  text-align: right;
+}
+.text {
+  color: white;
+  height: 30px;
+  font-weight: bold;
+  overflow: hidden;
+  margin: 0;
+  padding-top: 3px;
+  text-decoration: none;
+}
+
+.ShareIcon {
+  bottom: 15%;
+  transition: all 150ms;
+}
+.DonateIcon {
+  bottom: 5%;
+  transition: all 150ms;
+}
+.show {
+  opacity: 1;
+  transition: all 150ms;
+  width: 120px;
+
+  overflow: hidden;
+}
+.hide {
+  width: 0;
+
+  opacity: 0;
+  overflow: hidden;
+  color: red;
+  transition: all 150ms;
+}
+
+.btn {
+  text-decoration: none;
+  background-color: rgba(21, 215, 180, 1);
+  color: white;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 25px;
+  border: 1px solid rgba(11, 116, 96, 0.3);
+  transition: all 150ms;
+  box-shadow: 3px 3px 2px grey;
+}
+.btn:hover {
+  text-decoration: none;
+}
+
+.img {
+  width: 30px;
+}
+
+.share {
+  padding: 12px;
+}

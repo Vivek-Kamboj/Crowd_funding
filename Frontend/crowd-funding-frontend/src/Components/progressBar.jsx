@@ -13,39 +13,35 @@ const ProgressBar = (props) => {
 
   return (
     <React.Fragment>
-      <div
-        className={`p-2 border ${
-          props.isActivated === false ? "bg-light" : "bg-warning"
-        } ${styles.progressBar} `}
-      >
-        <div className={`progress ${styles.barColor}`}>
+      <div className={`p-2 col-11 ${styles.progressBar}`}>
+        <div className="row justify-content-between">
+          <div className="col-4">
+            <p className={styles.label}>Raised:</p>
+            <div>
+              <i className="fa fa-inr" aria-hidden="true"></i>
+              <span className={styles.value}>{props.fundRaised}</span>
+            </div>
+          </div>
+          <div className="col-4 text-right">
+            <p className={styles.label}>Goal:</p>
+            <div>
+              <i className="fa fa-inr" aria-hidden="true"></i>
+              <span className={styles.value}>{props.fundRequired}</span>
+            </div>
+          </div>
+        </div>
+
+        <div className={`progress ${styles.progress} `}>
           <div
-            className={`progress-bar progress-bar-animated ${
-              props.isActivated === false ? "bg-secondary" : "bg-info"
-            }`}
+            className={`progress-bar progress-bar-animated 
+              ${styles.barColor}
+            `}
             role="progressbar"
             aria-valuenow={state}
             aria-valuemin="0"
             aria-valuemax="100"
             style={{ width: `${state}%` }}
           ></div>
-        </div>
-
-        <div className="row justify-content-between">
-          <div className="col-4">
-            <p>Goal:</p>
-            <p>
-              <i className="fa fa-inr" aria-hidden="true"></i>
-              {props.fundRequired}
-            </p>
-          </div>
-          <div className="col-4 text-right">
-            <p>Raised:</p>
-            <p>
-              <i className="fa fa-inr" aria-hidden="true"></i>
-              {props.fundRaised}
-            </p>
-          </div>
         </div>
 
         <DonateForm
