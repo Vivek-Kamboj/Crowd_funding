@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "./styles/campaignForm.module.css";
 
 const Form = (props) => {
   return (
     <React.Fragment>
-      <div className="col-8 mx-auto my-2 border p-2">
-        <h3>{props.title}</h3>
+      <div className={`col-8 mx-auto my-2 border p-2 ${styles.form}`}>
+        <h3 className={`${styles.title}`}>{props.title}</h3>
         <form onSubmit={props.handleSubmit}>
           <div className="mb-3">
             <label htmlFor="Campaign Name" className="form-label">
@@ -77,7 +78,7 @@ const Form = (props) => {
               id="Amount"
               aria-describedby="emailHelp"
               onChange={props.handleAmountChange}
-              placeholder="Enter amount to be raised"
+              placeholder="Enter amount to be raised (in Rs)"
               required={true}
             />
           </div>
@@ -107,7 +108,7 @@ const Form = (props) => {
               Activate
             </label>
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className={`btn btn-primary ${styles.btn}`}>
             Submit
           </button>
         </form>

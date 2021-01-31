@@ -23,6 +23,16 @@
   bottom: 5%;
   transition: all 150ms;
 }
+
+@media only screen and (max-height: 500px) {
+  .ShareIcon {
+    bottom: 20%;
+  }
+  .DonateIcon {
+    bottom: 3%;
+  }
+}
+
 .show {
   opacity: 1;
   transition: all 150ms;
