@@ -12,11 +12,13 @@ const Campaigns = (props) => {
         >
           <div className={`row ${styles.allContent}`}>
             <div className={`col-5 ${styles.imageContainer}`}>
-              <img
-                className={` ${styles.image}`}
-                src={props.image}
-                alt={props.title}
-              />
+              <div className={styles.imgCentre}>
+                <img
+                  className={` ${styles.image}`}
+                  src={props.image}
+                  alt={props.title}
+                />
+              </div>
             </div>
 
             <div className={`col-7 ${styles.campaignContent}`}>
