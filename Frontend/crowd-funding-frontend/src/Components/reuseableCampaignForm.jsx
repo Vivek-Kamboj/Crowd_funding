@@ -22,6 +22,21 @@ const Form = (props) => {
             />
           </div>
           <div className="mb-3">
+            <label htmlFor="Campaign Sub Heading" className="form-label">
+              Campaign Sub Heading
+            </label>
+            <input
+              type="text"
+              value={props.data.subTitle}
+              className="form-control"
+              id="Campaign Sub Heading"
+              aria-describedby="emailHelp"
+              onChange={props.handleCampaignSubTitleChange}
+              placeholder="Enter Campaign Sub Heading"
+              required={true}
+            />
+          </div>
+          <div className="mb-3">
             <label htmlFor="Image" className="form-label">
               Image
             </label>
