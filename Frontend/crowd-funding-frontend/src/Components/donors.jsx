@@ -11,7 +11,7 @@ const Donated = (props) => {
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
-  const pageSize = 10;
+  const pageSize = 20;
   let data = [...props.data];
   data = data.reverse();
   const donors = paginate(data, currentPage, pageSize);
@@ -20,7 +20,7 @@ const Donated = (props) => {
     var i,
       text = "";
     for (i = 0; i < S.length; i++) {
-      if (i > 3 && i < S.length - 2) text = text + "X";
+      if (i > 3 && i < S.length - 3) text = text + "X";
       else text = text + S[i];
     }
     return text;
@@ -28,7 +28,8 @@ const Donated = (props) => {
 
   return (
     <React.Fragment>
-      <h3>List of donations:</h3>
+      <h3 className={styles.title}>List of donations:</h3>
+      <p className={styles.num}> -Number of people donated: {props.num}</p>
 
       <ul className="list-group">
         <li className="list-group-item">

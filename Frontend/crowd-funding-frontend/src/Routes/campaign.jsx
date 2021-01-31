@@ -3,8 +3,7 @@ import { toast } from "react-toastify";
 import NavBar from "../Components/navbar_notLanding";
 import ProgressBar from "../Components/progressBar";
 import Donated from "../Components/donors";
-import Share from "../Components/shareComponent";
-import DonateForm from "../Components/donateform";
+import FloatBtn from "../Components/campaignFloatingBtns";
 import Loader from "../Components/loaderFullPage";
 import ScrollToTop from "../Components/scrollToTop";
 import { isNormalInteger } from "../utills/math";
@@ -55,8 +54,8 @@ const Campaign = (props) => {
       <NavBar />
       <ScrollToTop />
       {loading && <Loader />}
-
-      <div className={`col-md-10 m-auto py-2 border ${styles.container}`}>
+      <FloatBtn campaign={campaign} />
+      <div className={`col-md-10 col-11 m-auto py-2 ${styles.container}`}>
         {/* {isAuthorised() && (
           <div className="bg-light border p-2">
             <span className="m-2">
@@ -84,9 +83,6 @@ const Campaign = (props) => {
             </button>
           </div>
         )}
-        <div className={styles.header}>
-          <h2 className={styles.title}>{campaign.title}</h2>
-        </div>
 
         {isAuthorised() && (
           <>
@@ -101,14 +97,23 @@ const Campaign = (props) => {
         )}
 
         <div className="row ">
-          <div className="col-lg-7 col-md-6">
-            <img
-              className={styles.image}
-              src={campaign.imageUrl}
-              alt={campaign.title}
-            />
+          <div className="col-lg-6 col-md-5">
+            <div className={styles.img}>
+              <img
+                className={styles.image}
+                src={campaign.imageUrl}
+                alt={campaign.title}
+              />
+            </div>
           </div>
-          <div className=" col-lg-5 col-md-6 p-2 m-auto">
+          <div
+            id="DonateForm"
+            className={` col-lg-6 col-md-7 p-2 m-auto ${styles.info}`}
+          >
+            <div className={styles.header}>
+              <h2 className={styles.title}>{campaign.title}</h2>
+              <p className={styles.subtitle}>- Lorem Ipmsum jhbhj</p>
+            </div>
             <ProgressBar
               fundRequired={campaign.required}
               fundRaised={campaign.raised}
@@ -117,28 +122,14 @@ const Campaign = (props) => {
               onAmountChange={handleAmountChange}
               isActivated={campaign.isActivated}
             />
-            <p className={styles.numDonors}>
-              Number of people donated:- <b>{campaign.donorsNum}</b>
-            </p>
-            <div className={styles.shareSection}>
-              <Share
-                url={window.location.href}
-                title={campaign.title}
-                description={campaign.description}
-              />
-            </div>
           </div>
         </div>
-        <hr />
+
         <p className={styles.description}>{campaign.description}</p>
-        <DonateForm
-          id={props.match.params.id}
-          amount={amount}
-          onAmountChange={handleAmountChange}
-          isActivated={campaign.isActivated}
-        />
+
         <hr />
-        <Donated data={campaign.donors} />
+
+        <Donated data={campaign.donors} num={campaign.donorsNum} />
       </div>
     </React.Fragment>
   );

@@ -10,3 +10,29 @@
 .active:hover {
   background-color: rgb(11, 146, 121);
 }
+
+.rupeeInput input {
+  border: unset;
+  width: 78%;
+  margin-left: 10px;
+}
+.rupeeInput input:focus {
+  outline: unset;
+  background-color: rgba(21, 215, 180, 0);
+}
+.rupeeInput {
+  display: block;
+  width: 100%;
+  border: 1px solid #000;
+  padding: 10px;
+  border-radius: 25px;
+}
+
+.btn {
+  padding: 12px;
+  border-radius: 25px;
+}
+
+.submit {
+  padding: 0;
+}

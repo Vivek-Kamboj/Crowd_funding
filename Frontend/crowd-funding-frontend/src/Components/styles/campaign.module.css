@@ -1,38 +1,41 @@
 .container {
   margin: 2% auto !important;
 }
-
-.header {
-  text-align: center;
-  margin: 1%;
-  margin-bottom: 1.5%;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 40px;
-  font-weight: bolder;
-  border-bottom-width: 2px;
-  border-bottom-style: solid;
-  border-bottom-color: rgba(21, 215, 180, 1);
+.img {
+  background-color: rgba(21, 215, 180, 1);
+  border: 10px solid rgba(21, 215, 180, 1);
+  border-radius: 10px;
+  width: 100%;
 }
 
 .image {
+  border-radius: 10px;
   width: 100%;
   height: 380px;
-  border: 2px solid rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
+  overflow: hidden;
+}
+
+.header {
+  text-align: left;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 20px;
 }
 
 .title {
   overflow: hidden;
-  text-align: center;
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 40px;
+
   font-weight: bolder;
+}
+.subtitle {
+  overflow: hidden;
+  font-family: Garamond;
 }
 
 .description {
   text-align: justify;
   line-height: 2;
   font-size: 14px;
+  margin-top: 20px;
 }
 
 .numDonors {
@@ -42,4 +45,8 @@
 .shareSection {
   border: 4px solid rgba(0, 0, 0, 0.1);
   border-radius: 10px;
+}
+
+.info {
+  height: 380px;
 }

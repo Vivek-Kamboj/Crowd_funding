@@ -7,3 +7,12 @@
   color: orange;
   font-weight: bold;
 }
+
+.num {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: rgb(0, 83, 68);
+}
+.title {
+  margin: 0;
+}
