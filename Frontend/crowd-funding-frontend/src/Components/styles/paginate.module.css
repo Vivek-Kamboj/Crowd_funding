@@ -1,21 +1,19 @@
 .paginateSection {
-  width: 230px;
+  width: 100%;
   margin: 0 auto;
 }
 .nav {
   padding: 5px;
   margin: 5px;
-  overflow: scroll;
-  scrollbar-width: none;
+  overflow: auto;
 }
 
 .ul {
   background-color: white;
   margin: auto;
-  width: 99%;
-  overflow: scroll;
-
-  scrollbar-width: none;
+  width: fit-content;
+  overflow: auto;
+  scrollbar-width: 5px;
 }
 
 .active {
@@ -27,14 +25,27 @@
   border-color: turquoise !important;
 }
 
-@media only screen and (max-width: 400px) {
-  .ul {
-    width: 99%;
-    padding: 0 10%;
-  }
-}
-
 .scroll {
   margin: auto;
   text-align: center;
+}
+.nav::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.nav::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+/* Handle */
+.nav::-webkit-scrollbar-thumb {
+  background: rgba(21, 215, 180, 1);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+.nav::-webkit-scrollbar-thumb:hover {
+  background: rgba(21, 215, 180, 1);
 }
