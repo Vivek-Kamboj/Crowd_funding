@@ -69,5 +69,9 @@
 }
 
 .share {
-  padding: 12px;
+  padding: auto;
+  text-align: center;
+
+  height: 50px;
+  width: 50px;
 }
