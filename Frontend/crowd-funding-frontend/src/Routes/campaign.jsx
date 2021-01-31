@@ -112,7 +112,18 @@ const Campaign = (props) => {
           >
             <div className={styles.header}>
               <h2 className={styles.title}>{campaign.title}</h2>
-              <p className={styles.subtitle}>- Lorem Ipmsum jhbhj</p>
+              {campaign.subTitle && (
+                <p className={styles.subtitle}>- {campaign.subTitle}</p>
+              )}
+              {!campaign.subTitle && (
+                <div
+                  style={{
+                    border: "2px solid rgba(21, 215, 180, 1)",
+                    width: "100%",
+                    backgroundColor: "rgba(21, 215, 180, 1)",
+                  }}
+                ></div>
+              )}
             </div>
             <ProgressBar
               fundRequired={campaign.required}

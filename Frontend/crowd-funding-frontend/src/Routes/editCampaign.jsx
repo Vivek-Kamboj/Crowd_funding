@@ -9,6 +9,7 @@ import { isAuthorised } from "../services/auth";
 
 const NewCampaign = (props) => {
   const [campaignName, setCampaignName] = useState("");
+  const [campaignSubTitle, setCampaignSubtitle] = useState("");
   const [campaignDescription, setCampaignDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [image, setImage] = useState("");
@@ -22,6 +23,7 @@ const NewCampaign = (props) => {
       if (err === undefined) {
         setLoading(false);
         setCampaignName(data.title);
+        setCampaignSubtitle(data.subTitle);
         setCampaignDescription(data.description);
         setAmount(data.required);
         setImage(data.imageUrl);
@@ -47,6 +49,7 @@ const NewCampaign = (props) => {
 
   const data = {
     title: campaignName,
+    subTitle: campaignSubTitle,
     description: campaignDescription,
     required: amount,
     imageUrl: image,
@@ -62,6 +65,9 @@ const NewCampaign = (props) => {
   };
   const handleCampaignNameChange = (p) => {
     setCampaignName(p.target.value);
+  };
+  const handleCampaignSubTitleChange = (p) => {
+    setCampaignSubtitle(p.target.value);
   };
   const handleCampaignDescriptionChange = (p) => {
     setCampaignDescription(p.target.value);
@@ -88,6 +94,7 @@ const NewCampaign = (props) => {
         data={data}
         handleSubmit={handleSubmit}
         handleCampaignNameChange={handleCampaignNameChange}
+        handleCampaignSubTitleChange={handleCampaignSubTitleChange}
         handleCampaignDescriptionChange={handleCampaignDescriptionChange}
         handleAmountChange={handleAmountChange}
         handleImageChange={handleImageChange}

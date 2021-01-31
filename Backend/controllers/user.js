@@ -511,7 +511,7 @@ const create = async (req, res) => {
   // const user = req.curUserId;
   const campaign = { ...req.body, raised: 0 };
 
-  if (!campaign.title || !campaign.description) {
+  if (!campaign.title || !campaign.description || !campaign.subTitle) {
     return res.status(400).json({ message: "All fields are required" });
   }
   if (campaign.required <= 0) {
