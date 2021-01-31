@@ -6,7 +6,7 @@ import styles from "./styles/footer.module.css";
 const Footer = () => {
   return (
     <footer className={`mb-0 p-4 ${styles.footer}`}>
-      <div class="row">
+      <div className="row">
         <div className={`col-12 col-sm-6 col-md-4 ${styles.left}`}>
           <img className={`${styles.logo}`} src={logo} alt="ROTARACT LOGO" />
           <br />
@@ -24,7 +24,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <i class="fa fa-facebook"></i>
+            <i className="fa fa-facebook"></i>
           </a>
           <a
             className={`${styles.linkedin}`}
@@ -32,7 +32,7 @@ const Footer = () => {
             target="_blank"
             rel="noreferrer"
           >
-            <i class="fa fa-linkedin"></i>
+            <i className="fa fa-linkedin"></i>
           </a>
           <br />
           <div className={`${styles.links}`}>
