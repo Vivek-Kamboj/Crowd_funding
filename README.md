@@ -68,3 +68,43 @@ npm installed, Paytm id, MongoDb URI, create-react-app installed, etc. <br>
 **Hurray, Your app is now running on port 3000 in your browser**
 
 ## Screenshots
+
+### Landing Page
+We Land on home page
+![](ScreenShots/LandingPage1.png)
+On Clicking donate Button we got slide to Ongoing Camapign section
+![](ScreenShots/LandingPage2.png)
+
+### Campaign Page
+These are Campaign Page
+![](ScreenShots/Campaign1.png)
+
+This section is Donors Page for transparency 
+![](ScreenShots/Campaign2.png)
+Here Some part of transaction id is hidden for security purpose (from backend as well as frontend).
+
+### Instant share and donate buttons
+![](ScreenShots/Instant.png)
+
+### All Campaigns
+![](ScreenShots/AllCampaign.png)
+
+### Login Page
+![](ScreenShots/LoginPage.png)
+
+### Admin DashBoard
+Here in bottom we can see message from the feedback form from Contact us page.
+![](ScreenShots/AdminDashBoard.png)
+
+
+### About Us Page
+![](ScreenShots/AboutUsPage.png)
+
+### Conatact Us Page
+![](ScreenShots/ContactUsPage.png)
+
+### Footer
+![](ScreenShots/Footer.png)
+
+
+
