@@ -13,7 +13,7 @@ const Campaigns = (props) => {
           <div className={`row ${styles.allContent}`}>
             <div className={`col-5 ${styles.imageContainer}`}>
               <img
-                className={styles.image}
+                className={` ${styles.image}`}
                 src={props.image}
                 alt={props.title}
               />
