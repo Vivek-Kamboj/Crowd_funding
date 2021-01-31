@@ -61,12 +61,32 @@ db.Campaign.find().exec(function (err, results) {
 });
 // Till here ----------------------------------------------------------------------------------
 
+function hideTransactionID(donors) {
+  var i, j;
+  text = "";
+
+  for (i = 0; i < donors.length; i++) {
+    var S = donors[i].transactionID;
+    text = "";
+    for (j = 0; j < S.length; j++) {
+      if (j > 3 && j < S.length - 3) text = text + "X";
+      else text = text + S[j];
+    }
+
+    donors[i].transactionID = text;
+  }
+
+  return;
+}
+
 const show = async (req, res) => {
   try {
     if (req.params.id.match(/^[0-9a-fA-F]{24}$/)) {
       let showCampaign = await db.Campaign.findById(req.params.id);
 
       if (showCampaign) {
+        hideTransactionID(showCampaign.donors);
+
         res.status(200).json(showCampaign);
       } else {
         // console.log("Invalid Campaign Id.");
@@ -99,6 +119,15 @@ const showAll = async (req, res) => {
         if (err) console.log(err);
         else {
           //console.log("Sorted");
+
+          var len = allCampaign.length;
+
+          var i;
+          for (i = 0; i < len; i++) {
+            let currCampaign = allCampaign[i];
+            hideTransactionID(currCampaign.donors);
+          }
+
           res.status(200).json(allCampaign);
         }
       });

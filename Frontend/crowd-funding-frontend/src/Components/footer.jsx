@@ -8,7 +8,9 @@ const Footer = () => {
     <footer className={`mb-0 p-4 ${styles.footer}`}>
       <div className="row">
         <div className={`col-12 col-sm-6 col-md-4 ${styles.left}`}>
-          <img className={`${styles.logo}`} src={logo} alt="ROTARACT LOGO" />
+          <a href="/">
+            <img className={`${styles.logo}`} src={logo} alt="ROTARACT LOGO" />
+          </a>
           <br />
           <p className={`${styles.caption}`}>
             Rotaract Club <br /> IIITM Gwalior
@@ -54,7 +56,7 @@ const Footer = () => {
         </div>
         <div className={`col-12 col-sm-12 col-md-4 ${styles.right}`}>
           <p className={`${styles.names}`}>
-            <span style={{ fontWeight: "bolder" }}>Developed By : </span>
+            <span style={{ fontWeight: "bolder" }}>Developed By </span>
             <br />
             <a
               className={`${styles.name}`}
@@ -75,7 +77,7 @@ const Footer = () => {
             </a>
             <br />
             <br />
-            <span style={{ fontWeight: "bolder" }}>Designed By : </span>
+            <span style={{ fontWeight: "bolder" }}>Designed By </span>
             <br />
             <a
               className={`${styles.name}`}
@@ -87,7 +89,7 @@ const Footer = () => {
             </a>
           </p>
           <p>
-            For any queries, reach out to us at email :
+            For any queries, reach out to us at email
             <br />
             <b>rotaract@iiitm.ac.in</b>
           </p>
