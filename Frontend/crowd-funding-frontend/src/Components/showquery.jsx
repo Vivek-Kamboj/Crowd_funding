@@ -4,6 +4,7 @@ import Pagination from "./pagination";
 import Loader from "./loader";
 import { getAllQueries, deleteQuery } from "../services/query";
 import { paginate } from "../utills/paginate";
+import styles from "./styles/dashboard.module.css";
 
 const Query = () => {
   const [data, setData] = useState([]);
@@ -46,7 +47,7 @@ const Query = () => {
 
   return (
     <React.Fragment>
-      <h1>Messages</h1>
+      <h2 className={`${styles.text}`}>Messages</h2>
       {loading && <Loader />}
       <ul className="list-group">
         {showdata.map((d) => (

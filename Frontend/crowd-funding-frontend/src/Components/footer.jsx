@@ -8,14 +8,16 @@ const Footer = () => {
     <footer className={`mb-0 p-4 ${styles.footer}`}>
       <div class="row">
         <div className={`col-12 col-sm-6 col-md-4 ${styles.left}`}>
-          <img className={`${styles.logo}`} src={logo} alt="ROTORACT LOGO" />
+          <img className={`${styles.logo}`} src={logo} alt="ROTARACT LOGO" />
           <br />
           <p className={`${styles.caption}`}>
             Rotaract Club <br /> IIITM Gwalior
           </p>
         </div>
         <div className={`col-12 col-sm-6 col-md-4 ${styles.middle}`}>
-          <p>Follow us on</p>
+          <p>
+            <b>Follow us on</b>
+          </p>
           <a
             className={`${styles.facebook}`}
             href="https://www.facebook.com/rotaractiiitm/"
@@ -46,7 +48,7 @@ const Footer = () => {
               target="_blank"
               rel="noreferrer"
             >
-              Institute
+              ABV-IIITM
             </a>
           </div>
         </div>
@@ -87,7 +89,7 @@ const Footer = () => {
           <p>
             For any queries, reach out to us at email :
             <br />
-            <b>rotoract@iiitm.ac.in</b>
+            <b>rotaract@iiitm.ac.in</b>
           </p>
         </div>
       </div>
@@ -95,7 +97,7 @@ const Footer = () => {
       <div className={`${styles.footerBottom}`}>
         <hr className={`${styles.line}`} />
         <p style={{ textAlign: "center" }}>
-          Copyright &copy; 2021 ROTORACT CLUB IIITM. All Rights Reserved.
+          Copyright &copy; 2021 ROTARACT CLUB IIITM. All Rights Reserved.
         </p>
       </div>
     </footer>

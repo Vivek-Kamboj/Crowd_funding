@@ -1,0 +1,27 @@
+.form {
+  padding: 3% !important;
+  margin: 3% 18% 5% 18% !important;
+}
+
+@media only screen and (max-width: 550px) {
+  .form {
+    margin: 15% 18% !important;
+  }
+}
+
+.title {
+  text-align: center;
+  font-family: Georgia, Times, "Times New Roman", serif;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+.btn {
+  background-color: rgba(21, 215, 180, 1);
+  border: none;
+  display: block;
+  margin: auto;
+}
+.btn:hover {
+  background-color: rgb(11, 146, 121);
+}

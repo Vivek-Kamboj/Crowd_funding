@@ -32,18 +32,18 @@ const DonationSuccess = (props) => {
         <div className={styles.success}>
           <i className="fa fa-check-circle-o fa-5x" aria-hidden="true"></i>
         </div>
-        <h3>Thank you for donating in such a nobel cause.</h3>
+        <h3>Thank you for donating in such a noble cause.</h3>
         <p>
           Your donation of{" "}
           <b>
             <i className="fa fa-inr" aria-hidden="true"></i>
             {data.amount}
           </b>{" "}
-          with transaction id:<b>{data.transactionID}</b> is{" "}
+          with transaction ID: <b>{data.transactionID}</b> is{" "}
           {data.transactionComplete === false ? (
             <b className={styles.fail}>failed</b>
           ) : (
-            <b className={styles.success}>success</b>
+            <b className={styles.success}>successful</b>
           )}
           .
         </p>

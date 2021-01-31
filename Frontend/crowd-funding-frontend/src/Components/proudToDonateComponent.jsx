@@ -28,7 +28,7 @@ const ProudToDonate = () => {
   return (
     <React.Fragment>
       <div className={`col-11 m-auto ${styles.container}`}>
-        <h1 className={styles.header}>Proud to donate</h1>
+        {/* <h1 className={styles.header}>Proud to donate</h1> */}
         <img
           src={slide1}
           alt="ProudToDonate1"
@@ -50,6 +50,15 @@ const ProudToDonate = () => {
             proprety[2] === ".myactive" ? styles.myactive : styles.mynone
           }
         />
+        <div className={`${styles.caption}`}>
+          <p> Proud to Donate</p>
+        </div>
+        <div className={`${styles.text}`}>
+          <p>
+            Remember that the happiest people are not those getting more, but
+            those giving more
+          </p>
+        </div>
       </div>
     </React.Fragment>
   );
