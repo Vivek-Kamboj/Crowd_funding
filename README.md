@@ -45,3 +45,26 @@ The payment is done via the PayTM gateway & complete transparency and anonymity 
  ## Thought behind the project
  
 This project is a part of the Winter Project event conducted by AASF IIITM. Our motive behind choosing this project was to build a platform that can come to practical use in real world. We saw the need of a crowd-funding webapp for our **ROTARACT CLUB** in IIITM that can provide smooth functionality as well as transparency of payments for the various campaigns/charities carried out via ROTARACT. So, we decided to come up with  this project that can provide a good user experience as well as ensure the transparency of the payments carried out. And, also serve as a platform working for a good cause. 
+
+## Hosted on Vercel
+Link : https://crowd-funding.vercel.app/
+
+## SetUp Steps
+
+### Pre requisite
+npm installed, Paytm id, MongoDb URI, create-react-app installed, etc. <br>
+### For Backend
+ - Go to backend folder.
+ - Run npm install
+ - Set Up Environment variable as shown in `env-sample` file.
+ - Run `node ./server.js`
+ 
+### For Frontend
+ - Go to `Frontend/crowd-funding-frontend` folder.
+ - Run `npm install`
+ - Put backend url in config.js
+ - Run `npm start`
+ 
+**Hurray, Your app is now running on port 3000 in your browser**
+
+## Screenshots
