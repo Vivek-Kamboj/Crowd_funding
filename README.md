@@ -73,7 +73,7 @@ npm installed, Paytm id, MongoDB URI, create-react-app installed, etc. <br>
 
 ![](ScreenShots/LandingPage1.png)
 
-On Clicking Donate Button, we can slide through the Ongoing Camapigna section
+On Clicking Donate Button, we can slide through the Ongoing Camapigns section
 
 ![](ScreenShots/LandingPage2.png)
 
