@@ -1,10 +1,11 @@
 import React from "react";
+import styles from "./styles/loginForm.module.css";
 
 const Form = (props) => {
   return (
     <React.Fragment>
-      <div className="col-8 mx-auto my-2 border p-2">
-        <h1>{props.title}</h1>
+      <div className={`col-8 mx-auto my-2 border p-2 ${styles.form}`}>
+        <h1 className={`${styles.title}`}>{props.title}</h1>
         <form onSubmit={props.handleSubmit}>
           <div className="mb-3">
             <label htmlFor="InputEmail" className="form-label">
@@ -31,7 +32,7 @@ const Form = (props) => {
               placeholder="Enter password"
             />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className={`btn btn-primary ${styles.btn}`}>
             Submit
           </button>
         </form>

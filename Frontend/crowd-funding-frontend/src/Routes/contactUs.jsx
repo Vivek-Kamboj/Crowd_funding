@@ -41,14 +41,15 @@ const AboutUs = () => {
             <div className={`col-md-4 ${styles.details}`}>
               <h1 className={styles.inheader}>Our Office</h1>
               <p className={styles.incontent}>
-                <b>ROTORACT IIITM</b>
+                <b>ROTARACT IIITM</b>
                 <br />
                 IIITM Campus,
                 <br />
                 Morena Link Rd,
                 <br /> Gwalior, Madhya Pradesh 474015
                 <br /> <br />
-                For any queries, reach us out at email : info@abc.org <br />
+                For any queries, reach us out at email : rotaract@iiitm.ac.in
+                <br />
                 +91-9876543210
               </p>
             </div>

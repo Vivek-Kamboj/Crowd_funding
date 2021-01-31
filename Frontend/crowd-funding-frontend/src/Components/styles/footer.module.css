@@ -3,7 +3,7 @@
   bottom: 0;
   width: 100%;
   /* background: rgb(0, 63, 63); */
-  background: #008b8b;
+  background: #003366;
   color: white;
   height: 20rem;
 }
@@ -16,62 +16,129 @@
 
 @media only screen and (min-width: 480px) and (max-width: 767px) {
   .footer {
-    height: 35.5rem;
+    height: 37.5rem;
   }
 }
 
 @media only screen and (min-width: 326px) and (max-width: 479px) {
   .footer {
-    height: 42rem;
+    height: 39rem;
   }
 }
 
 @media only screen and (max-width: 325px) {
   .footer {
-    height: 49rem;
+    height: 48rem;
   }
 }
 
-.about {
-  padding: 2% 7% 2% 3%;
+.left {
+  padding: 2% 10%;
 }
 
-.header1 {
+.logo {
+  width: 50%;
+}
+
+.caption {
   font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 25px;
+  font-size: 13px;
+  padding: 8% 0 0 0;
   font-weight: bolder;
-  letter-spacing: 4px;
-  padding-bottom: 8px;
-  border-bottom-style: solid;
-  border-bottom-width: 1.5px;
-  border-bottom-color: rgb(192, 192, 192);
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .left {
+    padding: 4% 10%;
+  }
+
+  .logo {
+    width: 40%;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .left {
+    text-align: center;
+    padding: 0;
+  }
+
+  .logo {
+    width: 20%;
+  }
+
+  .caption {
+    padding: 2% 0 0 0;
+    font-size: 13px;
+  }
+}
+
+.middle {
+  text-align: center;
+  padding: 3% 0;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .middle {
+    padding: 6% 0;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .middle {
+    padding: 0;
+    text-align: center;
+  }
 }
 
 .links {
-  padding: 2% 0% 2% 14%;
+  padding: 4% 0;
+}
+
+.link {
+  font-size: 17px;
+  padding: 2% 3%;
+  color: white;
+}
+
+.link:hover {
+  color: #b30d3a;
+  text-decoration: none;
+}
+
+.right {
+  text-align: right;
+  padding: 1% 4.5% 0% 0;
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .right {
+    padding: 2% 0 0 0;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .right {
+    padding: 2% 0 0 0;
+    text-align: center;
+  }
+}
+
+.names {
+  font-size: 15px;
+}
+
+.name {
+  color: white;
+}
+
+.name:hover {
+  color: black;
+  text-decoration: none;
 }
 
 @media only screen and (max-width: 767px) {
   .links {
     padding: 2% 0% 2% 3%;
   }
-}
-
-.header2 {
-  font-family: Georgia, Times, "Times New Roman", serif;
-  font-size: 20px;
-  font-weight: bolder;
-  letter-spacing: 4px;
-  padding-bottom: 10px;
-}
-
-.link {
-  font-size: 17px;
-  color: white;
-}
-.link:hover {
-  color: #b30d3a;
-  text-decoration: none;
 }
 
 .footerBottom {
@@ -83,23 +150,8 @@
 }
 
 .copyrightText {
-  padding: 0% 7% 0 0%;
-}
-
-.icons {
-  padding: 0% 7% 0 18%;
-}
-
-@media only screen and (min-width: 768px) and (max-width: 1100px) {
-  .icons {
-    padding: 0% 7% 0 12%;
-  }
-}
-
-@media only screen and (max-width: 767px) {
-  .icons {
-    padding: 0% 7% 0% 0%;
-  }
+  text-align: center;
+  /* padding: 0% 7% 0 0%; */
 }
 
 .facebook {

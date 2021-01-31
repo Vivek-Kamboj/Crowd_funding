@@ -7,7 +7,7 @@ const ImageLanding = (props) => {
     <React.Fragment>
       <div className={styles.backgroundImage}>
         <div className={styles.title}>
-          <p className={styles.text}> ROTORACT IIITM</p>
+          <p className={styles.text}> ROTARACT IIITM</p>
           <p className={styles.header}> You Bestow, We Deliver</p>
         </div>
         <Link

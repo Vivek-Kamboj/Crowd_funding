@@ -5,6 +5,8 @@ import ShowQuery from "../Components/showquery";
 import ScrollToTop from "../Components/scrollToTop";
 import { logout, isAuthorised } from "../services/auth";
 import { toast } from "react-toastify";
+import styles from "../Components/styles/dashboard.module.css";
+import user from "../Components/assets/admin.png";
 
 const AdminDashboard = (p) => {
   if (!isAuthorised()) {
@@ -18,12 +20,9 @@ const AdminDashboard = (p) => {
     <React.Fragment>
       <NavBar />
       <ScrollToTop />
-      <div className="col-md-10 m-auto border" style={{ textAlign: "center" }}>
-        <img
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCbU49DD_iYcjSUEXG-Oy7POjJzaMn1GYEZg&usqp=CAU"
-          alt="userIcon"
-        />
-        <h1>AdminDashboard</h1>
+      <div className={`col-md-10 m-auto border ${styles.container}`}>
+        <img src={user} className={`${styles.image}`} alt="userIcon" />
+        <h2 className={`${styles.text}`}>Admin Dashboard</h2>
         <b>{email}</b>
         <hr />
         <button
@@ -48,7 +47,7 @@ const AdminDashboard = (p) => {
             p.history.push("/all-campaigns");
           }}
         >
-          All Campaign
+          All Campaigns
         </button>
         <button
           className="btn btn-danger"

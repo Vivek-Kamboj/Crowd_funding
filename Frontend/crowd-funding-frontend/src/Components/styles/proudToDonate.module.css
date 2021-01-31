@@ -1,6 +1,8 @@
 .container {
   text-align: center;
+  padding-top: 5%;
   padding-bottom: 7%;
+  position: relative;
 }
 
 .header {
@@ -16,6 +18,65 @@
   height: 500px;
   animation: fadeIn 1s;
 }
+
+.caption {
+  position: absolute;
+  top: 18%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Georgia, Times, "Times New Roman", serif;
+}
+
+.text {
+  position: absolute;
+  bottom: 18%;
+  right: 2%;
+  /* transform: translate(-50%, -50%); */
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+@media only screen and (max-width: 1125px) {
+  .caption {
+    top: 18%;
+    left: 50%;
+    font-size: 30px;
+  }
+}
+
+@media only screen and (min-width: 461px) and (max-width: 935px) {
+  .text {
+    bottom: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+  }
+}
+
+@media only screen and (min-width: 290px) and (max-width: 460px) {
+  .text {
+    top: 68%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+  }
+}
+
+@media only screen and (max-width: 289px) {
+  .text {
+    top: 62%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+  }
+}
+
 .mynone {
   display: none;
   animation: fadeOut 1s;
